@@ -1,0 +1,42 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <h1 class="f16 col333">
+				<span class="fl">账户安全</span>
+                <p class="col999 fl ml20">安全等级</p>
+				<p class="mima mt15 fl ml10">
+					<em ng-repeat="l1 in levels" ng-class="l1"></em>
+				</p>
+                <p class="safety" style="margin-left: 320px;">{{safety}}</p>
+			</h1>
+			<div class="fl mt20 ml20 infoList mb20 securityBox">
+				<p class="evenColor">
+					<i ng-show="!showThirdAccount"></i>
+					<i class="rightIcon" ng-show="showThirdAccount"></i>	
+					<label>第三方支付</label>
+					保障账户安全，只有完成第三方认证才能投资或借款
+                    <span class="fr" ng-show="showThirdAccount">{{thirdAccount}} 已验证</span>
+					<a ng-show="!showThirdAccount" target="_blank" class="fr btn" ng-click="openAccount()">绑定</a>
+				</p>
+				<p class="">
+					<!--<i ng-show=""></i>-->
+					<i ng-show="true" class="rightIcon"></i>
+					<label>维信登录密码</label>登录维信账户时需要输入的密码
+					<a class="fr btn" target="_blank" ui-sref="modifypwd">修改</a>
+				</p>
+				<p class="evenColor">
+					<i ng-show="!flag"></i>
+					<i ng-show="flag" class="rightIcon"></i>
+					<label>安全保护问题</label>保障个人隐私，修改个人信息找回密码等操作时使用
+					<a class="fr btn" target="_blank" ui-sref="questionset" ng-show="!flag">设置</a>
+					<a class="fr mr10" target="_blank" ui-sref="findquestion" ng-show="flag">找回</a>
+					<a class="fr mr10" target="_blank" ui-sref="modifyquestion" ng-show="flag">修改</a>
+				</p>			
+			</div>
+        </div>
+    </div>   
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

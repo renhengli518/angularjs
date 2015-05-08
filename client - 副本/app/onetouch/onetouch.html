@@ -1,0 +1,142 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <form class="pr" name="investForm" novalidate>
+            <div class="content mt20">
+                <h1 class="f16 col333">
+                    <span ng-show="!show2">一键式自动投资</span>
+                    <span ng-show="show2">自动投资</span>
+                    <a ng-show="!show2" class="fr f14 mr20" ui-sref="auto-invest">返回&gt</a>
+                </h1>
+
+                <div class="autoBox" ng-show="!show1">
+                    <div class="boxLeft fl">
+                        <label>可用余额</label>
+                        <label>单笔最大投资金额</label>
+                        <label class="pt5">投资期限</label>
+                        <label class="pt5">信用等级</label>
+                    </div>
+                    <div class="boxRight fl ml20">
+                        <p class="w">
+                            <span ng-show="!showOpenThird" class="f20 col333">{{availableBalance | moneyFormat}}元</span>
+                            <a ng-show="!showOpenThird" class="ml20" target="_blank" ui-sref="deposit" href="#/deposit">充值</a>
+
+                            <span ng-show="showOpenThird" class="col333">{{thirdMsg}}</span>
+                            <a ng-show="showOpenThird" class="ml20" ng-click="openAccount()">开通</a>
+                        </p>
+
+                        <p class="mt5 w">
+                            <span class="pr sum fl f20">1000</span>元
+                        </p>
+                        <dl class="mt10">
+                            <dd><span class="f20 col333">6</span>期</dd>
+                            <dd><span class="f20 col333">12</span>期</dd>
+                            <dd><span class="f20 col333">18</span>期</dd>
+                            <dd><span class="f20 col333">24</span>期</dd>
+                            <dd><span class="f20 col333">36</span>期</dd>
+                        </dl>
+                        <dl class="mt15 mb10">
+                            <dd><span class="f20 col333">A+</span></dd>
+                            <dd><span class="f20 col333">A</span></dd>
+                            <dd><span class="f20 col333">B</span></dd>
+                            <dd><span class="f20 col333">C</span></dd>
+                            <dd><span class="f20 col333">D</span></dd>
+                            <dd><span class="f20 col333">E</span></dd>
+                            <dd><span class="f20 col333">U</span></dd>
+                        </dl>
+                        <!--p class="w">
+                            <span><input ng-required="true" ng-model="agree" type="checkbox" class="ng-pristine ng-invalid ng-invalid-required" required="required">我已阅读并同意<a href="">
+                            &laquo;维信网注册协议&raquo;</a></span>
+						</p-->
+                        <p class="mt10 w">
+                            <button class="autoBtn btn" ng-click="submitForm_open()">确认一键投资</button>
+                        </p>
+                        <p class="autoMsg fl mt5" ng-show="MsgInfo">
+                            <span class="autoMsgBox"><i></i><span class="fl w400 mt5">您还未开通第三方支付，暂不能进行一键投资功能，请先去<a
+                                    ng-click="openAccount()">开通</a></span></span>
+                        </p>
+                        <!--span ng-show="MsgInfo">您还未开通第三方支付，暂不能进行一键投资功能，请先去<a ng-click="openAccount()" style="cursor: pointer">开通</a></span-->
+                    </div>
+                </div>
+                <!--<div class="autoSetBox tc" >
+                    <i class="setIcon"></i>
+                    <p class="col333 noInvest mt10 mb10">
+                        <i></i>请开启一键投资
+                    </p>
+                    <button class="btn" ng-click="submitForm_open()">开启一键投资</button>
+                </div>-->
+                <div ng-show="show2">
+                    <div class="autoSetBox tc">
+                        <i class="setIcon"></i>
+                        <!--<p class="col333 noInvest mt10 mb10">
+                            <i></i>现在正在进行投资，请稍后关闭
+                        </p>-->
+                        <div style="margin-bottom: 20px;">
+                            <p class="col999 f22">自动投资状态：开启状态</p>
+                        </div>
+                        <button class="btn" ng-click="submitForm_close()">关闭{{ivstype}}式自动投资</button>
+                    </div>
+                    <div class="autoSetList">
+                        <div>
+                            <label>自动投资模式 </label>
+                            {{ivstype}}式自动投资
+                        </div>
+                        <div>
+                            <label>单笔最大投资金额 </label>
+                            <span class="f20">{{perMaxAmount| moneyFormat}}</span>元
+                        </div>
+                        <div>
+                            <label class="pt5">投资期限</label>
+                            <dl>
+                                <dd ng-repeat="x in periods_1"><span class="f20 col333">{{x.text}}</span>期</dd>
+                                <!--                                 <dd><span class="f20 col333">6</span>期</dd> -->
+                                <!--                                 <dd><span class="f20 col333">12</span>期</dd> -->
+                                <!--                                 <dd><span class="f20 col333">18</span>期</dd> -->
+                                <!--                                 <dd><span class="f20 col333">24</span>期</dd> -->
+                                <!--                                 <dd><span class="f20 col333">36</span>期</dd> -->
+                            </dl>
+                        </div>
+                        <div>
+                            <label class="pt5">信用等级</label>
+                            <dl>
+                                <dd ng-repeat="x in creditLevels_1"><span class="f20 col333">{{x.text}}</span></dd>
+                                <!--                                 <dd><span class="f20 col333">A</span></dd> -->
+                                <!--                                 <dd><span class="f20 col333">B</span></dd> -->
+                                <!--                                 <dd><span class="f20 col333">C</span></dd> -->
+                                <!--                                 <dd><span class="f20 col333">D</span></dd> -->
+                                <!--                                 <dd><span class="f20 col333">E</span></dd> -->
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="col999 investTips mb50">
+                    <h2 class="f14 mb10">温馨提示</h2>
+
+                    <p class="f12">1.自动投资工具是一种快捷投标方式。投资人可自行选择规则，系统自动识别符合设置条件的投资项目，并自动帮投资人进行投标操作；</p>
+
+                    <p class="f12">2.完成条件设置并开启自动投资工具后，十分钟内系统会自动将您列入公平的投资排队系统；</p>
+
+                    <p class="f12">3.为严格保护投资人利益,系统会指定每笔自动投资对于贷款总额的百分比上限,以分散风险,获得更高收益；</p>
+
+                    <p class="f12">4.自动投资工具会根据投资人设置的最大投资金额，结合投资人的账户可用余额向符合设置条件的投资项目进行投资，具体规则如下：</p>
+
+                    <p class="ml10 f12">a、账户可用余额 &lt; 50元，不执行自动投资；</p>
+
+                    <p class="ml10 f12">b、投资项目可投金额 &gt; 最大投资金额，按照投资项目可投金额进行投资；</p>
+
+                    <p class="ml10 f12">c、投资项目可投金额 &gt; 最大投资金额，按照投资项目可投金额进行投资；</p>
+
+                    <p class="f12">5.单个投资项目，单个投资人至多只有一次自动投资的机会；</p>
+
+                    <p class="f12">6.投资人开通自动投资工具即视为委托维金荟平台与达到投资人指定标准的借款人签署借款合同，并承担该合同项下的一切权利及义务；</p>
+
+                    <p class="f12">7.自动投资成交后，投资人的自动投资工具不会自动关闭，如果需要关闭，需进行手工设置；</p>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

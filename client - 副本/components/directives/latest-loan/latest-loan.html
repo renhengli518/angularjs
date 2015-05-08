@@ -1,0 +1,51 @@
+<div class="mod-a pr">
+    <i class="pa" ng-class="{active01:product.InvestmentTarget=='1',active02:product.InvestmentTarget=='2',active03:product.InvestmentTarget=='3',active04:product.InvestmentTarget=='4',active05:product.InvestmentTarget=='5'}"></i>
+    <!-- <h3 class="f16">{{project.investment.investmentName}} -->
+    <h3 class="f16">
+        <a style="color:white;" target="_blank" href="#/investitem/{{product.InvestmentSequence}}">
+            {{product.InvestmentName}}
+        </a>
+        <em class="ml10 ensure" ng-show="product.InvestmentGuaranteedInterestDescriptionImage === 0">保</em>
+        <em class="ml5 letter">{{levelMap[product.InvestmentLevel]}}</em>
+    </h3>
+
+    <p class="f14 pl20 pt15 fl mod-a-p">年利率 </p>
+
+    <p class="f70 pl20 fl">{{product.InvestmentAnnualInterestRateMap*100 || 0}}<i class="f40">%</i></p>
+</div>
+<div class="mod-b pr" ng-mouseover="hoverVal = true" ng-init="hoverVal = false" ng-mouseleave="hoverVal = false">
+    <div class="pt20 pl20">
+        <div class="fl mr20">
+            <p class="f14">期限</p>
+
+            <p class="f24 pt10 pb20">{{product.InvestmentPeriodMap}}<span class="f14">个月</span></p>
+        </div>
+        <div class="fl">
+            <p class="f14">总额</p>
+
+            <p class="f24 pt10 pb20">{{product.InvestmentTotal | moneyFormat}} <span class="f14">元</span></p>
+        </div>
+        <p class="mb10 fl progressText">进度
+            <span ng-show="displayName === '还款中'" class="normalGreen ">还款中</span>
+            <span ng-show="displayName === '已满标'" class="grey ">已满标</span>
+        </p>
+        <div class="progress fl">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{product.InvestmentProgress}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : product.InvestmentProgress + '%'}"></div>
+        </div>
+        <div class="pr progress-p fl mt10" ng-style = "{'margin-left': ((product.InvestmentProgress > 80) ? (product.InvestmentProgress -20) : product.InvestmentProgress) + '%'}">
+			<span>
+				<span class="pa arrow"></span>
+				{{product.InvestmentProgress}}%
+			</span>
+        </div>
+    </div>
+    <div class="pa hover tr" ng-show="hoverVal">
+        <p class="mt20 mr20"><font class="f24 color666">{{product.InvestmentJoinedCount}}</font>人已投资<font
+            class="f24 color666">{{(product.InvestmentTotal - product.InvestmentSurplus) | moneyFormat}}</font>元
+        </p>
+
+        <p class="mr20">剩余金额<font class="f24 normalGreen">{{product.InvestmentSurplus | moneyFormat}}</font>元</p>
+        <!--<a href="#/investitem/{{product.InvestmentSequence}}" class="btn f18">立即投资</a>-->
+        <invest-button investment="product"></invest-button>
+    </div>
+</div>

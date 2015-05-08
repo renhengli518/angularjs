@@ -1,0 +1,15 @@
+.calculatorBox div{margin-top:10px;display:inline-block;width:90%;}
+.calculatorBox .btn{width:267px;}
+.calculatorBox .btn.disabled , .calculatorBox .btn[disabled]{background: #d5dfe5;opacity:1;}
+.calculatorBox span{float:left;width:100px;text-align:right;margin-right:20px;}
+.calculatorBox select{border: 1px solid #d3dae2;padding:10px 5px;width:255px;}
+.calculatorBox dl dd{margin-right:15px;margin-bottom:10px;}
+.calculatorBox div.calculatorDes{background:#ecf0f5;line-height:20px;width:70%;padding:10px;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
+.calculatorBox div.calculatorDes i{background-image: url(../../assets/images/allicon.png);background-position:-180px -483px;background-repeat: no-repeat;display: inline-block;width:20px;height:20px;vertical-align: middle;}
+.calculatorBox div.calculatorDes p{width:93%;}
+.calculatorBox div number-input input.ng-valid{width:260px;height:40px;line-height:40px;}
+.calculatorBox dl{width:50%;margin-top:6px;}
+.calculatorBox{margin-left:200px;width:80%;}
+.calculatorBox div em{top: 6px;right: 10px;left:auto;}
+.calculatorBox .calculatorTips{border-top:1px dotted #d5dfe5;width:75%;margin-top:40px;padding-top:20px;padding-left:20px;}
+.calculatorBox .calculatorTips p{margin: 0px;padding: 0px;line-height: 20px;}

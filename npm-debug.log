@@ -1,0 +1,161 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'generator-angular-fullstack',
+1 verbose cli   'https://www.npmjs.org/package/generator-angular-fullstack' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose cache add [ 'generator-angular-fullstack', null ]
+5 verbose cache add name=undefined spec="generator-angular-fullstack" args=["generator-angular-fullstack",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'generator-angular-fullstack',
+6 verbose parsed url   path: 'generator-angular-fullstack',
+6 verbose parsed url   href: 'generator-angular-fullstack' }
+7 verbose cache add [ 'https://www.npmjs.org/package/generator-angular-fullstack',
+7 verbose cache add   null ]
+8 verbose cache add name=undefined spec="https://www.npmjs.org/package/generator-angular-fullstack" args=["https://www.npmjs.org/package/generator-angular-fullstack",null]
+9 verbose parsed url { protocol: 'https:',
+9 verbose parsed url   slashes: true,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: 'www.npmjs.org',
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: 'www.npmjs.org',
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: '/package/generator-angular-fullstack',
+9 verbose parsed url   path: '/package/generator-angular-fullstack',
+9 verbose parsed url   href: 'https://www.npmjs.org/package/generator-angular-fullstack' }
+10 silly lockFile 3d454506-kage-generator-angular-fullstack https://www.npmjs.org/package/generator-angular-fullstack
+11 verbose lock https://www.npmjs.org/package/generator-angular-fullstack C:\Users\admin\AppData\Roaming\npm-cache\3d454506-kage-generator-angular-fullstack.lock
+12 silly lockFile 41fe2745-generator-angular-fullstack generator-angular-fullstack
+13 verbose lock generator-angular-fullstack C:\Users\admin\AppData\Roaming\npm-cache\41fe2745-generator-angular-fullstack.lock
+14 verbose addRemoteTarball [ 'https://www.npmjs.org/package/generator-angular-fullstack',
+14 verbose addRemoteTarball   null ]
+15 silly lockFile 41fe2745-generator-angular-fullstack generator-angular-fullstack
+16 silly lockFile 41fe2745-generator-angular-fullstack generator-angular-fullstack
+17 verbose addNamed [ 'generator-angular-fullstack', '' ]
+18 verbose addNamed [ null, '*' ]
+19 silly lockFile 8bc0e010-generator-angular-fullstack generator-angular-fullstack@
+20 verbose lock generator-angular-fullstack@ C:\Users\admin\AppData\Roaming\npm-cache\8bc0e010-generator-angular-fullstack.lock
+21 silly addNameRange { name: 'generator-angular-fullstack',
+21 silly addNameRange   range: '*',
+21 silly addNameRange   hasData: false }
+22 info retry fetch attempt 1 at 13:46:39
+23 verbose fetch to= D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack
+24 http GET https://www.npmjs.org/package/generator-angular-fullstack
+25 verbose request where is /generator-angular-fullstack
+26 verbose request registry https://registry.npmjs.org/
+27 verbose url raw /generator-angular-fullstack
+28 verbose url resolving [ 'https://registry.npmjs.org/',
+28 verbose url resolving   './generator-angular-fullstack' ]
+29 verbose url resolved https://registry.npmjs.org/generator-angular-fullstack
+30 verbose request where is https://registry.npmjs.org/generator-angular-fullstack
+31 info trying registry request attempt 1 at 13:46:39
+32 verbose etag "2N9YU5MFIYMBIIRNM4H4R6CWC"
+33 http GET https://registry.npmjs.org/generator-angular-fullstack
+34 http 200 https://www.npmjs.org/package/generator-angular-fullstack
+35 http 304 https://registry.npmjs.org/generator-angular-fullstack
+36 silly registry.get cb [ 304,
+36 silly registry.get   { date: 'Thu, 07 May 2015 05:46:40 GMT',
+36 silly registry.get     via: '1.1 varnish',
+36 silly registry.get     'cache-control': 'max-age=60',
+36 silly registry.get     etag: '"2N9YU5MFIYMBIIRNM4H4R6CWC"',
+36 silly registry.get     age: '0',
+36 silly registry.get     connection: 'keep-alive',
+36 silly registry.get     'x-served-by': 'cache-nrt6121-NRT',
+36 silly registry.get     'x-cache': 'MISS',
+36 silly registry.get     'x-cache-hits': '0',
+36 silly registry.get     'x-timer': 'S1430977600.061388,VS0,VE694',
+36 silly registry.get     vary: 'Accept' } ]
+37 verbose etag https://registry.npmjs.org/generator-angular-fullstack from cache
+38 silly addNameRange number 2 { name: 'generator-angular-fullstack',
+38 silly addNameRange   range: '*',
+38 silly addNameRange   hasData: true }
+39 silly addNameRange versions [ 'generator-angular-fullstack',
+39 silly addNameRange   [ '0.0.1',
+39 silly addNameRange     '0.0.2',
+39 silly addNameRange     '0.0.3',
+39 silly addNameRange     '0.0.4',
+39 silly addNameRange     '0.0.5',
+39 silly addNameRange     '0.1.0',
+39 silly addNameRange     '0.2.0',
+39 silly addNameRange     '1.0.0',
+39 silly addNameRange     '1.0.1',
+39 silly addNameRange     '1.1.0',
+39 silly addNameRange     '1.1.1',
+39 silly addNameRange     '1.2.0',
+39 silly addNameRange     '1.2.1',
+39 silly addNameRange     '1.2.2',
+39 silly addNameRange     '1.2.3',
+39 silly addNameRange     '1.2.4',
+39 silly addNameRange     '1.2.5',
+39 silly addNameRange     '1.2.6',
+39 silly addNameRange     '1.2.7',
+39 silly addNameRange     '1.3.0',
+39 silly addNameRange     '1.3.1',
+39 silly addNameRange     '1.3.2',
+39 silly addNameRange     '1.3.3',
+39 silly addNameRange     '1.4.0',
+39 silly addNameRange     '1.4.1',
+39 silly addNameRange     '1.4.2',
+39 silly addNameRange     '1.4.3',
+39 silly addNameRange     '2.0.0-rc1',
+39 silly addNameRange     '2.0.0',
+39 silly addNameRange     '2.0.1',
+39 silly addNameRange     '2.0.2',
+39 silly addNameRange     '2.0.3',
+39 silly addNameRange     '2.0.4',
+39 silly addNameRange     '2.0.5',
+39 silly addNameRange     '2.0.6',
+39 silly addNameRange     '2.0.7',
+39 silly addNameRange     '2.0.8',
+39 silly addNameRange     '2.0.9',
+39 silly addNameRange     '2.0.10',
+39 silly addNameRange     '2.0.11',
+39 silly addNameRange     '2.0.12',
+39 silly addNameRange     '2.0.13' ] ]
+40 verbose addNamed [ 'generator-angular-fullstack', '2.0.13' ]
+41 verbose addNamed [ '2.0.13', '2.0.13' ]
+42 silly lockFile ad937c6d-nerator-angular-fullstack-2-0-13 generator-angular-fullstack@2.0.13
+43 verbose lock generator-angular-fullstack@2.0.13 C:\Users\admin\AppData\Roaming\npm-cache\ad937c6d-nerator-angular-fullstack-2-0-13.lock
+44 silly lockFile ad937c6d-nerator-angular-fullstack-2-0-13 generator-angular-fullstack@2.0.13
+45 silly lockFile ad937c6d-nerator-angular-fullstack-2-0-13 generator-angular-fullstack@2.0.13
+46 silly lockFile 8bc0e010-generator-angular-fullstack generator-angular-fullstack@
+47 silly lockFile 8bc0e010-generator-angular-fullstack generator-angular-fullstack@
+48 verbose tar unpack D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack
+49 silly lockFile e7205a7c-nerator-angular-fullstack-unpack tar://D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack-unpack
+50 verbose lock tar://D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack-unpack C:\Users\admin\AppData\Roaming\npm-cache\e7205a7c-nerator-angular-fullstack-unpack.lock
+51 silly lockFile e38e8e23-kage-generator-angular-fullstack tar://D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack
+52 verbose lock tar://D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack C:\Users\admin\AppData\Roaming\npm-cache\e38e8e23-kage-generator-angular-fullstack.lock
+53 silly gunzTarPerm modes [ '777', '666' ]
+54 error not a package D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack
+55 silly lockFile e7205a7c-nerator-angular-fullstack-unpack tar://D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack-unpack
+56 silly lockFile e7205a7c-nerator-angular-fullstack-unpack tar://D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack-unpack
+57 silly lockFile e38e8e23-kage-generator-angular-fullstack tar://D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack
+58 silly lockFile e38e8e23-kage-generator-angular-fullstack tar://D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack
+59 silly lockFile 3d454506-kage-generator-angular-fullstack https://www.npmjs.org/package/generator-angular-fullstack
+60 silly lockFile 3d454506-kage-generator-angular-fullstack https://www.npmjs.org/package/generator-angular-fullstack
+61 error Error: ENOENT, open 'D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack-unpack\package.json'
+62 error If you need help, you may report this *entire* log,
+62 error including the npm and node versions, at:
+62 error     <http://github.com/npm/npm/issues>
+63 error System Windows_NT 6.1.7601
+64 error command "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "generator-angular-fullstack" "https://www.npmjs.org/package/generator-angular-fullstack"
+65 error cwd D:\workspace\p2p-client-v1
+66 error node -v v0.10.33
+67 error npm -v 1.4.28
+68 error path D:\dev\cygwin\tmp\npm-7520-shCxGqEE\www.npmjs.org\package\generator-angular-fullstack-unpack\package.json
+69 error code ENOENT
+70 error errno 34
+71 verbose exit [ 34, true ]

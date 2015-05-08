@@ -1,0 +1,27 @@
+.autoBox{margin:100px 0px 50px 100px;display:inline-block;width:86%;line-height:32px;}
+.autoBox .boxLeft{width:140px;margin:0px;min-height: 250px;}
+.autoBox .boxRight{width:70%;}
+.autoBox .boxRight p{display:inline-block;width:100%;}
+.autoBox label{font-weight:normal;padding-right:10px;float:left;width:120px;text-align:right;}
+.autoBox dl{display: inline-block;float:left;width:100%;}
+.autoBox dl dd{float:left;min-width:70px;}
+.autoBox dl dd input[type="checkbox"]{vertical-align:middle;margin-right:5px;}
+.autoBox div span.numInput input{width:180px;height:30px;line-height:30px;border: 1px solid #d3dae2;padding-left:5px;}
+.autoBox div em{top:12px;left:165px;color:#999;}
+.content .autoBtn{background:#69c04f;}
+.content .autoBtn:visited,.content .autoBtn:active{background:#69c04f;}
+.content .autoBtn:hover{background:#78de50;}
+.autoSetBox{margin:70px auto 0px;width:260px;}
+.setIcon{background-image: url(../../assets/images/allicon.png);background-position: -500px -0px;background-repeat: no-repeat;display: inline-block;width:120px;height:160px;vertical-align: middle;}
+.autoSetBox .noInvest{line-height:20px;padding:5px;width:250px;}
+.autoSetList{border-top:1px dashed #d5dfe5;width:600px;margin:20px auto;padding-top:20px;}
+.autoSetList div{width:100%;line-height:40px;color:#333;display: inline-block;}
+.autoSetList label{width:120px;text-align:right;font-weight:normal;margin-right:20px;border-right: 1px dashed #abbfcb;padding-right:10px;float:left;}
+.autoSetList dl{display: inline-block;float:left;margin-top:10px;}
+.autoSetList dl dd{float:left;border-right:1px solid #b6b6b6;margin-right: 15px;padding-right:15px;color:#999;}
+.autoSetList dl dd:last-child{border-right:none;}
+.autoSetBox i.startIcon{background-position: -500px -170px;}
+.startP{border-top:1px dotted #d5dfe5;width:600px;margin:20px auto;padding-top:20px;text-align: center;}
+.startP a{width:180px;}
+.startP .investMsg{top:56px;left:-15%;text-align:left;display:none;}
+.autoBox div span.numInput input:focus{border:1px solid #089bff;}

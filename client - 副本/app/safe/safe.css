@@ -1,0 +1,57 @@
+.col666{color:#666;}
+.colfff{color:#fff;}
+.safe_01{background:#e5f8dc;width:100%;height:580px;}
+.safe_01 div,.safe_02 div,.safe_03 div,.safe_04 div,.safe_05 div,.safe_06 div{margin:0 auto;height: 100%;}
+.safe_01 ul{position:absolute;top:315px;left:335px;}
+.safe_01 ul li{float:left;margin-right:80px;line-height:20px;color:#666;font-size:12px;}
+.safe_01 ul li:last-child{margin-right:0px;}
+.safeImg01{background-image:url(../../assets/images/safe_01.png);width:1200px;height:315px;display:inline-block;top:0px;}
+.safeImg02{background-image:url(../../assets/images/safe_02.png);width:1270px;height:76px;display:inline-block;bottom:0px;}
+.safe_01 ul li p em{color:#5db410}
+.safe_02{background:#d5eaff;width:100%;height:725px;}
+.safeImg03{background-image:url(../../assets/images/safe_03.png);width:1250px;height:660px;display:inline-block;top:0px;}
+.safeImg07{background-image:url(../../assets/images/safe_07.png);width:710px;height:397px;display:inline-block;left:40%;top:300px;}
+.safe_02 a{right:7%;top:680px;color:#089bff;}
+.safe_02 a:hover{color:#ff6633;}
+.safe_03{background:#8bd169;width:100%;height:700px;}
+.safeImg09{background-image:url(../../assets/images/safe_09.png);width:1205px;height:480px;display:inline-block;top:0px;}
+.safe_03 ul{position:absolute;top:440px;left:180px;}
+.safe_03 ul li{float:left;margin-right:130px;line-height:20px;color:#fff;font-size:12px;}
+.safe_03 ul li:last-child{margin-right:0px;}
+.safeImg08{background-image:url(../../assets/images/safe_08.png);width:320px;height:430px;display:inline-block;top:-130px;left:-80px;z-index:1;}
+.safe_04{background:#fff3c7;width:100%;height:680px;}
+.safeImg10{background-image:url(../../assets/images/safe_10.png);width:1290px;height:410px;display:inline-block;top:0px;}
+.safeImg11{background-image:url(../../assets/images/safe_11.png);width:820px;height:80px;display:inline-block;bottom:0px;right:0px;}
+.safe_04 ul{position:absolute;top:420px;left:175px;}
+.safe_04 ul li{float:left;margin-right:110px;line-height:20px;color:#666;font-size:12px;}
+
+/*.safe_01{background:#e5f8dc;width:100%;height:480px;}
+.safe_01 div,.safe_02 div,.safe_03 div,.safe_04 div,.safe_05 div,.safe_06 div{margin:0 auto;height: 100%;}
+.safe_01 ul{position:absolute;top:285px;left:395px;}
+.safe_01 ul li{float:left;width:190px;margin-right:110px;line-height:20px;color:#666;font-size:12px;}
+.safe_01 ul li:last-child{margin-right:0px;}
+.safeImg01{background-image:url(../../assets/images/safe_01.png);width:1200px;height:315px;display:inline-block;top:0px;}
+.safeImg02{background-image:url(../../assets/images/safe_02.png);width:1270px;height:76px;display:inline-block;bottom:0px;}
+.safe_02{background:#d5eaff;width:100%;height:725px;}
+.safeImg03{background-image:url(../../assets/images/safe_03.png);width:1250px;height:660px;display:inline-block;top:0px;}
+.safe_03{background:#6fc5ff;width:100%;height:470px;}
+.safeImg04{background-image:url(../../assets/images/safe_04.png);width:280px;height:115px;display:inline-block;top:-55px;left:40%;}
+.safeImg05{background-image:url(../../assets/images/safe_05.png);width:950px;height:320px;display:inline-block;top:80px;}
+.safe_04{background:#d5eaff;width:100%;height:520px;}
+.safeImg06{background-image:url(../../assets/images/safe_06.png);width:240px;height:70px;display:inline-block;top:-30px;}
+.safeImg08{background-image:url(../../assets/images/safe_08.png);width:310px;height:310px;display:inline-block;bottom:0px;}
+.safeImg07{background-image:url(../../assets/images/safe_07.png);width:710px;height:397px;display:inline-block;left:40%;top:65px;}
+.safe_05{background:#8bd169;width:100%;height:500px;}
+.safeImg09{background-image:url(../../assets/images/safe_09.png);width:1205px;height:380px;display:inline-block;top:0px;}
+.safe_06{background:#fff3c7;width:100%;height:480px;}
+.safeImg10{background-image:url(../../assets/images/safe_10.png);width:1290px;height:280px;display:inline-block;top:0px;}
+.safeImg11{background-image:url(../../assets/images/safe_11.png);width:820px;height:80px;display:inline-block;bottom:0px;}
+.col666{color:#666;}
+.colfff{color:#fff;}
+.safe_05 ul{position:absolute;top:350px;left:210px;}
+.safe_05 ul li{float:left;width:190px;margin-right:110px;line-height:20px;color:#fff;font-size:12px;}
+.safe_06 ul{position:absolute;top:250px;left:215px;}
+.safe_06 ul li{float:left;width:190px;margin-right:110px;line-height:20px;color:#666;font-size:12px;}
+.safeBox{top:420px;left:49%;line-height:22px;}
+.safe_04 a{right:22%;top:480px;color:#089bff;}
+#fp-nav.right{left:inherit;}*/

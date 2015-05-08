@@ -1,0 +1,124 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <h1 class="f16 col333"><span>我的消息</span>
+				<a class="ml10 f14" ui-sref="messageset">设置</a>
+			</h1>
+
+            <div class="tabbox ml20 fl mt20 messageBox pr">
+                <div class="group" style="border-bottom:none;">
+                    <dl>
+                        <dt>起止日期</dt>
+                        <dd>
+                            <span class="calendarVal pr mr10"><i class="pa"></i><input type="text"
+                                                                                       ui-date="startDateOptions"
+                                                                                       ui-date-format="@" id="start"
+                                                                                       ng-model="startdate"></span> -
+                            <span class="calendarVal pr ml10 mr10"><i class="pa"></i><input type="text"
+                                                                                            ui-date="endDateOptions"
+                                                                                            ui-date-format="@" id="end"
+                                                                                            ng-model="enddate"></span>
+                        </dd>
+
+                        <dd ng-class="{active:status.selected}" ng-repeat="status in messageStatus">
+                            <a ng-click="statusChangeByValue(status.value)">{{status.name}}</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>消息类型</dt>
+
+                        <dd ng-class="{active:type.selected}" ng-repeat="type in messageType">
+                            <a ng-click="typeChange(type.name)">{{type.name}}</a>
+                        </dd>
+                    </dl>
+                </div>
+                <table ng-table="tableParams" class="table" template-pagination="custom/pager" >
+					<tr>
+						<th width="5%"><input type="checkbox" ng-model="$parent.checkAll" ng-init ="$parent.checkAll =false" ng-click="toggleSelectAllMsg($parent.checkAll)"/></th>
+						<th width="45%" class="tl pr">
+							<span class="fl">标题</span>
+							<span class="fl pa" style="top:15px;">
+								<a class="remark ml10 col333 fl" href="" ng-click="updateAccountMessagesRead()">标为已读</a>
+								<a href="" class="delBtn ml10 fl" ng-click="deleteAccountMessages()"><i></i></a>
+							</span>
+						</th>
+						<th width="15%">消息类型</th>
+						<th width="20%">时间</th>
+					</tr>
+                    <tr ng-repeat="message in $data">
+						<td colspan="4" class="messageTable">
+							<table>
+								<tr ng-class="{noRead: message.messageReadStatus=='0'}">
+									<td width="5%">
+										<input type="checkbox" ng-checked="$parent.checkAll" value="{{message.accountMessageSequence}}" ng-click="toggleSelection(message.accountMessageSequence.toString())"/>
+									</td>
+									<td width="45%" class="tl" onclick="messageFn(this)" ng-click="readMsg(message.accountMessageSequence,message.messageReadStatus)"><a href="javaScript:;">{{message.messageTitle}}</a></td>
+									<td width="15%">{{message.remindOptionFormMap}}</td>
+									<td width="20%">{{message.messageReceiveDate | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+								</tr>
+								<tr style="display:none" id="trMessageContent">
+									<td></td>
+									<td class="tl borderTop">
+										<p ng-bind-html="message.messageContent|to_trusted "></p>
+									</td>
+									<td class="borderTop"></td>
+									<td class="borderTop"></td>
+								</tr>
+							</table>
+						</td>
+
+                    </tr>
+                    <tr ng-show="!$data || $data.length === 0">
+                        <td colspan="4">
+                            <i class="txtIcon mt30"></i>
+                            <p class="col999 mb30 mt10">找不到相应内容</p>
+                        </td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                </table>
+				<a class="remark ml10 col333 fl w30 tc mb30" href="" ng-click="confirmDeleteAccountMessageAll()" ng-show="filterMsgCount >0">清空</a>
+				<!--script type="text/ng-template" id="custom/pager">
+					<ul class="pagination ng-table-pagination">
+						<li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+							<a class="first" ng-switch-when="first" ng-click="params.page(page.number)" href=""></a>
+						</li>
+						<li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+							<a class="previous" ng-switch-when="prev" ng-click="params.page(page.number)" href=""></a>
+						</li>
+						<li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+							<a class="firstNum" ng-switch-when="first" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+							<a ng-switch-when="page" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+							<a ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a>
+							<a class="lastNum" ng-switch-when="last" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+						</li>
+						<li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+							<a class="next" ng-switch-when="next" ng-click="params.page(page.number)" href=""></a>
+						</li>
+						<li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+							<a class="last" ng-switch-when="last" ng-click="params.page(page.number)" href=""></a>
+						</li>
+						<li ng-show="pages.length > 0">
+							<div class="ml10">
+								<span class="fl mr10">至第<input ng-model="pageNum" class="w50 ml5 mr5 pl5" type="text"/>页</span>
+								<a class="btn" ng-click="params.page(pageNum)">确定</a>
+							</div>
+						</li>
+					</ul>
+				</script-->
+            </div>
+        </div>
+    </div>
+</div>
+<div id="clear_pop" class="clear_pop" style="display:none;">
+	<p class="tc mt20">确认要清空全部消息吗？（删除的消息不能再找回）</p>
+	<div class="tc mb10 mt20">
+		<a class="btn " href="" ng-click="deleteAccountMessageAll()">确认</a>
+		<a class="btn ml20 cancelBtn " ng-click="deleteCancel()" href="">取消</a>
+	</div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

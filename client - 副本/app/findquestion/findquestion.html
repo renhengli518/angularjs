@@ -1,0 +1,155 @@
+<div ng-include="'app/header/header.html'"></div>
+<div class="registerWrapper" ng-init="ready()">
+    <div class="container">
+        <h2>
+            <a class="fl logo" href="#/"></a>
+            <span class="fl f22">找回安全保护问题</span>
+        </h2>
+
+        <div class="registerForm findquestionFrom pr" ng-show="step===1">
+            <a class="pa cancel" ui-sref="account-security"> X 取消</a>
+
+            <div class="step">
+                <ul>
+                    <li class="hover">安全认证</li>
+                    <li>重置问题</li>
+                    <li>完成</li>
+                </ul>
+            </div>
+
+            <form novalidate name="registerForm">
+                <div>
+                    <label class="fl">手机号码</label>
+
+                    <p class="pr fl">
+                        <span class="phoneLabel pa"></span>
+                        <input ng-required="true" name="mobile" ng-model="mobile" ng-focus="initFlag()"
+                               ng-keyup="judgeMobileIfPass(registerForm.mobile.$valid,registerForm.mobile.$viewValue)" ng-pattern="/^[0-9]{11}$/"
+                                class="w280 pl40" type="text"
+                               placeholder="请输入手机号" ng-blur="judgeMobileIfPass(registerForm.mobile.$valid,registerForm.mobile.$viewValue)"/>
+                    </p>
+
+                    <div class="msgError fl f14 ml10"
+                         ng-show="mobileFormat?((registerForm.mobile.$viewValue==null||registerForm.mobile.$viewValue=='')?false: registerForm.mobile.$invalid):false">
+                        <i class="vm"></i>手机格式不正确
+                    </div>
+                    <div class="msgError fl f14 ml10"
+                         ng-show="(mobileFormat?((registerForm.mobile.$viewValue==null||registerForm.mobile.$viewValue=='')?false: registerForm.mobile.$invalid):false)?false:(mobileFormat?(!initStatus&&!judgeMobile):false)">
+                        <i class="vm"></i>手机号码不正确
+                    </div>
+                </div>
+                <div>
+                    <label class="fl">手机动态码</label>
+
+                    <p class="pr fl">
+                        <span class="ChkCodeIcon pa"></span>
+                        <input ng-required="true" name="mobileVerificationCode" ng-model="mobileVerificationCode"
+                               class="w140 pl40" type="text" placeholder="" ng-focus="afterSubmit=false"/>
+
+                        <button id="sendXXX" style="width:120px;" ng-click="sendSecurityCode()" class="sendVerification"
+                                type="button"
+                                ng-class="{'sendChkVerification':initStatus?false:judgeMobile,'sendVerification':initStatus?true:!judgeMobile} ">
+                            发送动态码
+                        </button>
+                    </p>
+                    <div class="msgError fl f14"
+                         ng-show="afterSubmit">
+                        <i class="vm"></i>{{msg_afterSubmit}}
+                    </div>
+                </div>
+                <div class="ml100">
+                    <input class="next_enable f18"
+                           ng-class="{'next_enable':registerForm.$valid?judgeMobile:false,'next_disable':registerForm.$invalid?true:!judgeMobile}"
+                           ng-disabled="registerForm.$invalid?true:!judgeMobile" ng-click="next_1(registerForm.$valid)" type="button"
+                           value="下一步"/>
+                    <!--<button class="btn f18" ng-click="next_1(registerForm.$valid)">下一步</button>-->
+                </div>
+            </form>
+        </div>
+        <!--第二步-->
+        <div class="registerForm findquestionFrom pr" ng-show="step===2">
+			<a class="pa cancel" ui-sref="account-security"> X 取消</a>
+            <div class="step step01">
+                <ul>
+                    <li class="hover">安全认证</li>
+                    <li class="hover">重置问题</li>
+                    <li>完成</li>
+                </ul>
+            </div>
+            <form name="findQuestionForm">
+                <div class="problem" ng-repeat="ql in questionObjList">
+                    <div>
+                        <label class="fl">安全问题</label>
+
+                        <p class="pr fl">
+                            <!--<select ng-model="ql.question">-->
+                                <!--<option ng-selected="false" value='{{t.SystemQuestionSequence}}'-->
+                                        <!--ng-repeat='t in systemQuestion'>{{t.QuestionText}}-->
+                                <!--</option>-->
+                                <!--&lt;!&ndash;<option>您去的是在哪里？</option>&ndash;&gt;-->
+                            <!--</select>-->
+                            <select name="questionText" ng-model="ql.question">
+                                <option value="{{option.SystemQuestionSequence}}" ng-repeat="option in systemQuestion">
+                                    {{option.QuestionText}}
+                                </option>
+                            </select>
+                        </p>
+                        <a ng-show="$index === 0" class="fl mt10 ml10" href="" ng-click="addQuestion()">添加问题</a>
+                        <a ng-show="$index > 0" class="fl mt10 ml10" href="" ng-click="removeQuestion(ql.id)">删除</a>
+                    </div>
+                    <div>
+                        <label class="fl">答案</label>
+
+                        <p class="pr fl">
+                            <input name="accountQuestionAnswer" ng-model="ql.answer" ng-required="true"
+                                   class="w310 pl10 ng-pristine ng-invalid ng-invalid-required ng-valid-pattern"
+                                   ng-pattern="/^[a-zA-Z0-9\u4e00-\u9fa5]+$/" type="text" placeholder="请输入字母,数字或中文"
+                                   required="required">
+                        </p>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <label class="fl">登录密码</label>
+
+                    <p class="pr fl">
+                        <span class="passwordLabel pa"></span>
+                        <input type="password" name="password" ng-model="password" ng-required="true"
+                               ng-pattern="/^[0-9A-Za-z]{6,16}$/" ng-focus="show_msg=false;msg_flag=false;" ng-blur="show_msg=true"
+                               class="w280 pl40 ng-pristine ng-invalid ng-invalid-required ng-valid-pattern"
+                               placeholder="请输入登录密码">
+                    </p>
+                    <div class="msgError fl f14 ml10"
+                         ng-show="show_msg?msg_flag:false">
+                        <i class="vm"></i>{{msg}}
+                    </div>
+                </div>
+
+                <div class="ml100">
+                    <input class="next_enable f18" ng-click="submitForm(findQuestionForm.$valid)" type="button"
+                           value="下一步"> <a class="ml10" href="" ng-click="step=1" >上一步</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="registerForm findquestionFrom pr" ng-show="step===3">
+			<a class="pa cancel" ui-sref="account-security"> X 取消</a>
+            <div class="step step02">
+                <ul>
+                    <li class="hover">安全认证</li>
+                    <li class="hover">重置问题</li>
+                    <li class="hover">完成</li>
+                </ul>
+            </div>
+            <div class="tc">
+                <span class="sucIcon"></span>
+
+                <p class="f22 mt20">恭喜您重新设置安全保护问题成功</p>
+
+                <p class="f14 mt20">你现在可以返回 <a href= "#/account/detail">个人资料</a>，或是去<a ui-sref="invest">投资</a></p>
+            </div>
+        </div>
+
+    </div>    
+</div>
+<div ng-include="'app/footer/loginfooter.html'"></div>

@@ -1,0 +1,132 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <h1 class="f16 col333"><span>我的红包</span></h1>
+			<p class="tc mt100">
+				<img src="../../assets/images/pic.png"/>
+			</p>
+			<!--div class="tablist ml20 fl mt30">
+
+				<ul class="fl" ng-model="selection">
+					<li ng-click="selection = '1'" ng-class="{active:selection=='1'}">未兑现</li>
+					<li ng-click="selection = '2'" ng-class="{active:selection=='2'}">已兑现</li>
+					<li ng-click="selection = '3'" ng-class="{active:selection=='3'}">已过期</li>
+				</ul>
+			</div>
+
+			<div class="tabbox ml20 fl" ng-switch on="selection">
+				<div ng-switch-when="1">
+					<ul ng-repeat="p in showList">
+						<li>
+							<div class="fl boxL pr">
+								<i class="pa"></i>
+								<span class="packetIcon pa"></span>
+								<p><span class="f40">{{p.welfareQuota}}</span> 元</p>
+								<p>{{p.welfareName}}</p>
+							</div>
+							<div class="fl boxR">
+								<p>
+									<label>来源</label><span class="colf63">{{p.welfareSource}}</span>
+								</p>
+								<p>
+									<label>激活条件</label>{{p.welfareActiveCondition}}
+								</p>
+								<p>
+									<label>有效期至</label>
+									{{p.welfareExpiredDate | date:'yyyy-MM-dd HH:mm:ss'}}
+								</p>
+								<p class="ml70">
+									<button ng-click=exchangeWelfare(p.welfareQuota) >兑换</button>
+									<button ng-click="openAccount()" value="">开通</button> 
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div ng-switch-when="2">
+					<ul class="cash" ng-repeat="p in showList">
+						<li>
+							<div class="fl boxL pr">
+								<i class="pa"></i>
+								<span class="packetIcon pa"></span>
+								<p><span class="f40">{{p.welfareQuota}}</span> 元</p>
+								<p>{{p.welfareName}}</p>
+							</div>
+							<div class="fl boxR">
+								<p>
+									<label>来源</label><span class="colf63">{{p.welfareSource}}</span>
+								</p>
+								<p>
+									<label>激活条件</label>{{p.welfareActiveCondition}}
+								</p>
+								<p>
+									<label>有效期至</label>{{p.welfareExpiredDate | date:'yyyy-MM-dd HH:mm:ss'}}
+								</p>
+								<p class="ml70">
+									<button>已兑换</button>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div ng-switch-when="3">
+					<ul class="expired" ng-repeat="p in showList">
+						<li>
+							<div class="fl boxL pr">
+								<i class="pa"></i>
+								<span class="packetIcon pa"></span>
+								<p><span class="f40">{{p.welfareQuota}}</span> 元</p>
+								<p>{{p.welfareName}}</p>
+							</div>
+							<div class="fl boxR">
+								<p>
+									<label>来源</label><span class="col999">{{p.welfareSource}}</span>
+								</p>
+								<p>
+									<label>激活条件</label>{{p.welfareActiveCondition}}
+								</p>
+								<p>
+									<label>有效期至</label>{{p.welfareExpiredDate | date:'yyyy-MM-dd HH:mm:ss'}}
+								</p>
+								<p class="ml70">
+									<button>已过期</button>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+                <div ng-hide="showList.length > 0" class="tc mt100">
+					<p><i class="packetImg"></i></p>
+                    <p class="col999 mt10">红包福利陆续来袭，敬请留意平台动态！</p>
+				</div>
+				<分页>
+				<div class="pagination ng-scope" ng-show="totalPage>1">
+					<ul class="pagination" >
+						<li ng-class="{true:'active'}[currentPage==1]">
+							<a href="javascript:void(0)" ng-click="currentPage=1;loadPage(currentPage)">首页</a>
+						</li>
+						<li ng-class="{true:'disabled'}[currentPage==1]"><a href="javascript:void(0);"
+							ng-click="prev()">上一页</a>
+						</li>
+				        <li ng-class="{true:'active'}[currentPage==page]" ng-repeat="page in pages">
+				        	<a href="javascript:void(0);" ng-click="loadPage(page)">{{ page }}</a>
+				        </li>
+				        <li ng-class="{true:'disabled'}[currentPage==totalPage]">
+				        	<a href="javascript:void(0);"	ng-click="next()">下一页</a>
+				        </li>
+				        <li ng-class="{true:'active'}[currentPage==totalPage]"><a href="javascript:void(0)"
+							ng-click="currentPage=totalPage;loadPage(currentPage)">末页</a>
+						</li>
+    				</ul>
+				</div>
+
+
+			</div-->
+        </div>
+    </div>   
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

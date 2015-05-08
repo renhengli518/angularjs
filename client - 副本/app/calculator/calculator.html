@@ -1,0 +1,77 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <h1 class="f16 col333"><span>收益计算器</span></h1>
+
+            <div class="autoBox calculatorBox">
+                <div class="calculatorDes">
+                    <p class="fl">用于查看您在平台进行的投资和其他渠道进行投资所获得的收益对比，方便您选择更适合您的投资方式，获得最大收益</p>
+                </div>
+                <div>
+                    <span>投资金额</span>
+
+                    <p class="pr sum fl">
+                        <number-input output-model="calculatorInput.capital" unit="元" type="int"/>
+                    </p>
+                </div>
+                <div>
+                    <span>投资期限</span>
+                    <select ng-model="calculatorInput.period">
+                        <option  value="6">6个月</option>
+                        <option value="12">12个月</option>
+                        <option value="18">18个月</option>
+                        <option value="24">24个月</option>
+                        <option value="36">36个月</option>
+                    </select>
+                </div>
+                <div>
+                    <span>&nbsp;</span>
+
+                    <p><input ng-model="calculatorInput.isRoll" type="checkbox"/>每月本金收回后再次进行投资</p>
+                </div>
+                <div>
+                    <span>年利率</span>
+
+                    <p class="pr sum fl">
+                        <number-input max="99.99" output-model="calculatorInput.rate" unit="%"></number-input>
+                    </p>
+                </div>
+                <div>
+                    <span>对比类型</span>
+                    <dl>
+                        <!--<dd><input type="checkbox"/>平台贷款项目</dd>-->
+                        <!--<dd><input type="checkbox"/>银行活期存款</dd>-->
+                        <!--<dd><input type="checkbox"/>银行定期存款</dd>-->
+                        <!--<dd><input type="checkbox"/>货币基金</dd>-->
+                        <dd ng-repeat="type in typeList">
+                            <input ng-click="type.selected = !type.selected" type="checkbox"
+                                   ng-checked="type.selected"/> {{type.name}}
+                        </dd>
+                    </dl>
+                </div>
+
+                <div>
+                    <span>&nbsp;</span>
+                    <button ng-click="calculate()" class="btn" ng-disabled="(!calculatorInput.capital || !calculatorInput.period || !calculatorInput.rate || (typeList|filter:{'selected':true}).length==0)">计算</button>
+                    <a ng-click="reset()" class="ml10" href="javascript:void(0)">重置</a>
+                </div>
+
+				<div class="col999 calculatorTips">
+					<h2 class="mb20">温馨提示</h2>
+					<p>1、银行活期收益根据当季央行公布活期利率进行计算；</p>
+					<p>2、银行定期收益根据所选投资期限根据当季央行公布的定期利率进行计算。</p>
+					<p>3、货币基金收益根据平均水平进行计算。</p>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="result_pop" style="display:none;">
+	<p class="col999 ml10">单位：元</p>
+	<div id="container" style="min-width:500px;height:300px"></div>
+
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

@@ -1,0 +1,392 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <h1 class="f16 col333"><span>我的投资</span>
+
+                <div class="pull-right" ng-show="accountFund.thirdAccount">
+                    可用余额: <em class="ml5 mr5">{{accountFund.availableBalance|moneyFormat}}</em>元<a ui-sref="deposit"
+                                                                                                   class="ml10 mr10 deposit">充值</a><a
+                    class="mr30 apply" ui-sref="apply">取现</a>
+                </div>
+            </h1>
+
+
+            <p ng-hide="accountFund.thirdAccount" class="mt30 ml20 mr20 mb30 tc col333 noInvest ng-hide">
+                <i></i>
+                您还未开通第三方托管账户，请先去
+                <open-button/>
+                ！
+            </p>
+
+
+            <div ng-show="accountFund.thirdAccount">
+                <p ng-hide="display" class="mt30 ml20 mr20 mb30 tc col333 noInvest">
+                    <i></i>
+                    您还没有进行投资或是充值，请先去 <a ui-sref="invest">投资</a> 或是 <a ui-sref="deposit">充值</a>！
+                </p>
+
+                <div ng-show="display">
+
+                    <ul class="mt30 ml20 balanceNum mr20 mb30">
+                        <li>
+                            <p>合计在投本金<i ng-title="投资人所持有的债权剩余本金的总和"></i></p>
+
+                            <p><span class="f26 col333">{{fundDetail.investTtlAmt | moneyFormat}}</span> 元</p>
+                        </li>
+                        <li>
+                            <p>预期总收益<i ng-title="当前投资人所有投资记录中的应收利息之和"></i></p>
+
+                            <p><span class="f26 colf63">{{fundDetail.expectedReturnAmt | moneyFormat}}</span>元 </p>
+                        </li>
+                        <li>
+                            <p>今日总收益<i ng-title="今日所收利息+今日所收罚息"></i></p>
+
+                            <p><span class="f26 colf63">{{fundDetail.benefitAmt | moneyFormat}}</span> 元 </p>
+                        </li>
+                        <li>
+                            <p>累计净收益<i ng-title="已收总利息+已收总罚息+已收推广收入-提现手续费-投资管理费"></i></p>
+
+                            <p><span class="f26 colf63">{{fundDetail.accumulatedIncome | moneyFormat}}</span> 元 </p>
+                        </li>
+                    </ul>
+
+                    <div class="tablist ml20 fl">
+                        <ul class="fl" ng-model="selection">
+                            <li ng-click="selection = 'hold'" ng-class="{active:selection=='hold'}">已持有</li>
+                            <li ng-click="selection = 'allying'" ng-class="{active:selection=='allying'}">申请中</li>
+                            <li ng-click="selection = 'end'" ng-class="{active:selection=='end'}">已结束</li>
+                        </ul>
+                        <select ng-model="somethingHere" ng-change="selectFilter(somethingHere)" class="fr"
+                                ng-options="t.name for t in listItems">
+                            <option ng-click="somethingHere === null" value="">全部</option>
+                            <!--<option ng-click="t.selected = true" value="t.value" ng-selected="t.selected" ng-repeat="t in listItems">{{t.name}}</option>-->
+                        </select>
+                    </div>
+                    <div ng-switch on="selection" class="tabbox ml20 fl">
+                        <div ng-switch-when="hold" loading-container="holdTableParams.settings().$loading">
+                            <!--<table ng-table="transactionTableParams" template-pagination="custom/pager" class="table">-->
+                            <table ng-table="holdTableParams" template-pagination="custom/pager" class="table">
+
+                                <tr>
+                                    <th>
+                                        <div>项目名称</div>
+                                    </th>
+                                    <th>
+                                        <!--div>投资本金（元）</div-->
+                                        <div>投资金额(元)</div>
+                                    </th>
+                                    <th>
+                                        <div>剩余应收本息(元)</div>
+                                    </th>
+                                    <th>
+                                        <div>月还款额(元)</div>
+                                    </th>
+                                    <th>
+                                        <div>已支付/总期数</div>
+                                    </th>
+                                    <th>
+                                        <div> 当前状态</div>
+                                    </th>
+                                    <th>
+                                        <div>下期支付日</div>
+                                    </th>
+                                    <th>
+                                        <div>操作</div>
+                                    </th>
+                                    <th>
+                                        <div>下载借款协议</div>
+                                    </th>
+                                </tr>
+                                <tr ng-repeat="p in $data">
+                                    <td><a href="#/investitem/{{p.Investment.investmentSequence}}">{{p.Investment.investmentName}}</a>
+                                    </td>
+                                    <td>{{p.AccountInvestment.accountInvestmentQuota | moneyFormat}}</td>
+                                    <td>{{p.RemainPrincipalAndInterest | moneyFormat}}</td>
+                                    <td>{{p.ClaimGatherPlan.claimGatherPlanActualTotalAmount | moneyFormat}}</td>
+                                    <td>
+                                        {{p.AccountInvestment.accountInvestmentPayedPeriod}}/
+                                        <!--{{p.Investment.investmentPeriod}}-->{{p.totalPeriod}}
+                                    </td>
+                                    <td>{{p.AccountInvestment.accountInvestmentStatus}}</td>
+                                    <td>{{p.nextPayDay1 | date : "yyyy-MM-dd "}}</td>
+                                    <td></td>
+                                    <td><a ng-show="p.contractId" target="_blank" href="/p2p/app/acct/vesterpdf?contractId={{p.contractId}}"
+                                           class="download"></a></td>
+                                </tr>
+                                <tr ng-show="!$data || $data.length === 0">
+                                    <td colspan="9">
+                                        <i class="txtIcon mt30"></i>
+
+                                        <p class="col999 mb30 mt10">找不到相应内容</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!--script type="text/ng-template" id="custom/pager">
+                                <ul class="pagination ng-table-pagination">
+                                    <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages"
+                                        ng-switch="page.type">
+                                        <a class="first" ng-switch-when="first" ng-click="params.page(page.number)"
+                                           href=""></a>
+                                    </li>
+                                    <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages"
+                                        ng-switch="page.type">
+                                        <a class="previous" ng-switch-when="prev" ng-click="params.page(page.number)"
+                                           href=""></a>
+                                    </li>
+                                    <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages"
+                                        ng-switch="page.type">
+                                        <a class="firstNum" ng-switch-when="first" ng-click="params.page(page.number)"
+                                           href=""><span ng-bind="page.number"></span></a>
+                                        <a ng-switch-when="page" ng-click="params.page(page.number)" href=""><span
+                                            ng-bind="page.number"></span></a>
+                                        <a ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a>
+                                        <a class="lastNum" ng-switch-when="last" ng-click="params.page(page.number)"
+                                           href=""><span ng-bind="page.number"></span></a>
+                                    </li>
+                                    <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages"
+                                        ng-switch="page.type">
+                                        <a class="next" ng-switch-when="next" ng-click="params.page(page.number)"
+                                           href=""></a>
+                                    </li>
+                                    <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages"
+                                        ng-switch="page.type">
+                                        <a class="last" ng-switch-when="last" ng-click="params.page(page.number)"
+                                           href=""></a>
+                                    </li>
+                                    <li ng-show="pages.length > 0">
+                                        <div class="ml10">
+                                            <span class="fl mr10">至第<input ng-model="pageNum" class="w50 ml5 mr5 pl5"
+                                                                           type="text"/>页</span>
+                                            <a class="btn" ng-click="params.page(pageNum)">确定</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </script-->
+                        </div>
+                        <div ng-switch-when="allying">
+                            <table ng-table="applyingTableParams" class="table" template-pagination="custom/pager">
+
+                                <tr>
+                                    <th>
+                                        <div>项目名称</div>
+                                    </th>
+                                    <th>
+                                        <!--div>投资本金（元）</div-->
+                                        <div> 借款本金(元)</div>
+                                    </th>
+                                    <th>
+                                        <div>年利率</div>
+                                    </th>
+                                    <th>
+                                        <div>期数</div>
+                                    </th>
+                                    <th>
+                                        <div>还款方式</div>
+                                    </th>
+                                    <th>
+                                        <div>投资金额(元)</div>
+                                    </th>
+                                    <th>
+                                        <div>应收本息</div>
+                                    </th>
+                                    <th>
+                                        <div>投资进度</div>
+                                    </th>
+                                    <th>
+                                        <div>投标状态</div>
+                                    </th>
+
+                                </tr>
+                                <tr ng-repeat="p in $data">
+                                    <td><a href="#/investitem/{{p.Investment.investmentSequence}}">{{p.Investment.investmentName}}</a>
+                                    </td>
+                                    <td>{{p.Investment.investmentTotal | moneyFormat}}</td>
+                                    <td>{{p.YearRate*100}}%</td>
+                                    <td>{{p.Investment.investmentPeriod}}</td>
+                                    <td>{{p.InvestmentPayType}}</td>
+                                    <td>{{p.AccountOrder.tradeAmount | moneyFormat}}</td>
+                                    <td>{{p.PMT | moneyFormat}}</td>
+                                    <td>{{p.Investment.investmentProgress1}}%</td>
+                                    <td>{{p.Investment.investmentStatus}}</td>
+                                </tr>
+                                <tr ng-show="!$data || $data.length === 0">
+                                    <td colspan="9">
+                                        <i class="txtIcon mt30"></i>
+
+                                        <p class="col999 mb30 mt10">找不到相应内容</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div ng-switch-when="end">
+
+                            <table ng-table="endTableParams" class="table" template-pagination="custom/pager">
+
+                                <tr>
+                                    <th>
+                                        <div>项目名称</div>
+                                    </th>
+                                    <th>
+                                        <!--div>起息日</div-->
+                                        <div>放款日</div>
+                                    </th>
+                                    <th>
+                                        <!--div>结息日</div-->
+                                        <div>结清日</div>
+                                    </th>
+
+                                    <th>
+                                        <div>年利率</div>
+                                    </th>
+                                    <th>
+                                        <div>期数</div>
+                                    </th>
+                                    <th>
+                                        <div>还款方式</div>
+                                    </th>
+                                    <th>
+                                        <div>投资金额(元)</div>
+                                    </th>
+                                    <th>
+                                        <!--div>回收本息(元)</div-->
+                                        <div>实收本息(元)</div>
+                                    </th>
+                                    <th>
+                                        <div>结清方式</div>
+                                    </th>
+                                    <th>
+                                        <div>下载借款协议</div>
+                                    </th>
+                                </tr>
+                                <tr ng-repeat="p in $data">
+                                    <td><a href="#/investitem/{{p.Investment.investmentSequence}}">{{p.Investment.investmentName}}</a>
+                                    </td>
+                                    <td>{{p.Investment.investmentFillDate| date : "yyyy-MM-dd "}}</td>
+                                    <td>{{p.Investment.investmentOverDate| date : "yyyy-MM-dd "}}</td>
+                                    <td>{{p.Investment.investmentAnnualInterestRate*100}}%</td>
+                                    <td>{{p.Investment.investmentPeriod}}</td>
+                                    <td>{{p.InvestmentPayType}}</td>
+                                    <td>{{p.AccountInvestment.accountInvestmentQuota | moneyFormat}}</td>
+                                    <td>{{p.ClmGptotal | moneyFormat}}</td>
+                                    <td>{{p.AccountInvestmentEndForm}}</td>
+                                    <td><a href="" class="download"></a></td>
+                                </tr>
+                                <tr ng-show="!$data || $data.length === 0">
+                                    <td colspan="10">
+                                        <i class="txtIcon mt30"></i>
+
+                                        <p class="col999 mb30 mt10">找不到相应内容</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="tabbox ml20 fl" ng-switch on="selection">-->
+                <!--&lt;!&ndash;<table ng-table="tableParams" template-pagination="custom/pager" class="table">&ndash;&gt;-->
+                <!--<table ng-table="tableParams" class="table">-->
+
+                <!--<tr>-->
+                <!--<th class="sortable" ng-class="{-->
+                <!--'sort-asc': tableParams.isSortBy('number', 'asc'),-->
+                <!--'sort-desc': tableParams.isSortBy('number', 'desc')-->
+                <!--}"-->
+                <!--ng-click="tableParams.sorting({'number' : tableParams.isSortBy('number', 'asc') ? 'desc' : 'asc'})">-->
+                <!--<div>项目名称</div>-->
+                <!--</th>-->
+                <!--<th class="sortable" ng-class="{-->
+                <!--'sort-asc': tableParams.isSortBy('capital', 'asc'),-->
+                <!--'sort-desc': tableParams.isSortBy('capital', 'desc')-->
+                <!--}"-->
+                <!--ng-click="tableParams.sorting({'capital' : tableParams.isSortBy('capital', 'asc') ? 'desc' : 'asc'})">-->
+                <!--<div>投资金额（元）</div>-->
+                <!--</th>-->
+                <!--<th class="sortable" ng-class="{-->
+                <!--'sort-asc': tableParams.isSortBy('interest', 'asc'),-->
+                <!--'sort-desc': tableParams.isSortBy('interest', 'desc')-->
+                <!--}"-->
+                <!--ng-click="tableParams.sorting({'interest' : tableParams.isSortBy('interest', 'asc') ? 'desc' : 'asc'})">-->
+                <!--<div>剩余应收本息(元)</div>-->
+                <!--</th>-->
+                <!--<th class="sortable" ng-class="{-->
+                <!--'sort-asc': tableParams.isSortBy('total', 'asc'),-->
+                <!--'sort-desc': tableParams.isSortBy('total', 'desc')-->
+                <!--}"-->
+                <!--ng-click="tableParams.sorting({'total' : tableParams.isSortBy('total', 'asc') ? 'desc' : 'asc'})">-->
+                <!--<div>月还款额(元)</div>-->
+                <!--</th>-->
+                <!--<th class="sortable" ng-class="{-->
+                <!--'sort-asc': tableParams.isSortBy('number', 'asc'),-->
+                <!--'sort-desc': tableParams.isSortBy('number', 'desc')-->
+                <!--}"-->
+                <!--ng-click="tableParams.sorting({'name' : tableParams.isSortBy('name', 'asc') ? 'desc' : 'asc'})">-->
+                <!--<div>已还/总期数</div>-->
+                <!--</th>-->
+                <!--<th class="sortable" ng-class="{-->
+                <!--'sort-asc': tableParams.isSortBy('number', 'asc'),-->
+                <!--'sort-desc': tableParams.isSortBy('number', 'desc')-->
+                <!--}"-->
+                <!--ng-click="tableParams.sorting({'name' : tableParams.isSortBy('name', 'asc') ? 'desc' : 'asc'})">-->
+                <!--<div>当前状态</div>-->
+                <!--</th>-->
+                <!--<th class="sortable" ng-class="{-->
+                <!--'sort-asc': tableParams.isSortBy('number', 'asc'),-->
+                <!--'sort-desc': tableParams.isSortBy('number', 'desc')-->
+                <!--}"-->
+                <!--ng-click="tableParams.sorting({'name' : tableParams.isSortBy('name', 'asc') ? 'desc' : 'asc'})">-->
+                <!--<div>下期还款日</div>-->
+                <!--</th>-->
+                <!--<th class="sortable" ng-class="{-->
+                <!--'sort-asc': tableParams.isSortBy('number', 'asc'),-->
+                <!--'sort-desc': tableParams.isSortBy('number', 'desc')-->
+                <!--}"-->
+                <!--ng-click="tableParams.sorting({'name' : tableParams.isSortBy('name', 'asc') ? 'desc' : 'asc'})">-->
+                <!--<div>操作</div>-->
+                <!--</th>-->
+                <!--<th>-->
+                <!--<div>下载借款协议</div>-->
+                <!--</th>-->
+                <!--</tr>-->
+                <!--<tr ng-repeat="p in $data">-->
+                <!--<td>{{p.number}}</td>-->
+                <!--<td>{{p.capital}}</td>-->
+                <!--<td>{{p.interest}}</td>-->
+                <!--<td>{{p.total}}</td>-->
+                <!--<td>{{p.over}}</td>-->
+                <!--<td>{{p.over}}</td>-->
+                <!--<td>{{p.over}}</td>-->
+                <!--<td>{{p.over}}</td>-->
+                <!--<td>{{p.over}}</td>-->
+                <!--</tr>-->
+                <!--<tr ng-show="!$data || $data.length === 0">-->
+                <!--<td colspan="3">-->
+                <!--<i class="txtIcon mt30"></i>-->
+
+                <!--<p class="col999 mb30 mt10">找不到相应内容</p>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <!--</table>-->
+
+            </div>
+
+
+        </div>
+
+
+        <!--<td data-title="项目名称">{{p.number}}</td>-->
+        <!--<td data-title="投资金额（元）">{{p.capital}}</td>-->
+        <!--<td data-title="剩余应收本息(元)">{{p.interest}}</td>-->
+        <!--<td data-title="月还款额(元)">{{p.total}}</td>-->
+        <!--<td data-title="已还/总期数">{{p.over}}</td>-->
+        <!--<td data-title="当前状态 ">{{p.over}}</td>-->
+        <!--<td data-title="下期还款日">{{p.over}}</td>-->
+        <!--<td data-title="操作">{{p.over}}</td>-->
+        <!--<td data-title="下载借款协议">{{p.over}}</td>-->
+
+    </div>
+</div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

@@ -1,0 +1,16 @@
+.ml70{margin-left:70px;}
+.tabbox ul{display: inline-block;margin-right:-40px;overflow: hidden;}
+.tabbox ul li{float:left;margin-right:10px;display:inline-block;margin-top:20px;width:430px;}
+.boxL{background:#ff6666;color:#fff;width:22%;padding:60px 20px 20px 20px;border-radius: 0px 10px 10px 0px;}
+.boxL i{background-image: url(../../assets/images/allicon.png);background-position:-441px -361px;background-repeat:no-repeat;display:inline-block;width:60px;height:60px;top:0px;left:0px;}
+.packetIcon{background-image: url(../../assets/images/allicon.png);background-position:-322px -445px;background-repeat:no-repeat;display:inline-block;width:80px;height:80px;top:0px;right:5px;}
+.boxR{border:1px solid #d5dfe5;padding:20px;line-height:21px;width:55%;border-radius: 10px 0px 0px 10px;border-left:1px dashed #ff6633;}
+.boxR label{color:#999;width:70px;}
+.boxR button{background:#ff6666;color:#fff;border:none;padding:5px 0px;width:100px;text-align:center;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+.cash .boxR button{background:#d5dfe5;}
+.expired .boxL{background:#ecf0f5;color:#999;}
+.expired .packetIcon{background-position:-415px -440px;top:0px;right:5px;}
+.expired .boxR{border-left:1px dashed #d5dfe5;}
+.expired .boxR button{background:#d5dfe5;}
+.expired .boxL i{background-position:-374px -360px;}
+.packetImg{background-image: url(../../assets/images/allicon.png);background-position:-522px -551px;background-repeat:no-repeat;display:inline-block;width:120px;height:150px;top:0px;left:0px;}

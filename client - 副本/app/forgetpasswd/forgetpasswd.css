@@ -1,0 +1,48 @@
+.w310{width:310px;}
+.findPassword{background:#fff;width:100%;min-height:500px;border:1px solid #d5dfe5;}
+.step{background: url(../../assets/images/password.png) no-repeat;background-position:0px 0px;width:700px;height:75px;margin:70px auto;}
+.step ul li{float:left;margin:50px 220px 0px 0px;font-size:16px;}
+.step ul li:last-child{margin-right:0px;}
+.step ul li.hover{color:#089bff;}
+.step01{background-position:0px -80px;}
+.step02{background-position:0px -165px;}
+.registerWrapper .container h2 span{color:#999;border-left:1px solid #d5dfe5;padding-left:15px;margin: 28px 0px 0px 10px;}
+.registerWrapper .container h2 font{color:#333;margin-top:50px;}
+.registerForm div p select{border:1px solid #dedfe5;padding:10px;width:300px;}
+.registerForm div.line{border-bottom:1px dotted #d5dfe5;width:55%;margin:14px auto 20px auto;}
+.registerForm div.problem{background:#f5f7fa;width:55%;padding-top:1%;margin-bottom:0px;}
+.modifypwdForm div.problem div{margin-bottom:0px;}
+.forgetFooter{background:#d5dfe5;padding-top:40px;width:100%;padding:15px 0px;color:#999;}
+.forgetFooter .container ul li{float:left;margin-right:20px;}
+.footerRight{border-left:1px solid #a8b6be;line-height:32px;padding-left:50px;color:#333;}
+.footerRight span{color:#999;}
+.footerRight ul li a{color:#71858f;}
+.sucIcon{background: url(../../assets/images/allicon.png) no-repeat;background-position: -370px 0px;display: inline-block;width: 120px;height: 160px;}
+.registerForm p{color:#999;}
+.next_enable { width: 320px;background: #089bff; color: #fff;height: 48px;border: none;border-radius: 3px;-moz-border-radius: 3px; -webkit-border-radius: 3px;cursor: pointer;padding: 0px;}
+.next_disable { width: 320px;background: #C0C0C0; color: #fff;height: 48px;border: none;border-radius: 3px;-moz-border-radius: 3px; -webkit-border-radius: 3px;cursor: pointer;padding: 0px;}
+.sendVerification {
+    background: #C0C0C0;
+    color: #fff;
+    width: 130px;
+    height: 46px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    line-height: 43px;
+    margin-bottom: 0px;
+    margin-left: 1px;border:none;margin-left:5px;
+}
+
+.sendChkVerification {
+    background: #81d8ff;
+    color: #fff;
+    width: 130px;
+    height: 46px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    line-height: 43px;
+    margin-bottom: 0px;
+    margin-left: 1px;border:none;margin-left:5px;
+}

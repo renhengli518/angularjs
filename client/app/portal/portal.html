@@ -1,0 +1,342 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="">
+
+    <div class="carousel slide" style="height:380px;">
+        <carousel interval="myInterval" id="portalBackgroundCarousel">
+            <!--slide ng-repeat="slide in sliders" active="slide.active">
+                <img ng-src="{{slide.image}}" style="margin:auto;">
+            </slide-->
+            <slide class="slide_01" ng-repeat="slider in imageSliders">
+                <a style="background: url('{{slider}}') 50% 50% no-repeat; display: list-item;height:380px;"></a>
+            </slide>
+            <!--<slide class="slide_02">-->
+            <!--<a style="background: url('assets/images/banner2.png') 50% 50% no-repeat; display: list-item;height:380px;"></a>-->
+            <!--</slide>-->
+            <!--<slide class="slide_03">-->
+            <!--<a style="background: url('assets/images/banner3.png') 50% 50% no-repeat; display: list-item;height:380px;"></a>-->
+            <!--</slide>-->
+            <!--<slide class="slide_04">-->
+            <!--<a style="background: url('assets/images/banner4.png') 50% 50% no-repeat; display: list-item;height:380px;"></a>-->
+            <!--</slide>-->
+        </carousel>
+        <!--div class="banner">
+            <ul>
+                <li style="background: url('assets/images/banner1.png') 50% 50% no-repeat; display: list-item">
+
+                </li>
+
+                <li style="background: url('assets/images/banner2.png') 50% 50% no-repeat;display: list-item">
+
+                </li>
+
+                <li style="background: url('assets/images/banner3.png') 50% 50% no-repeat;display: list-item">
+
+                </li>
+
+                <li style="background: url('assets/images/banner4.png') 50% 50% no-repeat;display: list-item">
+
+                </li>
+            </ul>
+        </div-->
+        <div class="loginWrapper pa">
+            <div class="loginBd pr">
+                <div class="loginBox pa" ng-show="!isLogin()">
+                    <p class="f16 ml10">年利率 <em>高达</em></p>
+
+                    <p class="f88 ml10"><em>13.0</em><i class="f36">%</i></p>
+
+                    <div class="rate mb10">
+                        <p class="fl mod-a">
+                            <span class="f30"><em>4.73</em>倍</span>
+                            <span class="f14 mt5">定期存款收益</span>
+                        </p>
+
+                        <p class="fl">
+                            <span class="f30"><em>37</em>倍</span>
+                            <span class="f14 mt5">活期存款收益</span>
+                        </p>
+                    </div>
+                    <div class="submit">
+                        <button ui-sref="register" class="btn f18 mb10">免费注册</button>
+                    </div>
+                    <p ui-sref="login" class="fr">已有账号,<a href="">立即登录</a></p>
+                </div>
+
+                <div class="loginBox isLoginBox pa" ng-show="isLogin()">
+                    <p class="f24 col999 fb">您好， <span class="colf63">{{accountInfo.UserName||username_1}} </span></p>
+
+                    <p class="f18 mt20">欢迎来到 维金荟</p>
+
+                    <p class="mt50 submit">
+                        <button class="btn recharge" ui-sref="invest">我要投资</button>
+                        <button class="btn" ui-sref="account">进入账户</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="announcement pa">
+            <div class="container" id="s1">
+                <i class="fl mt5"></i>
+                <ul class="fl">
+                    <li ng-repeat="an in boards">
+                        <a href="/#/announcementdetails/{{an.messageSequence}}">
+                            {{an.messageTitle}}
+                        </a>
+                    </li>
+                </ul>
+                <a class="fr" ui-sref="announcement">更多</a>
+            </div>
+        </div>
+    </div>
+    <div class="modWrapper">
+        <div class="container fb">
+            <ul>
+                <li class="mod-a">
+                    <div class="pr imglist">
+                        <!--a class="bg" href=""></a-->
+                        <span></span>
+                    </div>
+                    <p class="f20 mt20"><span class="colf63 f24">低</span>起点&nbsp;&nbsp;<span class="colf63 f24">高</span>收益
+                    </p>
+
+                    <p class="mt10 col999"><span class="colf63">50元</span>起投点<br/>也能有<span class="colf63">13%</span>年利率
+                    </p>
+                </li>
+                <li class="mod-b">
+                    <div class="pr imglist">
+                        <!--a class="bg bg02" href=""></a-->
+                        <span class="img02"></span>
+                    </div>
+                    <p class="f20 mt20"><span class="colf63 f24">双重</span>保障</p>
+
+                    <p class="mt10 col999"><span class="colf63">7天</span>逾期无理由垫付<br/><span class="colf63">充足</span>风险备用金保障
+                    </p>
+                </li>
+                <li class="mod-c">
+                    <div class="pr imglist">
+                        <!--a class="bg" href=""></a-->
+                        <span class="img03"></span>
+                    </div>
+                    <p class="f20 mt20"><span class="colf63 f24">双重</span>托管</p>
+
+                    <p class="mt10 col999"><span class="colf63">支付、国有银行</span>双托管<br/>资金安全&nbsp;&nbsp;信息透明</p>
+                </li>
+                <li class="mod-d">
+                    <div class="pr imglist">
+                        <!--a class="bg bg02" href=""></a-->
+                        <span class="img04"></span>
+                    </div>
+                    <p class="f20 mt20"><span class="colf63 f24">智慧</span>投资</p>
+
+                    <p class="mt10 col999"><span class="colf63">小额、分散</span>投资策略<br/>简单便捷、投资无忧</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container pr">
+        <h1 class="upDown pa" onclick="subFn(this)">
+            <i class="ml10"></i>
+            <span class="f18 ml10">开始赚钱</span>
+            <a class="ml20 mt5 up" href="javaScript:;"></a>
+        </h1>
+    </div>
+    <div class="stepWrapper">
+        <div class="container pr">
+            <p class="pa guide"><i></i><a class="f14" ui-sref="guide">查看详细攻略</a></p>
+
+            <p class="pa money"><i></i><a class="f14" ng-click="earnMoney()" href="">马上开始赚钱</a></p>
+        </div>
+    </div>
+    <div class="itemWrapper">
+        <div class="container">
+            <h2>
+                <span class="f18 fl"><i class="mr10"></i>精选投资项目</span>
+                <dl class="fl time">
+                    <dt class="ml30"></dt>
+                    <dd ng-class="{special_date: publishTime.current}" ng-repeat="publishTime in publishTimes">
+                        {{publishTime.time}}
+                    </dd>
+                </dl>
+                <p class="fr">
+                    <span>总是投不到?想要快人一步,试试 </span>
+                    <button ng-show="show" ui-sref="auto-invest" class="ml10 autoInvest f14 fr">自动投资</button>
+                    <button ng-show="show1" ui-sref="onetouch" class="ml10 autoInvest f14 fr">自动投资</button>
+                    <button ng-show="show2" ui-sref="buffet" class="ml10 autoInvest f14 fr">自动投资</button>
+                </p>
+            </h2>
+        </div>
+    </div>
+    <div class="container itemList">
+        <div class="mt20 mb15 mod">
+            <p class="fl">
+                <span class="pr10 colGreen"><em class="ensure">保</em>本息保障计划</span>
+                <span class="pr10"><em class="low">低</em>50元超低投资起点</span>
+            </p>
+            <a class="more fr" ui-sref="invest">更多</a>
+        </div>
+        <ul>
+            <li ng-repeat="product in productList">
+                <div latest-loan="product"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="compareWrapper">
+        <div class="container">
+            <div class="mod-a fl">
+                <h4 class="f18"><i></i>收益对比</h4>
+                <img class="pl30 pt5" src="assets/images/compare.png"/>
+            </div>
+            <div class="mod-b fl">
+                <h4 class="f18"><i></i>媒体报道 <a class="fr f14" href="#/media" target="_blank">更多</a></h4>
+
+                <div id="content" class="pr">
+                    <div id="slides">
+                        <!--ul>
+                            <li class="flowctrl"><a class="link01" href="javascript:void(0);"></a></li>
+                            <li class="flowctrl"><a class="link02" href="javascript:void(0);"></a></li>
+                            <li class="flowctrl"><a class="link01" href="javascript:void(0);"></a></li>
+                            <li class="flowctrl"><a class="link02" href="javascript:void(0);"></a></li>
+                        </ul-->
+                    </div>
+                    <carousel interval="mediaInterval" id="mediaCarousel">
+                        <slide>
+                            <div class="pr">
+								<span>
+								  <a href="#/mediadetails/details02" ui-sref="mdeia" target="_blank">
+                                      <p>人民网上海10月30日电
+                                          （记者谢卫群）上海静安维信小额贷款有限公司今天开业，这是上海市城区第一家外资小额贷款公司，该公司由香港维信理财有限公司和境内的光大资本共同出资成立，注册资本金2亿元人民币。至此，上海小额贷款公司达116家，累计放款达到了1350元，贷款余额200亿元。</p>
+
+                                      <p>上海静安维信小额贷款有限公司秉承
+                                          “数据驱动、小额分散”的理念，聚焦国内小微企业经营性贷款及个人消费信用贷款市场，致力于经营法人贷和流水贷等小微企业信贷产品、丽人贷和高薪贷等消费金融产品、快e贷和网商贷等互联网金融产品，以多元化的产品及业务模式，努力成为市场佼佼者。</p>
+
+                                      <p>香港维信理财公司总裁廖世宏先生在接受记者采访时表示：
+                                          “作为国内开展数据金融业务的领导者，维信理财将致力于开拓互联网金融领域，努力创新产品和商业模式，让普惠金融服务触手可及。” </p>
+                                  </a>
+								</span>
+                            </div>
+                        </slide>
+                        <slide>
+                            <div class="pr">
+								<span>
+								  <a href="#/mediadetails/details01" ui-sref="mdeia" target="_blank">
+                                      <p>
+                                          大公财经上海二十日电（记者郑晓舟）提起金融家，总是会联想到高盛、美林这样的“高大洋”的名字，若是金融家和草根创业家联系在一起，不免有些别扭。不过，一个香港青年廖世宏却做到了这一点。</p>
+
+                                      <p>他是一个金融家，同时，他还是一个草根创业家。一个怀揣着理想和梦想，在上海创业，并且实践自己商业梦想的香港青年。</p>
+
+                                      <p>廖世宏的维信理财，专注于无抵押贷款，如今月新增放贷量已经达到2.5亿元。在一个金融的细分领域，香港青年廖世宏在内地闯出了一片新天地。</p>
+                                  </a>
+								</span>
+                            </div>
+                        </slide>
+                        <slide>
+                            <div class="pr">
+								<span>
+								  <a href="#/mediadetails/details02" ui-sref="mdeia" target="_blank">
+                                      <p>人民网上海10月30日电
+                                          （记者谢卫群）上海静安维信小额贷款有限公司今天开业，这是上海市城区第一家外资小额贷款公司，该公司由香港维信理财有限公司和境内的光大资本共同出资成立，注册资本金2亿元人民币。至此，上海小额贷款公司达116家，累计放款达到了1350元，贷款余额200亿元。</p>
+
+                                      <p>上海静安维信小额贷款有限公司秉承
+                                          “数据驱动、小额分散”的理念，聚焦国内小微企业经营性贷款及个人消费信用贷款市场，致力于经营法人贷和流水贷等小微企业信贷产品、丽人贷和高薪贷等消费金融产品、快e贷和网商贷等互联网金融产品，以多元化的产品及业务模式，努力成为市场佼佼者。</p>
+
+                                      <p>香港维信理财公司总裁廖世宏先生在接受记者采访时表示：
+                                          “作为国内开展数据金融业务的领导者，维信理财将致力于开拓互联网金融领域，努力创新产品和商业模式，让普惠金融服务触手可及。” </p>
+                                  </a>
+								</span>
+                            </div>
+                        </slide>
+                        <slide>
+                            <div class="pr">
+								<span>
+								  <a href="#/mediadetails/details01" ui-sref="mdeia" target="_blank">
+                                      <p>
+                                          大公财经上海二十日电（记者郑晓舟）提起金融家，总是会联想到高盛、美林这样的“高大洋”的名字，若是金融家和草根创业家联系在一起，不免有些别扭。不过，一个香港青年廖世宏却做到了这一点。</p>
+
+                                      <p>他是一个金融家，同时，他还是一个草根创业家。一个怀揣着理想和梦想，在上海创业，并且实践自己商业梦想的香港青年。</p>
+
+                                      <p>廖世宏的维信理财，专注于无抵押贷款，如今月新增放贷量已经达到2.5亿元。在一个金融的细分领域，香港青年廖世宏在内地闯出了一片新天地。</p>
+                                  </a>
+								</span>
+                            </div>
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="linkWrapper">
+    <div class="container">
+        <div class="mod f18" ui-sref="partner">
+            <h4><i></i>合作机构</h4>
+            <ul>
+                <li><a href=""><img onmouseover="this.src='../../assets/images/vcredit.png'"
+                                    onmouseout="this.src='../../assets/images/vcredit_hover.png'"
+                                    src="../../assets/images/vcredit_hover.png"/></a></li>
+                <li><a href=""><img onmouseover="this.src='../../assets/images/chinaums.png'"
+                                    onmouseout="this.src='../../assets/images/chinaums_hover.png'"
+                                    src="../../assets/images/chinaums_hover.png"/></a></li>
+                <li><a href=""><img onmouseover="this.src='../../assets/images/ccb.png'"
+                                    onmouseout="this.src='../../assets/images/ccb_hover.png'"
+                                    src="../../assets/images/ccb_hover.png"/></a></li>
+                <li><a href=""><img onmouseover="this.src='../../assets/images/cis.png'"
+                                    onmouseout="this.src='../../assets/images/cis_hover.png'"
+                                    src="../../assets/images/cis_hover.png"/></a></li>
+                <li><a href=""><img onmouseover="this.src='../../assets/images/chinapnr.png'"
+                                    onmouseout="this.src='../../assets/images/chinapnr_hover.png'"
+                                    src="../../assets/images/chinapnr_hover.png"/></a></li>
+            </ul>
+        </div>
+        <!--div class="mod mod-a f18">
+            <h4><i></i>交易数据</h4>
+            <ul>
+                <li>
+                    <p><span class="f28 colGreen">9,477,942.83</span>元</p>
+
+                    <p>累计成交</p>
+                </li>
+                <li>
+                    <p><span class="f28 colOrange">9,477,942.83</span>元</p>
+
+                    <p>累计成交</p>
+                </li>
+            </ul>
+        </div-->
+    </div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>
+
+
+</div>
+<script>
+    $('.banner').unslider({
+        speed: 500,               //  The speed to animate each slide (in milliseconds)
+        delay: 3000,              //  The delay between slide animations (in milliseconds)
+        complete: function () {
+        },  //  A function that gets called after every slide animation
+        keys: true,               //  Enable keyboard (left, right) arrow shortcuts
+        dots: true,               //  Display dot navigation
+        fluid: false
+    });
+
+
+    (function () {
+        $('.imglist').hover(function () {
+                $(this).children('.bg').css({
+                    'transform': 'rotate(90deg)',
+                    '-webkit-transform': 'rotate(90deg)',
+                    '-moz-transform': 'rotate(90deg)'
+                });
+            },
+            function () {
+                $(this).children('.bg').css({
+                    'transform': 'rotate(0deg)',
+                    '-webkit-transform': 'rotate(0deg)',
+                    '-moz-transform': 'rotate(0deg)'
+                });
+            })
+    })();
+    
+</script>
+

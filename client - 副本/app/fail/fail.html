@@ -1,0 +1,65 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+		<!--开通第三方支付失败-->
+		<div class="tc mt20 errorForm" ng-show="divParam === 'thirdAccountFail'">
+			<span class="errorIcon mt100"></span>
+			<p class="f22 col999">开通第三方支付失败</p>
+			<p class="col999 mt10">您现在可以重新 <a ng-click="openAccount()">开通</a>，或是<a href="#/invest">随便逛逛</a></p>
+		</div>
+		<!--投资失败-->
+		<div class="tc mt20 errorForm" ng-show="divParam === 'investSuccessFail'">
+			<span class="errorIcon mt100"></span>
+			<p class="f22 col999">支付失败，请重新投资</p>
+			<p class="col999 mt10">您现在可以重新 <a href="#/invest">投资</a>，或是<a href="#/invest">随便逛逛</a></p>
+		</div>		
+		<!--充值失败-->
+		<div class="tc mt20 errorForm" ng-show="divParam === 'topupSuccessFail'">
+			<span class="errorIcon mt100"></span>
+			<p class="f22 col999">充值失败，请重新充值</p>
+			<p class="col999 mt10">您现在可以重新<a href="#/deposit">充值</a>，或是<a href="#/invest">随便看看</a></p>
+			<div class="depositFail">
+				<div>
+					<p class="mb10">总是投不到?想要快人一步,试试</p>
+					<p><a ng-click="autoInvest()" class="btn autoinvestBtn f16 bgf63"><i></i>自动投资</a></p>
+				</div>
+			</div>
+		</div>
+		<!--取现失败-->
+		<div class="tc mt20 errorForm" ng-show="divParam === 'applySuccessFail'">
+			<span class="errorIcon mt100"></span>
+			<p class="f22 col999">取现失败，请重新取现</p>
+			<p class="col999 mt10">您现在可以<a href="#/account">返回</a>我的账户，或是重新<a href="#/apply">取现</a></p>
+		</div>
+		<!--邮箱修改失败-->
+		<div class="tc mt20 errorForm" ng-show="divParam === 'emailFail'">
+			<span class="errorIcon mt100"></span>
+			<p class="f22 col999">邮箱修改失败</p>
+		</div>
+		<!--邮箱绑定失败-->
+		<div class="tc mt20 errorForm" ng-show="divParam === 'emailBindFail'">
+			<span class="errorIcon mt100"></span>
+			<p class="f22 col999">邮箱绑定失败</p>
+		</div>
+		<!--银行卡添加失败-->
+		<div class="tc mt20 errorForm" ng-show="divParam === 'bindCardFail'" >
+			<span class="errorIcon mt100"></span>
+			<p class="f22 col999">添加银行卡失效</p>
+			<p class="col999 mt10">您现在可以重新<a href="#/apply">添加</a>银行卡</p>
+		</div>
+		<!--操作失败-->
+		<div class="tc mt20 errorForm" ng-show="divParam === 'unknownFail'">
+			<span class="errorIcon mt100"></span>
+			<p class="f22 col999">操作失败</p>
+		</div>
+		<!--生成投资者pdf失败-->
+		<div class="tc mt20 errorForm" ng-show="divParam === 'vesterPdfFail'">
+			<span class="errorIcon mt100"></span>
+			<p class="f22 col999">生成投资者pdf失败:{{errMsg}}</p>
+		</div>
+		<span class="errCode">{{errCode}}</span>
+		<span class="errMsg">{{errMsg}}</span>
+	</div>  
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

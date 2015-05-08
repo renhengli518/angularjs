@@ -1,0 +1,289 @@
+.ml105 {
+    margin-left: 105px;
+}
+
+.pl40 {
+    padding-left: 40px;
+}
+
+.registerWrapper {
+    z-index: 10000;
+    width: 100%;
+    background: #ecf0f5;
+    min-height: 844px;
+}
+
+.registerCont{background:url(../../assets/images/registerBg.png) no-repeat;}
+.registerWrapper .container h1 {
+    margin-top: 35px;
+    margin-left: 35%;
+    display: inline-block;
+    margin-bottom: 35px;
+}
+
+.registerWrapper .container h1 span {
+    display: inline-block;
+    color: #999;
+    line-height: 80px;
+}
+
+.registerForm {
+    background: #fff;
+    border: 1px solid #ecf0f5;
+    width: 100%;
+    display: inline-block;
+    padding: 0px 0px 70px 0px;margin-bottom:40px;min-height:500px;
+}
+.registerWrapper .ng-isolate-scope{width: 128px;display: inline-block;margin-left:5px;height:46px;}
+.registerWrapper .ng-isolate-scope img{width:128px;height:46px;}
+.registerIcon {
+    border-top: 1px solid #d5dfe5;
+    max-width: 320px;
+    margin: 50px auto;
+}
+
+.registerIcon i {
+    background: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    background-position: -50px -395px;
+    top: -30px;
+    left: 45%;
+}
+
+.registerWrapper .registerForm input {
+    height: 44px;
+    border: 1px solid #dedfe5;
+    color: #333;
+}
+.registerWrapper .registerForm input.next_enable{color:#fff;}
+.registerWrapper .container form span {
+    background-image: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    top: 6px;
+    left: 5px;
+}
+.registerWrapper .registerForm input[type="button"]{color:#fff;background:#d5dfe5;}
+.registerForm form p {
+    display: inline-block;
+}
+
+.registerForm form {
+    margin-left: 27.6%;margin-top: 60px;
+}
+
+.registerForm form label {
+    min-width: 80px;
+    text-align: right;
+    display: inline-block;
+    margin-right: 20px;
+    line-height: 48px;
+}
+
+.registerForm form div {
+    margin-bottom: 10px;
+    width: 100%;
+    display: inline-block;
+}
+
+.registerForm form div button {
+    width: 320px;
+}
+
+.phoneLabel {
+    background-position: -38px -452px;
+}
+
+.registerForm form div.msgCnt {
+    max-width: 300px;
+    display: inline-block;
+    background: #ecf0f5;
+    padding: 5px 10px 0px 10px;
+    height: 43px;
+    margin-bottom: 0px;
+    width: auto;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.registerForm form div p font {
+    color: #ff723b;
+}
+
+.registerWrapper .container form .msgCnt span {
+    background: none;
+    width: auto;
+    height: auto;
+    top: 0px;
+    left: 0px;
+}
+
+.registerWrapper .container form .msgCnt span em {
+    float: left;
+    width: 40px;
+    height: 8px;
+    background: #d5dfe5;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-right: 3px;
+}
+
+.registerWrapper .container form .msgCnt span em.normalRedBg {
+    background: #ff6666;
+}
+.registerWrapper .container form .msgCnt span em.normalRedBg1 {
+    background: #ff6666;
+}
+.registerWrapper .container form .msgCnt span em.normalRedBg2 {
+    background: #ff6666;
+}
+.registerWrapper .container form .msgCnt span em.normalRedBg3 {
+    background: #ff6666;
+}
+
+.registerWrapper .container form .msgCnt span em.normalOrangeBg {
+    background: #ffb135;
+}
+.registerWrapper .container form .msgCnt span em.normalOrangeBg1 {
+    background: #ffb135;
+}
+.registerWrapper .container form .msgCnt span em.normalOrangeBg2 {
+    background: #ffb135;
+}
+.registerWrapper .container form .msgCnt span em.normalOrangeBg3 {
+    background: #ffb135;
+}
+
+.registerWrapper .container form .msgCnt span em.normalGreenBg {
+    background: #008000;
+}
+.registerWrapper .container form .msgCnt span em.normalGreenBg1 {
+    background: #008000;
+}
+.registerWrapper .container form .msgCnt span em.normalGreenBg2 {
+    background: #008000;
+}
+.registerWrapper .container form .msgCnt span em.normalGreenBg3 {
+    background: #008000;
+}
+
+.registerForm form div.msgError {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    max-width: 300px;
+    display: inline-block;
+    background: #ffe9e9;
+    padding: 0px 10px;
+    height: 48px;
+    margin-bottom: 0px;
+    width: auto;
+    line-height: 48px;
+    min-width: 300px;
+}
+
+.registerForm form div.msgError i {
+    background: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-position: -85px -457px;margin-top:12px;
+}
+
+.registerForm form div.msgSuc {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    max-width: 300px;
+    display: inline-block;
+    height: 48px;
+    margin-bottom: 0px;
+    width: auto;
+    line-height: 48px;
+    min-width: 300px;
+}
+
+.registerForm form div.msgSuc i {
+    background: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-position: -86px -527px;
+}
+
+.registerForm form div.sendChk {
+    background: #81d8ff;
+    color: #fff;
+    width: 130px;
+    height: 48px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    line-height: 48px;
+    margin-bottom: 0px;
+}
+
+.registerForm form div.send {
+    background: #C0C0C0;
+    color: #fff;
+    width: 130px;
+    height: 48px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    line-height: 48px;
+    margin-bottom: 0px;
+}
+
+/*.sendVerification {
+    background: #C0C0C0;
+    color: #fff;
+    width: 130px;
+    height: 43px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    line-height: 43px;
+    margin-bottom: 0px;
+    margin-left: 1px;
+}*/
+
+.sendVerification {
+    background: #d5dfe5;
+    color: #fff;
+    width: 130px;
+    height: 44px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    line-height: 43px;
+    margin-bottom: 0px;
+    margin-left: 1px;border:none;margin-left:5px;
+}
+
+.sendChkVerification {
+    background: #81d8ff;
+    color: #fff;
+    width: 130px;
+    height: 44px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    line-height: 43px;
+    margin-bottom: 0px;
+    margin-left: 1px;border:none;margin-left:5px;
+}
+.bgf63{background:#ff6633;}
+.bgf63:hover{background:#ffb135;}
+.registerWrapper .container form span.errorIcon{background-position:-89px -493px;top:12px;left:155px;width:22px;height:22px;}
+.registerWrapper .container form span.rightIcon{background-position: -88px -528px;top:12px;left:155px;width:22px;height:22px;}

@@ -1,0 +1,6 @@
+.wrapper ul{display:inline-block;width:77%;margin:20px 0px 20px 60px;}
+.wrapper ul li{width:95%;margin-bottom:20px;list-style:square;color:#0099ff}
+.wrapper ul li a{color:#333;}
+.wrapper ul li a:hover{color:#09f;}
+.aboutRight .wrapper a{color:#333;}
+.aboutRight .wrapper a:hover{color:#f63;}

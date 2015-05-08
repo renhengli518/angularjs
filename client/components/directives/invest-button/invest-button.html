@@ -1,0 +1,20 @@
+<a ng-show="displayName === '立即投资'" class="btn f16 mb10 ml30" href="#/investitem/{{id}}"
+   target="_blank" >立即投资</a>
+
+<div ng-mouseover="showfull = true" ng-mouseleave="showfull = false">
+	<a ng-show="displayName === '已满标'"class="btn f16 mb10 ml30 fullBtn" href="javascript:void(0)" >已满标</a>
+	<p ng-show="showfull" class="pa fullMsg">
+		<span class="arrow pa"></span>
+		<span class="pa autoMsgBox"><i></i><span class="fl w250 mt5">已满标，想要快人一步？试试 
+		<a ng-show="show===1" href="#/invest/auto">自动投资</a>
+		<a ng-show="show===2" href="#/onetouch">自动投资</a>
+		<a ng-show="show===3" href="#/buffet">自动投资</a>
+		
+		</span></span>
+	</p>
+</div>
+
+<a ng-show="displayName === '还款中'"class="btn f16 mb10 ml30 backBtn" href="javascript:void(0)" >还款中</a>
+<!-- <a   ng-show="displayName === '已流标'"class="btn f16 mb10 ml30 disable-color" href="javascript:void(0)" > -->
+<a   ng-show="displayName === '已流标'"class="btn f16 mb10 ml30 backBtn" href="javascript:void(0)" >已流标</a>
+

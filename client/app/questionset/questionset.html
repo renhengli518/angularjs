@@ -1,0 +1,72 @@
+<div ng-include="'app/header/header.html'"></div>
+<div class="registerWrapper" ng-init="ready()">
+    <div class="container">
+        <h2>
+            <a class="fl logo" href="#/"></a>
+            <span class="fl f22">设置安全保护问题</span>
+        </h2>
+
+        <div class="registerForm modifypwdForm pr" ng-show="step===1">
+            <a class="pa cancel" ui-sref="account-security"> X 取消</a>
+
+            <form name="questionSetForm">
+                <div class="problem" ng-repeat="ql in questionObjList">
+                    <div>
+                        <label class="fl">安全问题</label>
+
+                        <p class="pr fl">
+                            <select ng-model="ql.question" ng-click="removeInfo()">
+                                <option ng-selected="false" value='{{t.SystemQuestionSequence}}'
+                                        ng-repeat='t in systemQuestion'>{{t.QuestionText}}
+                                </option>
+                                <!--<option>您去的是在哪里？</option>-->
+                            </select>
+                        </p>
+                        <a ng-show="$index === 0" class="fl mt10 ml10" href="" ng-click="addQuestion()">添加问题</a>
+                        <a ng-show="$index > 0" class="fl mt10 ml10" href="" ng-click="removeQuestion(ql.id)">删除</a>
+                    </div>
+                    <div>
+                        <label class="fl">答案</label>
+
+                        <p class="pr fl">
+                            <input name="accountQuestionAnswer" ng-model="ql.answer" ng-required="true"
+                                   class="w310 pl10 ng-pristine ng-invalid ng-invalid-required ng-valid-pattern"
+                                   ng-pattern="/^[a-zA-Z0-9\u4e00-\u9fa5]+$/" type="text" placeholder="请输入字母,数字或中文"
+                                   required="required">
+                        </p>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <label class="fl">登录密码</label>
+
+                    <p class="pr fl">
+                        <span class="passwordLabel pa"></span>
+                        <input type="password" name="password" ng-model="password" ng-required="true"
+                               ng-pattern="/^[0-9A-Za-z]{6,16}$/" ng-focus="msg_flag = false"
+                               class="w280 pl40 ng-pristine ng-invalid ng-invalid-required ng-valid-pattern"
+                               placeholder="请输入登录密码">
+                    </p>
+
+                    <div class="msgError fl f14 ml10"
+                         ng-show="msg_flag">
+                        <i class="vm mr10"></i>{{msg}}
+                    </div>
+                </div>
+
+                <div class="ml120">
+                    <input class="next_enable f18" ng-disabled="questionSetForm.$invalid"
+                           ng-click="submitForm(questionSetForm.$valid)" type="button" value="下一步"/>
+                </div>
+            </form>
+        </div>
+        <div class="tc registerForm modifypwdForm pr" ng-show="step===2">
+            <span class="sucIcon mt100"></span>
+
+            <p class="f22 mt20">恭喜您设置安全保护问题成功</p>
+
+            <p class="f14 mt20">你现在可以返回 <a ui-sref="account-detail">个人资料</a>，或是去<a ui-sref="invest">投资</a></p>
+        </div>
+    </div>
+</div>
+<div ng-include="'app/footer/loginfooter.html'"></div>

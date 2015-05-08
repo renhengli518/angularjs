@@ -1,0 +1,13 @@
+{
+  "name": "stickUp",
+  "homepage": "https://github.com/shawnLiujianwei/stickUp",
+  "_release": "72a0cd9faa",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "72a0cd9faa38e87fc65eedb55c538a5fd1f9d959"
+  },
+  "_source": "https://github.com/shawnLiujianwei/stickUp.git",
+  "_target": "master",
+  "_originalSource": "https://github.com/shawnLiujianwei/stickUp.git"
+}

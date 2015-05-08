@@ -1,0 +1,641 @@
+.animate-show {
+}
+
+.mt25 {
+    margin-top: 25px;
+}
+
+.investWrapper {
+    z-index: 10000;
+    background: #eceff4;
+    padding: 10px 0px 20px 0px;
+    min-height: 700px;
+}
+
+.investWrapper .investProgress {
+    background: #fff;
+    border: 1px solid #d5dfe5;
+    display: inline-block;
+    width: 1168px;
+}
+
+.investWrapper .investProgress .investProgressSpan {
+    border-right: 1px dotted #abbfcb;
+    padding-right: 20px;
+    margin: 35px 20px 10px 50px;
+    /*line-height:50px;*/
+}
+
+.investWrapper .investProgress .investProgressUl li {
+    float: left;
+    margin: 0px 10px;
+    line-height: 50px;
+}
+
+.investWrapper .investProgress .timePart {
+    border-left: 1px dotted #abbfcb;
+    padding-left: 20px;
+    width: 32%;
+}
+
+.investWrapper .investProgress .timePart dl {
+    background: #f5f7fa;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 5px 20px;
+}
+
+.investWrapper .investProgress .timePart dl dd {
+    float: left;
+    width: 80px;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+i.timeIcon {
+    background-image: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-position: -178px -270px;
+    width: 20px;
+    height: 20px;
+}
+
+.moreOptions {
+    background: #f5f7fa;
+    padding: 5px 20px;
+    bottom: 0px;
+    left: 50%;
+    border-radius: 3px 3px 0px 0px;
+    cursor: pointer;
+    line-height: 24px;
+}
+
+.investProgress .moreOptions:hover {
+    color: #089aff;
+}
+
+.moreOptions i {
+    background-image: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: inherit;
+}
+
+.moreOptions i.up {
+    background-position: -128px -351px;
+}
+
+.moreOptions i.pull {
+    background-position: -165px -349px;
+}
+
+.monthPart {
+    width: 90%;
+    z-index: 1;
+    height: 70px;
+}
+
+.monthPart li {
+    float: left;
+}
+
+.monthPart li p {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    display: inline-block;
+    background: #51bbff;
+    margin: 0px;
+    z-index: 999;
+}
+
+.six {
+    top: -5px;
+    left: 0px;
+}
+
+.twelve {
+    top: -5px;
+    left: 25%;
+}
+
+.eighteen {
+    top: -5px;
+    left: 50%;
+}
+
+.twenty-four {
+    top: -5px;
+    left: 75%;
+}
+
+.thirty-six {
+    top: -5px;
+    right: 0px;
+}
+
+.searchWrapper {
+    width: 100%;
+    z-index: 9;
+}
+
+.investList {
+    width: 100%;
+    display: inline-block;
+    border-bottom: none;
+}
+
+.investList table {
+    width: 100%;
+    /*border: 1px solid #d5dfe5;*/
+    background: #fff;
+}
+
+.investList thead tr {
+    border: 1px solid #d5dfe5;
+}
+
+.investList thead th {
+    background: #f5f7fa;
+
+    height: 39px;
+    /*line-height: 50px;*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.investList thead th span {
+    border-right: 1px dotted #abbfcb;
+    padding: 0px 20px 0px 30px;
+}
+
+.investList tbody tr {
+    border: 1px solid #d5dfe5;
+    border-bottom: none;
+}
+
+.investList tbody tr:last-child {
+    border-bottom: 1px solid #d5dfe5;
+}
+
+.investList tbody tr:hover {
+    border: 1px solid #50bbff;
+}
+
+.investList tbody td {
+    padding: 10px 0px;
+    /*border-bottom: 1px solid #d5dfe5;*/
+}
+
+.investList tbody td p {
+    border-right: 1px dotted #abbfcb;
+    padding: 5px 20px;
+}
+.investList tbody td p font{color:#089bff;}
+.investList tbody td .btn {
+    width: 200px;margin-top:15px;
+}
+
+.investList tbody td:last-child {
+    background: #f5f7fa;
+    border-left: 1px solid #d5dfe5;
+}
+
+.investName {
+    color: #089bff;
+}
+
+.investName em {
+    color: #fff;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    margin-right: 5px;
+    line-height: 20px;font-size:14px;
+}
+.investName a{color:#089aff;}
+.investName a:hover{color:#f63;}
+.complete {
+    border: 5px solid #ecf0f5;
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    margin: 0px 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.complete span {
+    color: #089bff;
+}
+
+.investWrapper .investList .fullBtn {
+    background: #d5dfe5;
+    color: #666;  cursor: default;
+}
+
+.investWrapper .investList .backBtn {
+    background: #d5dfe5;
+    color: #69c04f;cursor: default;
+}
+
+.investProgressLeft {
+    width: 70%;
+    padding: 20px 0px;
+}
+
+.investBox {
+    width: 100%;
+    display: inline-block;
+}
+
+.investBox label {
+
+    font-weight: normal;
+    /*line-height: 50px;*/
+}
+
+/*.progress-p{width:40px;}*/
+.investProgressLeft ul li {
+    float: left;
+    margin: 0px 10px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.investProgressRight {
+    background: #f5f7fa;
+    width: 29.9%;
+    min-height: 223px;
+    border-left: 1px solid #d5dfe5;
+}
+
+.investProgressRight dl {
+    display: inline-block;
+    padding: 5px 20px;
+}
+
+.investProgressRight dl dd {
+    float: left;
+    width: 75px;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.f50 {
+    color: #50bbff;
+    font-size: 50px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.investProgressRight .autoinvestBtn {
+    width: 175px;
+    height:46px;
+    background: #69c04f;
+    color: #fff;
+    border: none;
+    padding: 0px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-left: 10px;
+}
+
+.autoinvestBtn i {
+    background-image: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-position: -178px -300px;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.irs-with-grid {
+    height: 65px;
+}
+
+.irs-bar {
+    height: 4px;
+    top: 20px;
+    background: #50bbff;
+    border-top: 1px solid #50bbff;
+    border-bottom: 1px solid #50bbff;
+}
+
+.irs-line {
+    height: 4px;
+    top: 20px;
+    border: none;
+    background: #eee;
+}
+
+.irs-slider {
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    top: 15px;
+}
+
+.irs-from, .irs-to, .irs-single {
+    background: #50bbff;
+    top: 50px;
+    z-index: 999;
+}
+
+.progress-wrapper {
+    position: relative;
+    margin-left: 15px;
+    width:85px;
+    /*font-size: 40px;*/
+}
+
+.progress-text-circle {
+    position: absolute;
+    width: 100%;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    margin-top: 23px;
+}
+
+.progress-bar-circle {
+    position: absolute;
+    width: 100%;
+    margin-top: 40px;
+    font-size: 20px;
+    text-align: center;
+    color: #089bff;
+    font-weight: 100;
+}
+
+.isStuck {
+    background: #fff;
+    border-bottom: 1px solid #d5dfe5;
+}
+
+.isStuck .container {
+    background: #fff;
+}
+
+.isStuck .investList table {
+    background: #fff;
+    border: none;
+}
+
+.isStuck .investList thead th {
+    background: #fff;
+    border-bottom: none;
+}
+
+.monthPart .ui-widget-content {
+    height: 4px;
+    top: 22px;
+    border: none;
+    background: #eee;
+}
+
+.monthPart .ui-slider-range {
+    height: 4px;
+    background: #50bbff;
+    border-top: 1px solid #50bbff;
+    border-bottom: 1px solid #50bbff;
+}
+
+.monthPart .ui-state-default, .monthPart .ui-widget-content .ui-state-default, .monthPart .ui-widget-header .ui-state-default {
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    border: 1px solid #AAA;
+    background: #DDD;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(220, 220, 220, 1) 20%, rgba(255, 255, 255, 1) 100%);
+    border-radius: 27px;
+    -moz-border-radius: 27px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.monthPartDl {
+    top: 42px;
+    left: -22px;
+    width: 110%;
+}
+
+.monthPartDl dd {
+    float: left;
+    margin-right: 15%;
+    color: #089bff;
+    font-size: 14px;
+}
+
+.monthPartDl dd:last-child {
+    margin-right: 0px;
+}
+
+.monthPartDl dd.active_month {
+    background-color: #50bbff;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 2px 5px;
+}
+
+.column_asc {
+    color: #ff0000;
+}
+
+.column_desc {
+    color: #008000;
+}
+
+.investList thead th font {
+    display: inline-block;float:left;margin-top:5px;
+}
+
+.investList thead th font a {
+    background-image: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+}
+
+.investList thead th a.desc {
+    background-position: -213px -452px;
+    cursor: pointer;
+}
+
+.investList thead th a.asc {
+    background-position: -237px -467px;
+    cursor: pointer;
+}
+
+.sortBox {
+    border: 1px solid #d5dfe5;
+    background: #fff;
+    top: 45px;
+    text-align: center;
+    left: 0px;
+    display: inline-block;
+    width: 70px;
+    padding: 10px 10px 0px 10px;
+}
+
+.investList thead th .sortBox {
+    display: none;
+}
+
+.investList thead th .sortBox dd {
+    margin-bottom: 10px;
+}
+.investList thead th div{cursor:pointer;display:inline-block;padding:2px 15px 4px;margin-top:2px;}
+.investList thead th div:hover{background:#fff;border-radius:20px;border:1px solid #d5dfe5;}
+.investList .arrowBor {
+    border-color: transparent #d5dfe5 transparent transparent;
+    border-width: 6px;
+    border-style: solid;
+    width: 0px;
+    height: 0px;
+    display: inline-block;
+    top:47px;
+    left: -12px;
+    z-index: 0
+}
+
+.investList .arrow {
+    border-color: transparent #f5f7fa transparent transparent;
+    border-width: 6px;
+    border-style: solid;
+    width: 0px;
+    height: 0px;
+    display: inline-block;
+    z-index: 1;
+    left: -5px;
+    top: -6px;
+}
+
+.autoMsg .arrow {
+    border-color: transparent transparent #fff5d6 transparent;
+    border-width: 8px;
+    border-style: solid;
+    width: 0px;
+    height: 0px;
+    display: inline-block;
+    z-index: 1;
+    left: 200px;
+    top: -6px;
+}
+
+.autoMsgBox {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    max-width: 300px;
+    background: #fff5d6;
+    min-height: 20px;
+    margin-bottom: 0px;
+    width: auto;
+    min-width: 260px;
+    float: left;
+    line-height: normal;
+    padding: 10px;
+    z-index: 1;
+    left: 40px;
+    top: 10px;
+}
+
+.autoMsgBox i {
+    background: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-position: -128px -385px;
+    float: left;
+}
+
+.buyIcon {
+    background: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-position: -382px -229px;
+    right: 0px;
+    top: 0px;
+}
+
+.boxLeft {
+    width: 77px;
+    border-right: 1px dotted #abbfcb;
+    margin: 17px 20px 10px 50px;
+}
+
+.boxRight {
+    width: 80%;
+}
+
+.boxRight ul {
+    width: 80%;
+}
+
+.timeBox {
+    background: #fff;
+    display: inline-block;
+    width: 86%;
+}
+
+.investProgressRight .autoinvestBtn:visited {
+    background: #69c04f;
+}
+
+.investProgressRight .autoinvestBtn:hover {
+    background: #78de50;
+}
+.investProgressRight .autoinvestBtn:active {
+    background:#69c04f;
+}
+.autoMsgBox .close {
+    background-image: url(../../assets/images/allicon.png);
+    background-position: -211px -424px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    opacity: 10;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+}
+
+.timePart span {
+    color: #089aff
+}
+.investList thead th a.desc.active{background-position: -237px -452px;}
+.investList thead th a.asc.active{background-position: -213px -467px;}
+.part{background:#51bbff;width:8px;height:8px;border-radius:4px;z-index: 1;}
+.part1{top: 21px;left: -5px;}
+.part2{top: 21px;left: 25%;}
+.part3{top: 21px;left: 50%;}
+.part4{top: 21px;left: 75%;}
+.part5{top: 21px;left: 99%;}
+
+.isStuck table tr{border:none;}
+.autoinvest{display:none;}
+.result{display:inline-block;}
+.isStuck .autoinvest{display:inline-block;}
+.isStuck .result{display:none;}
+.investList tbody td.bgfff{background:#fff;}
+.bgfff .arrow{border-color: transparent #fff transparent transparent;}

@@ -1,0 +1,199 @@
+<div ng-include="'app/header/header.html'"></div>
+<div class="registerWrapper" ng-init="ready()">
+    <div class="container">
+        <h2>
+            <a class="fl logo" href="#/"></a>
+            <span class="fl f22">找回密码</span>
+            <font class="fr f14 mr10">如果忘记用户名或账户绑定的手机号码，联系客服400-456-5655</font>
+        </h2>
+
+        <div class="registerForm pr" ng-show="focusStep === 1">
+			<a class="pa cancel" ui-sref="login" href="#/login"> <i class="close"></i> 取消</a>
+            <div class="step">
+                <ul>
+                    <li class="hover">填写账户信息</li>
+                    <li>重置密码</li>
+                    <li>完成</li>
+                </ul>
+            </div>
+            <form novalidate name="registerForm">
+                <div>
+                    <label class="fl">用户名</label>
+
+                    <p class="pr fl">
+                        <span class="nameLabel pa"></span>
+                        <input ng-required="true" name="username" ng-model="username" ng-blur="accountIsExist()"
+                               ng-pattern="/^[a-zA-Z0-9-_]+$/"  class="w280 pl40" type="text"
+                               placeholder="请输入字母，数字" ng-focus="xxx=false"/>
+                    </p>
+
+                    <div class="msgError fl f14 ml10"
+                         ng-show="(registerForm.username.$viewValue==null||registerForm.username.$viewValue=='')?false: registerForm.username.$invalid">
+                        <i class="vm mr10"></i>用户名格式不正确
+                    </div>
+                    <div class="msgError fl f14 ml10" ng-show="xxx">
+                        <i class="vm mr10"></i>该账户名未注册
+                    </div>
+                </div>
+                <div>
+                    <label class="fl">手机号码</label>
+
+                    <p class="pr fl">
+                        <span class="phoneLabel pa"></span>
+                        <input id="mobile" ng-required="true" name="mobile" ng-model="mobile"
+                               ng-keyup="judgeMobileIfPass(registerForm.mobile.$valid)" ng-pattern="/^[0-9]{11}$/"
+                               class="w280 pl40" type="text" placeholder="请输入注册手机号"/>
+                    </p>
+                    <div class="msgError fl f14 ml10" ng-show="registerForm.mobile.$valid?!isNameMatchMobile:false">
+                        <i class="vm mr10"></i>用户名和手机号码不匹配
+                    </div>
+                </div>
+                <div>
+                    <label class="fl">手机动态码</label>
+
+                    <p class="pr fl">
+                        <span class="ChkCodeIcon pa"></span>
+                        <input ng-required="true" name="mobileVerificationCode" ng-model="mobileVerificationCode"
+                               ng-keyup="validMobileVerificationCode()" ng-focus="flag_x=true" class="w140 pl40" type="text" placeholder=""/>
+                        <span class="rightIcon pa"
+                              ng-show="(registerForm.mobileVerificationCode.$viewValue==null||registerForm.mobileVerificationCode.$viewValue=='')?false:(flag_x?false:flag_1)"></span>
+                        <span class="errorIcon pa"
+                              ng-show="(registerForm.mobileVerificationCode.$viewValue==null||registerForm.mobileVerificationCode.$viewValue=='')?false:(flag_x?false:!flag_1)"></span>
+                    </p>
+
+                    <!--<div id="sendXXX" class="send fl ml10 tc" ng-click="sendSecurityCode()" ng-model="securitycode"
+                         ng-class="{'sendChk':(registerForm.mobile.$viewValue==null||registerForm.mobile.$viewValue=='')?false:registerForm.mobile.$valid,'send':(registerForm.mobile.$viewValue==null||registerForm.mobile.$viewValue=='')?true:registerForm.mobile.$invalid} ">
+                        发送验证码
+                    </div>-->
+                    <button id="sendYYY" disabled="disabled" style="width:125px;" class="sendVerification" type="button"
+                            ng-click="sendSecurityCode()"
+                            ng-class="{'sendChkVerification':(registerForm.mobile.$viewValue==null||registerForm.mobile.$viewValue=='')?false:(registerForm.mobile.$valid?isNameMatchMobile:false),'sendVerification':(registerForm.mobile.$viewValue==null||registerForm.mobile.$viewValue=='')?true:(registerForm.mobile.$invalid?!isNameMatchMobile:true)} ">
+                        发送动态码
+                    </button>
+                </div>
+                <div class="ml100">
+                    <input class="next_enable f18" type="button" value="下一步"
+                           ng-disabled="xxx?true:(registerForm.$invalid||!flag_1)"
+                           ng-click="next_1(registerForm.$valid)"
+                           ng-class="{'next_enable':xxx?false:(registerForm.$valid&&flag_1),'next_disable':xxx?true:(registerForm.$invalid||!flag_1)}"/>
+                    <!--<button class="btn f18" ng-click="next_1(registerForm.$valid)">下一步</button>-->
+                </div>
+            </form>
+        </div>
+        <!--第二步-->
+        <div class="registerForm pr" ng-show="focusStep === 2">
+			<a class="pa cancel" ui-sref="login" href="#/login"> <i class="close"></i> 取消</a>
+            <div class="step step01">
+                <ul>
+                    <li class="hover">填写账户信息</li>
+                    <li class="hover">重置密码</li>
+                    <li>完成</li>
+                </ul>
+            </div>
+            <form novalidate name="validatingForm">
+                <div class="problem" ng-show="checkAccountIsSetQuestion">
+                    <div>
+                        <label class="fl">安全问题</label>
+
+                        <p class="pr fl">
+                            <!--<select ng-model="systemQuestionSequence"-->
+                                    <!--ng-options="s.systemQuestionSequence as s.questionText for s in list">-->
+                                <!--&lt;!&ndash; <option  id="systemQuestionSequence"  ng-selected="systemQuestionSequence=option.systemQuestionSequence" value="{{systemQuestionSequence}}"  ng-repeat="option in list">{{option.questionText}}</option>-->
+                                 <!--&lt;!&ndash;<option>您去的第一个海滩是在哪里？</option>-->
+                                 <!--<option>您去的是在哪里？</option>&ndash;&gt;-->
+                            <!--</select>-->
+                            <select name="questionText" ng-model="systemQuestionSequence">
+                                <option value="{{option.systemQuestionSequence}}" ng-repeat="option in list">
+                                    {{option.questionText}}
+                                </option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="pr">
+                        <label class="fl">答案</label>
+
+                        <p class="pr fl">
+                            <input name="accountQuestionAnswer" ng-model="accountQuestionAnswer" ng-required="true"
+                                   class="w310 pl10" ng-pattern="/^[a-zA-Z0-9\u4e00-\u9fa5]+$/" type="text"
+                                   placeholder="请输入字母,数字或中文" ng-focus="show=false;answerResult=true"
+                                   ng-blur="show=true"/>
+                        </p>
+
+                        <div class="msgError fl f14 ml10 pa"
+                             ng-show="show?(!answerResult):false" style="top:0px;left:420px;height:46px;">
+                            <i class="vm"></i>答案不正确
+                        </div>
+                    </div>
+                </div>
+                <div class="line" ng-show="checkAccountIsSetQuestion"></div>
+                <div>
+                    <label class="fl">登录密码</label>
+
+                    <p class="pr fl">
+                        <span class="passwordLabel pa"></span>
+                        <input type="password" name="password" ng-model="password" ng-required="true"
+                               ng-keyup="checkPasswordSecurity(this)" ng-focus="showLevel=true;show=false"
+                               ng-pattern="/^[0-9A-Za-z]{6,16}$/" class="w280 pl40" placeholder="请设置登录密码"
+                              />
+                    </p>
+
+                    <div class="msgCnt fl f12 ml10" ng-show="showLevel">
+                        <p>6-16位字符,至少包含数字,字母(区分大小写)</p>
+
+                        <p>安全程度 <span class="mima">
+                            <em ng-repeat="l1 in levels" ng-class="l1"></em>
+                        </span></p>
+                    </div>
+                </div>
+                <div>
+                    <label class="fl">确认密码</label>
+
+                    <p class="pr fl">
+                        <span class="passwordLabel pa"></span>
+                        <input ng-required="true" ng-pattern="/^[0-9A-Za-z]{6,16}$/" type="password"
+                               name="password_confirm"
+                               ng-model="password_confirm" class="w280 pl40" placeholder="请确认登录密码"
+                               ng-focus="show=false" ng-keyup="judgePwd_1()"/>
+                    </p>
+
+                    <div class="msgSuc fl f14 ml10"
+                         ng-show="show?((validatingForm.password.$viewValue==null||validatingForm.password.$viewValue=='')?false:validatingForm.password_confirm.$viewValue==validatingForm.password.$viewValue):false">
+                        <i class="vm"></i>
+                    </div>
+                    <div class="msgError fl f14 ml10"
+                         ng-show="show?((validatingForm.password_confirm.$viewValue==null||validatingForm.password_confirm.$viewValue=='')?false:validatingForm.password_confirm.$viewValue!=validatingForm.password.$viewValue):false">
+                        <i class="vm"></i>密码不一致
+                    </div>
+                </div>
+                <div class="ml100">
+                    <input class="next_enable f18" type="button" value="下一步"
+                           ng-disabled="judgePwd_x?(checkAccountIsSetQuestion?validatingForm.$invalid:(validatingForm.password.$invalid||validatingForm.password_confirm.$invalid)):true"
+                           ng-click="next_2(checkAccountIsSetQuestion?validatingForm.$valid:(validatingForm.password.$valid&&validatingForm.password_confirm.$valid))"
+                           ng-class="{'next_enable':judgePwd_x?(checkAccountIsSetQuestion?validatingForm.$valid:(validatingForm.password.$valid&&validatingForm.password_confirm.$valid)):false,'next_disable':judgePwd_x?(checkAccountIsSetQuestion?validatingForm.$invalid:(validatingForm.password.$invalid||validatingForm.password_confirm.$invalid)):true}"/>
+                    <!--<button class="btn f18" ng-click="next_2(validatingForm.$valid)">下一步</button>-->
+                    <a class="ml20" href="" ng-click="next_3()">上一步</a>
+                </div>
+            </form>
+        </div>
+        <!--修改密码成功-->
+        <div class="registerForm pr" ng-show="focusStep === 3">
+			<a class="pa cancel" ui-sref="login" href="#/login"> <i class="close"></i> 取消</a>
+            <div class="step step02">
+                <ul>
+                    <li class="hover">填写账户信息</li>
+                    <li class="hover">重置密码</li>
+                    <li class="hover">完成</li>
+                </ul>
+            </div>
+            <div class="tc">
+                <span class="sucIcon"></span>
+
+                <p class="f22 mt20">恭喜您修改密码成功</p>
+
+                <p class="f14 mt20">你现在可以<a ui-sref="login">重新登录</a></p>
+            </div>
+        </div>
+
+    </div>  
+</div>
+<div ng-include="'app/footer/loginfooter.html'"></div>

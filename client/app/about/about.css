@@ -1,0 +1,48 @@
+.aboutLeft{width:175px;border:1px solid #e0e6ed;background:#f5f7fa;}
+.aboutLeft dl{color:#999;border-bottom:1px solid #d5dfe5;border-top:1px solid #fff;}
+.aboutLeft dl:last-child{border-bottom:none;}
+.aboutLeft dl dt{padding:18px 0px 0px 0px;display:inline-block;width:175px;border-bottom:1px solid #fff;text-align:center;}
+.aboutLeft dl dt span{border-bottom:1px solid #d5dfe5; width: 175px;display:inline-block;padding-bottom:10px;}
+.aboutLeft dl dt,.aboutLeft dl dd{margin:0px;line-height:24px;display:inline-block;}
+.aboutLeft dl dd{padding:18px 0px;width:175px;}
+.aboutLeft dl dd i{background-image: url(../../assets/images/allicon.png);background-repeat: no-repeat;display: inline-block;width:25px;height: 22px;vertical-align:middle;margin-right:10px;}
+.aboutLeft dl dd i.companyIntr{background-position:-3px -732px;}
+.aboutLeft dl dd.active i.companyIntr{background-position:-40px -732px;}
+.aboutLeft dl dd i.website{background-position:-3px -764px;}
+.aboutLeft dl dd.active i.website{background-position:-42px -764px;}
+.aboutLeft dl dd i.media{background-position:-3px -798px;}
+.aboutLeft dl dd.active i.media{background-position:-42px -797px;}
+.aboutLeft dl dd i.cooperate{background-position:-3px -834px;}
+.aboutLeft dl dd.active i.cooperate{background-position:-42px -833px;}
+.aboutLeft dl dd i.rates{background-position:-3px -864px;}
+.aboutLeft dl dd.active i.rates{background-position:-38px -864px;}
+.aboutLeft dl dd i.plan{background-position:-3px -897px;}
+.aboutLeft dl dd.active i.plan{background-position:-41px -897px;}
+.aboutLeft dl dd i.law{background-position:-3px -927px;}
+.aboutLeft dl dd.active i.law{background-position:-41px -927px;}
+.aboutLeft dl dd i.protocol{background-position:-3px -958px;}
+.aboutLeft dl dd.active i.protocol{background-position:-41px -958px;}
+.aboutLeft dl dd.active{background:#fff;}
+.aboutLeft dl dd.active a{border-left:4px solid #089bff;color:#333;}
+.aboutLeft dl dd a{color:#999;padding-left:20px;border-left:4px solid #f5f7fa;}
+.aboutRight{width:973px;}
+.wrapper{border:1px solid #e0e6ed;width:99.8%;display:inline-block;background:#fff;}
+.aboutRight img{width:100%;}
+.wrapper h1{border-bottom:1px solid #d5dfe5;padding:50px 10px 4px 0px;float:left;width:81%;margin-bottom:20px;height:30px;}
+.wrapper h1 span{border-bottom:2px solid #0099ff;padding:0px 10px 10px 50px;color:#999;position:absolute;}
+.wrapper h1 a.addr i{background-image: url(../../assets/images/allicon.png);background-position:-214px -516px;background-repeat: no-repeat;display: inline-block;width:18px;height:25px;vertical-align:middle;margin-right:5px;}
+.wrapper h1 a.addr:hover{color:#089aff;}
+.wrapper p{width:70%;color:#333;line-height:24px;margin-bottom:30px;display:inline-block;}
+.wrapper p span{width:90%;}
+.wrapper p em{font-weight:normal;font-style: italic;color:#e9e9e9;font-size:35px;margin-top:5px;margin-right:10px;}
+.container{min-width:1170px;width:1170px;}
+.aboutLeft dl dd:hover{background:#fff;padding:18px 0px;width:175px;}
+.aboutLeft dl dd:hover a{border-left:4px solid #089bff;color:#333;}
+.aboutLeft dl dd:hover i.companyIntr{background-position:-40px -732px;}
+.aboutLeft dl dd:hover i.website{background-position:-42px -764px;}
+.aboutLeft dl dd:hover i.media{background-position:-42px -797px;}
+.aboutLeft dl dd:hover i.cooperate{background-position:-42px -833px;}
+.aboutLeft dl dd:hover i.rates{background-position:-38px -864px;}
+.aboutLeft dl dd:hover i.plan{background-position:-41px -897px;}
+.aboutLeft dl dd:hover i.law{background-position:-41px -927px;}
+.aboutLeft dl dd:hover i.protocol{background-position:-41px -958px;}

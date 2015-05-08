@@ -1,0 +1,60 @@
+.ml18{margin-left:18px;}
+.ml110{margin-left:145px;}
+.applyBank{margin:10px auto;border-bottom:1px dotted #d5dfe5;width:65%;}
+.applyBank div{display:inline-block;width:100%;margin-bottom:10px;}
+.applyBank p{display:inline-block;width:100%;margin-bottom:10px;}
+.applyBank label{float:left;min-width:120px;text-align:right;margin-right:20px;color:#333;font-size:14px;font-weight:normal;}
+.applyBank span{float:left;}
+.applyBank ul{float:left;width:600px;}
+.applyBank ul li{float:left;margin-right:10px;text-align:center;margin-bottom:10px;line-height:50px;height:50px;display:inline-block;}
+.applyBank ul li a{border:2px solid #d5dfe5;display:inline-block;width:258px;height:48px;position:relative;line-height:40px;color:#d5dfe5;}
+.applyBank ul li a:hover{border:2px solid #089bff;color:#089bff}
+.applyBank ul li input[type=radio]{margin-top:8px;vertical-align: top;}
+.applyBank li span{height:48px;background:#f5f7fa;display:inline-block;float:right;padding:0px 5px;line-height:48px;color:#333;}
+.applyCount{width:60%;margin:10px auto;}
+.applyCountWrapper{width:95%;background:#f5f7fa;margin:20px auto 20px 0px;padding:20px 15px;font-size:14px;}
+.applyCountWrapper label{float:left;min-width:72px;text-align:right;margin-right:10px;line-height:45px;font-weight:normal;}
+.applyCountWrapper input[type=text]{border:1px solid #dedfe5;width:310px;height:46px;padding-left:10px;}
+.applyBank input[type=text]{height: 44px;border: 1px solid #dedfe5;padding-left: 40px;color: #ccc;}
+.applyBank input{height: 44px;border: 1px solid #dedfe5;padding-left: 40px;color: #ccc;}
+.applyBank i.ChkCodeIcon{background-image: url(../../assets/images/allicon.png);background-repeat: no-repeat;display: inline-block;width: 30px;height: 30px;top: 6px;left: 5px;}
+.applyTips{width:60%;margin:10px auto;line-height:24px;}
+.accountWrapper .container form span.errorIcon{background-position:-89px -493px;top:12px;left:155px;width:22px;height:22px;}
+.accountWrapper .container form span.rightIcon{background-position: -88px -528px;top:12px;left:155px;width:22px;height:22px;}
+.accountWrapper .container form .applyBack {
+    background-image: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    top: 6px;
+    left: 5px;
+}
+.applyBank li.select a{border:2px solid #089bff;}
+.applyBank li.select a i{background-image: url(../../assets/images/allicon.png);background-position:-208px -486px;background-repeat: no-repeat;display: inline-block;width:16px;height:15px;bottom:0px;right:0px;position:absolute;}
+.applyBank .grey_button {
+    background: #d3d3d3;opacity:1;
+}
+.applyBank .btn{width:329px;}
+.applyBank a{color:#089af;}
+.applyCountWrapper span.error {
+    background: #ffe9e9;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    padding: 10px 5px 0px 5px;
+    min-height:38px;min-width:245px;line-height:30px;
+    width:auto;
+    font-size: 14px;
+    color: #333;display:inline-block;position:absolute;z-index:99;
+}
+.applyCountWrapper span.error i {
+    background: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;  float: left;
+    vertical-align: middle;
+    width: 25px;margin-right:5px;
+    height: 25px;
+    background-position: -85px -455px;
+}
+.applyCountWrapper span.availableBalanceError{line-height:inherit;min-height:45px;}

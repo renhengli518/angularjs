@@ -1,0 +1,21 @@
+.protocolWrapper{background:#fff;}
+.protocolWrapper ul{border-bottom:2px solid #e0e6ed;margin-top:50px;width:85%;padding-bottom:4px;}
+.protocolWrapper ul li{float:left;width:170px;padding:0px 20px;list-style:none;font-size: 18px;margin-bottom:0px;  display: inline-block;height: 30px;}
+.protocolWrapper ul li:first-child{padding-left:0px;width:110px;}
+.protocolWrapper ul li:nth-child(2){width:100px;}
+.protocolWrapper ul li a{color:#999;}
+.protocolWrapper .tabBox{line-height:1.5em;}
+.protocolWrapper .tabBox div p{margin-bottom:5px;margin-left:60px;width:85%;line-height:20px;}
+.tabTit li.active a{color:#333;position:absolute;border-bottom:2px solid #0099ff;padding-bottom:10px;}
+ a:link , a:visited, a:hover, a:active{  text-decoration: none;}
+ .MsoNormalTable{border:1px solid #000;border-right:none;border-bottom:none;margin-left: 60px;   width:85%;}
+ .MsoNormalTable th,.MsoNormalTable td{border-bottom:1px solid #000;border-right:1px solid #000;padding-left:5px;text-align: center;}
+ .textIndent{margin-left:1.0cm;text-align:left;text-indent:-1.0cm;mso-char-indent-count:0;}
+ .protocolWrapper .tabBox div p.red{color:red;}
+ .aboutRight .wrapper a.red{color:red;}
+ .protocolWrapper .tabBox div p.f16{font-size:16px;}
+ a:link , a:visited, a:hover, a:active{  text-decoration: none;}
+ .MsoNormalTable{border:1px solid #000;border-right:none;border-bottom:none;margin-left: 60px;   width:85%;}
+ .MsoNormalTable th,.MsoNormalTable td{border-bottom:1px solid #000;border-right:1px solid #000;padding-left:5px;text-align: center;}
+ .textIndent{margin-left:1.0cm;text-align:left;text-indent:-1.0cm;mso-char-indent-count:0;}
+ .protocolWrapper .tabBox div p.red{color:red;}

@@ -1,0 +1,4 @@
+.bgf63:visited, .bgf63:active{background: #ff6633;}
+.successForm{background: #fff;border: 1px solid #ecf0f5;width: 100%;display: inline-block;padding: 0px 0px 70px 0px;min-height:600px;}
+.successForm p {color: #999;}
+.successForm button i{background-image: url(../../assets/images/allicon.png);background-repeat: no-repeat;display: inline-block;width:25px;height: 25px;vertical-align: middle;margin-right:5px;background-position:-310px -352px;}

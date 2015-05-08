@@ -1,0 +1,10 @@
+.helpWrapper .container h2{width:100%;border-bottom:1px dotted #abbfcb;}
+.helpWrapper .container h2 span{border-bottom:1px solid #69c04f;display:inline-block;padding-bottom:10px;color:#69c04f;}
+.helpWrapper .container h2 a{color:#333;}
+.helpWrapper .container ul.item{width:100%;margin:20px 0px 40px 0px;color:#333;}
+.helpWrapper .container ul.item li{width:96%;border-bottom:1px dotted #abbfcb;padding:20px 0px;margin:0px 20px;}
+.helpWrapper .container ul.item li:last-child{border-bottom:none;}
+.helpWrapper .container ul.item li p{width:100%;margin-bottom:15px;line-height:21px;}
+.helpWrapper .container ul.item li p i{display:inline-block;background-image: url(../../assets/images/allicon.png);background-repeat:no-repeat;width:20px;height:20px;vertical-align: middle;margin-right:10px;}
+.ask i{background-position:-275px -529px;}
+.answer i{background-position:-308px -529px;}

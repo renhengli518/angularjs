@@ -1,0 +1,34 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <h1 class="f16 col333"><span>消息设置</span>
+                <a class="ml20 f14" ui-sref="account-message">我的消息</a>
+            </h1>
+
+            <div class="tabbox ml20 fl mt20 messageBox">
+                <table>
+                    <tr>
+                        <th>设置内容 </th>
+                        <th>站内信</th>
+                        <!--<th>邮件提醒</th>-->
+                        <!--<th>短信提醒</th>-->
+                    </tr>
+                    <tbody>
+                    <tr ng-class="{classOdd: $index%2 !== 0}" ng-repeat="t in list">
+                        <td>{{t.title}}</td>
+                        <td><input ng-click="updateSetting(t)" ng-model="t.selected" type="checkbox"/></td>
+                        <!--<td><input type="checkbox"/></td>-->
+                        <!--<td><input type="checkbox"/></td>-->
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>   
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

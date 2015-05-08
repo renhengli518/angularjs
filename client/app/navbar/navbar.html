@@ -1,0 +1,13 @@
+<div class="" ng-controller="NavbarCtrl"  >
+    <div class="navWrapper">
+        <div class="container">
+            <a class="logo mt10" ui-sref="portal"></a>
+            <ul class="navlist fr">
+                <li ng-class="{active_tab:isActive(nav.matchPath)}" ng-repeat="nav in navList">
+					<a ng-href="{{nav.MenuForwardUrl}}"><i class="{{nav.menuImage}}"></i><span>{{nav.menuChineseName}}</span></a>
+				</li>
+            </ul>
+        </div>
+    </div>
+</div>
+

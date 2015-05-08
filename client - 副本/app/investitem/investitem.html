@@ -1,0 +1,549 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="investWrapper">
+    <div class="container" ng-hide="hidetab">
+        <!-- 商品详情 -->
+        <div class="itemDes f16 pr">
+            <h1>{{product.investmentName}}
+                <em class="ml5 letter">{{product.investmentLevel}}</em>
+                <em class="ml10 ensure" ng-show="product.investmentGuaranteedInterestDescriptionImage === 0">保</em>
+                <span class="f14">维信理财100%本息保障</span>
+                <font class="f14 col999 fr">上线时间 {{product.investmentStartDate | date:'yyyy-MM-dd'}}</font>
+            </h1>
+			<div class="pa noInvest investDes" style="display:none;">
+				<i></i>
+				<span>新注册用户，前5笔投资金额，不得高于项目总金额5%，如果使用自动投资，则没有此限制，现在去试试  <a href="#/invest/auto">自动投资 </a></span>
+				<a href="javascript:;" class="close" ng-click="mindClick();"></a>
+			</div>
+            <div class="pr">
+                <ul>
+                    <li>
+                        <p>年利率</p>
+
+                        <p class="mt5"><span id="yearRate" class="colf63 f32">{{product.investmentAnnualInterestRate*100}}</span>
+                            %</p>
+                    </li>
+                    <li>
+                        <p>期限</p>
+
+                        <p class="mt5"><span id="period" class="colf63 f32">{{product.investmentPeriod}}</span>个月</p>
+                    </li>
+                    <li>
+                        <p>总金额</p>
+
+                        <p class="mt5"><span id="totalAmt" class="colf63 f32">{{product.investmentTotal | moneyFormat}}</span>元</p>
+                    </li>
+                </ul>
+                <p class="f14 col999 ml50 mt20 mb10">已有<span class="f20 col333">{{product.investmentJoinedCount}}</span>人投资<span
+                    class="f20 col333">
+				{{product.investmentTotal-product.investmentSurplus | moneyFormat}}</span>元 剩余金额
+                <span id="leftAmount" class="f20 colf63">{{product.investmentSurplus | moneyFormat}}</span>元
+                </p>
+                <dl>
+                    <dd>
+                        <label class="fl">投资进度</label>
+
+                        <div class="itemProgress fl">
+                            <div class="itemProgressBar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" ng-style="product.progressStyle"></div>
+                        </div>
+                        <div class="pr progress-p fl ml20">
+							<span>
+								<span class="pa arrow itemArrow"></span>
+								{{product.investmentProgress}}%
+							</span>
+                        </div>
+                    </dd>
+                    <dd>
+                        <label>客户类型</label>
+                        <span class="col333">{{user.loanType}}</span>
+                    </dd>
+                    <dd>
+                        <label>剩余时间</label>
+                        <em id="day"></em> 天 <em id="hour"></em> 时 <em id="minute"></em> 分
+                    </dd>
+                    <dd>
+                        <label>还款方式</label>
+                        <span class="col333">{{product.investmentPayType}}</span>
+                    </dd>
+                </dl>
+
+				<!--已结清，交易成功的样式-->
+				<div class="pa calculateBox transaction" style="display:none;">
+					<i class="transactionIcon pa f16" id="transactionIconText">交易成功</i>
+					<p class="ml30 mt20 col333">本人投资金额</p>
+					<p class="ml30 mt10 col999"><span id="sumHasInvestedAmt" class="f36 normalGreen"></span>元</p>
+					<ul>
+						<li>
+							<p class="col999">起息日</p>
+							<p class="col333" id="investmentCreditDate"></p>
+						</li>
+						<li>
+							<p class="col999">已还期数</p>
+							<p class="col333" id="payedPeriod">4/24 todo</p>
+						</li>
+						<li>
+							<p class="col999" id="nextPaidText">下期还款日</p>
+							<p class="col333" id="nextPaidDate">yyyy.mm.dd todo</p>
+						</li>
+					</ul>
+				</div>
+				<!--end-->
+
+                <div class="pa calculateBox">
+					<i class="fullIcon pa f16"></i>
+                    <div class="boxLeft fl">
+                        <label>剩余金额 </label>
+                        <label>可用余额</label>
+                        <label class="mt5">投资金额</label>
+                        <label class="mt5" ng-show="showGetAmt">预期收益</label>
+                    </div>
+                    <div class="boxRight fl">
+                        <p><span id="restAmt" class="price f20 mt10 mr5">{{product.investmentSurplus | moneyFormat}}</span>元</p>
+                        <p>
+                            <span id="actAmt" class="col333 f20">{{availableBalance | moneyFormat}}</span>
+                            <span>元</span>
+                            <a class="ml20" href="#/deposit">充值</a>
+                            <span hidden="true" id="txtOpen" class="col333">还未开通第三方账户</span>
+                            <a hidden="true" class="ml20" ng-click="openAccount()">开户</a>
+                            <span hidden="true" id="notLoginAmt"><a class="mr5" href="#/login">登录</a>后，才能查看</span>
+                        </p>
+                        <p class="pr mt5">
+                            <a class="minus fl mr5" ng-click="minusAmt();" href="javaScript:;">-</a>
+                            <input class="pl10 fl vestAmt" id="vestAmt" ng-model="val" ng-change="vestAmtBlur(val);" type="text" placeholder="请输入50的整数倍"/>
+                            <a class="add ml5 fl" ng-click="addAmt();" href="javaScript:;">+</a>
+                            <a class="calculator ml20 fl" ng-click="calculatorBox();" href="javaScript:;"><i></i></a>
+                            <span class="pa msgError"><i></i><span id="errMsg" class="fl w250 mt5"></span></span>
+                        </p>
+
+                        <p ng-show="showGetAmt" >
+                            <span class="col999"><em class="colf63 f20 mr5">{{totalPeriods | moneyFormat}}</em>元</span>
+                            <span class="ml50">每期还款金额<em class="colf63 f20 mr5 ml5">{{firstPeriods | moneyFormat}}</em>元</span>
+                        </p>
+
+                        <p>
+                            <input id="chkBtn" type="checkbox"/>我已阅读并同意 <a class="" href="#/protocol/2" target="_blank">&laquo;借款协议&raquo;</a>、<a class="" href="#/protocol/4" target="_blank">&laquo;债权转让协议(b)&raquo;</a>
+                        </p>
+
+                        <div class="pr mt5">
+                            <button id="vestBtn" ng-click="vestNow();" disabled="true" class="btn btnDisabled">立即投资</button>
+                            <p class="pa autoMsg" style="display: none;">
+                                <span class="arrow pa"></span>
+                                <span class="pa autoMsgBox"><i></i><span class="fl w200 mt5">登录后才能进行投资，请先<a
+                                    href="#/login">登录</a></span></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="itemCont" >
+            <ul class="itemTab" ng-model="selection">
+                <li ng-click="selection = 'tab1'" ng-class="{active:selection=='tab1'}">项目详情</li>
+                <li ng-click="selection = 'tRecord'" ng-class="{active:selection=='tRecord'}">投标记录</li>
+                <li id="planNf" ng-click="selection = 'planNf'" ng-class="{active:selection=='planNf'}">还款计划</li>
+                <li id="planF" ng-click="selection = 'planF'" hidden="true" ng-class="{active:selection=='planF'}">
+                    还款计划
+                </li>
+                <li id="creditor" ng-click="selection = 'creditor'" hidden="true" ng-class="{active:selection=='creditor'}">债权信息</li>
+            </ul>
+            <p id="notLogin" ng-hide="true">
+                <span class="mt30">请<a class="ml5 mr5" href="#/login">登录</a>或<a class="ml5 mr5" href="#/register">注册</a>后查看其它信息</span>
+            </p>
+
+            <div class="itemBox" ng-switch on="selection">
+                <!-- 用户详情 -->
+                <div ng-switch-when="tab1" ng-init="ready()">
+                    <h2><span>贷款用户信息</span></h2>
+                    <ul>
+                        <li>
+                            <label class="fl">基本信息</label>
+                            <table class="informationTable">
+                                <tbody>
+                                <tr>
+                                    <td width="10%" class="col999">用户名</td>
+                                    <td width="15%">{{user.userName}}</td>
+                                    <td width="10%" class="col999">性别</td>
+                                    <td width="15%">{{user.gender}}</td>
+                                    <td width="10%" class="col999">年龄</td>
+                                    <td width="20%">{{user.age}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col999">学历</td>
+                                    <td>{{user.educationDegree}}</td>
+                                    <td class="col999">婚姻</td>
+                                    <td>{{user.marryStatus}}</td>
+                                    <td class="col999">户籍地</td>
+                                    <td>{{user.hometownProvince}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            <label class="fl">工作信息</label>
+                            <table class="informationTable">
+                                <tbody>
+                                <tr>
+                                    <td width="10%" class="col999">工作城市</td>
+                                    <td width="15%">{{user.workCity}}</td>
+                                    <td width="10%" class="col999">公司行业</td>
+                                    <td width="15%">{{user.companyInustry}}</td>
+                                    <td width="10%" class="col999">公司规模</td>
+                                    <td width="20%">{{user.companySize}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col999">企业性质</td>
+                                    <td>{{user.companyProperty}}</td>
+                                    <td class="col999">工作年限</td>
+                                    <td>{{user.workTime}}</td>
+                                    <td class="col999">任职部门</td>
+                                    <td>{{user.department}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col999">职位</td>
+                                    <td>{{user.position}}</td>
+                                    <td class="col999">收入范围</td>
+                                    <td>{{user.income}}</td>
+                                    <td class="col999">每月授薪日</td>
+                                    <td>{{user.salaryDate}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            <label class="fl">住宅信息</label>
+                            <table class="informationTable">
+                                <tbody>
+                                <tr>
+                                    <td width="10%" class="col999">房产</td>
+                                    <td width="15%">{{user.houseProperty}}</td>
+                                    <td width="10%" class="col999">房贷</td>
+                                    <td width="15%">{{user.accountHouseLoan}}</td>
+									<td width="10%"></td>
+                                    <td width="20%"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                    <h2><span>审核情况</span></h2>
+                    <table class="checkTable">
+                        <thead>
+                        <tr>
+                            <th width="20%">资料</th>
+                            <th width="20%">审核通过时间 </th>
+                            <th width="20%">状态</th>
+                        <tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>身份证明</td>
+                            <!-- <td>{{user.pidCredibilityPassDate | date:'yyyy/MM/dd'}}</td> -->
+                            <td>{{product.investmentStartDate | date:'yyyy/MM/dd'}}</td>
+                            <td>
+                                <i class="unbind"></i>
+                                {{user.pidCredibilityStatus}}
+                            </td>
+
+                        </tr>
+                        <tr class='classOdd'>
+                            <td>收入证明</td>
+                            <!-- <td>{{user.incomeCredibilityPassDate | date:'yyyy/MM/dd'}}</td> -->
+                            <td>{{product.investmentStartDate | date:'yyyy/MM/dd'}}</td>
+                            <td>
+							<i class="unbind"></i>
+                            {{user.incomeCredibilityStatus}}</td>
+                        </tr>
+                        <tr>
+                            <td>工作证明</td>
+                            <!-- <td>{{user.jobCredibilityPassDate | date:'yyyy/MM/dd'}}</td> -->
+                            <td>{{product.investmentStartDate | date:'yyyy/MM/dd'}}</td>
+                            <td><i class="unbind"></i>{{user.jobCredibilityStatus}}</td>
+                        </tr>
+                        <tr class='classOdd'>
+                            <td>住址证明</td>
+                            <!-- <td>{{user.addressCredibilityPassDate | date:'yyyy/MM/dd'}}</td> -->
+                            <td>{{product.investmentStartDate | date:'yyyy/MM/dd'}}</td>
+                            <td><i class="unbind"></i>{{user.addressCredibilityStatus}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h2><span>风险备用金</span></h2>
+						<div class="mt20 mb20 pr riskBox">
+							<p class="f20 pa"><span class="f14">￥</span>{{riskBackCapital | moneyFormat}}</p>
+						</div>
+                </div>
+                <!-- 投标记录 -->
+                <div ng-switch-when="tRecord">
+                    <table ng-table="tRecordTableParams" class="itemBoxTable">
+                        <tr>
+                            <th>
+                            <!-- class="sortable1" ng-class="{
+                                                'sort-asc': tRecordTableParams.isSortBy('userName', 'asc'),
+                                                'sort-desc': tRecordTableParams.isSortBy('userName', 'desc')
+                                              }"
+                                ng-click="tRecordTableParams.sorting({'userName' : tRecordTableParams.isSortBy('userName', 'asc') ? 'desc' : 'asc'})"> -->
+                                <div>投资用户</div>
+                            </th>
+                            <th>
+                                <div>投资金额</div>
+                            </th>
+                            <th>
+                                <div>投资时间</div>
+                            </th>
+                            <th>
+                                <div>状态</div>
+                            </th>
+                        </tr>
+
+                        <tr ng-repeat="r in $data">
+                            <td>{{r.userName}} <span ng-show="r.accountOrder.tradeType == '1'">自动投资</span></td>
+                            <td>{{r.accountOrder.tradeAmount| moneyFormat}}</td>
+                            <td>{{r.accountOrder.tradeDate}}</td>
+                            <td>{{r.orderStatus}}</td>
+                        </tr>
+                        <tr ng-show="!$data || $data.length === 0">
+                            <td colspan="4">
+                                <i class="txtIcon mt30"></i>
+
+                                <p class="col999 mb30 mt10">找不到相应内容</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- 还款记录 -->
+                <div ng-switch-when="planNf">
+                    <table ng-table="planNfTableParams" class="itemBoxTable">
+                        <tr>
+                            <th>
+                                <div>期次</div>
+                            </th>
+                            <th>
+                                <div>应还本金</div>
+                            </th>
+                            <th>
+                                <div>应还利息</div>
+                            </th>
+                            <th>
+                                <div>应还总额</div>
+                            </th>
+                            <th>
+                                <div>剩余本金</div>
+                            </th>
+                        </tr>
+
+                        <tr ng-repeat="r in $data">
+                            <td>{{r.claimPayPlan.claimPayPlanNumber}}</td>
+                            <td>{{r.claimPayPlan.claimPayPlanPrincipal| moneyFormat}}</td>
+                            <td>{{r.claimPayPlan.claimPayPlanInterest| moneyFormat}}</td>
+                            <td>{{r.claimPayPlan.claimPayPlanTotalAmount| moneyFormat}}</td>
+                            <td>{{r.claimPayPlan.claimPayPlanSurplus| moneyFormat}}</td>
+                        </tr>
+                        <tr ng-show="!$data || $data.length === 0">
+                            <td colspan="5">
+                                <i class="txtIcon mt30"></i>
+
+                                <p class="col999 mb30 mt10">找不到相应内容</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- 非已满标、招标中 -->
+                <div ng-switch-when="planF">
+                    <table ng-table="planFTableParams" class="itemBoxTable">
+                        <tr>
+                            <th>
+                                <div>期次</div>
+                            </th>
+                            <th>
+                                <div>计划还款日</div>
+                            </th>
+                            <th>
+                                <div>实际还款日</div>
+                            </th>
+                            <th>
+                                <div>本期应还本金</div>
+                            </th>
+                            <th>
+                                <div>本期应还利息</div>
+                            </th>
+                            <th>
+                                <div>本期应还总额</div>
+                            </th>
+                            <th>
+                                <div>实际还款额</div>
+                            </th>
+                            <th>
+                                <div>罚息</div>
+                            </th>
+                            <th>
+                                <div>剩余本金</div>
+                            </th>
+                            <th>
+                                <div>还款状态</div>
+                            </th>
+                        </tr>
+
+                        <tr ng-repeat="r in $data">
+                            <td>{{r.claimPayPlan.claimPayPlanNumber}}</td>
+                            <td>{{r.claimPayPlan.claimPayPlanNatureDate}}</td>
+                            <td>{{r.claimPayRecord.claimPayDate}}</td>
+                            <td>{{r.claimPayPlan.claimPayPlanPrincipal| moneyFormat}}</td> <!-- 本期应还本金  -->
+                            <td>{{r.claimPayPlan.claimPayPlanInterest| moneyFormat}}</td> <!-- 本期应还利息  -->
+                            <td>{{r.claimPayPlan.claimPayPlanTotalAmount| moneyFormat}}</td> <!-- 本期应还总额  -->
+                            <td>{{r.claimPayRecord.claimPayTatolSmount| moneyFormat}}</td> <!-- 实际还款额  -->
+                            <td>{{r.claimPayRecord.claimPayJusticeInterest| moneyFormat}}</td> <!-- 罚息  -->
+                            <td><i ng-show="r.claimPayPlanStatus=='已还' || r.claimPayPlanStatus=='VBS已还'">{{r.claimPayRecord.claimPaySurplus}}</i></td> <!-- 剩余本金  -->
+                            <td>{{r.claimPayPlanStatus}}</td>  <!-- 还款状态  -->
+                        </tr>
+                        <tr ng-show="!$data || $data.length === 0">
+                            <td colspan="10">
+                                <i class="txtIcon mt30"></i>
+
+                                <p class="col999 mb30 mt10">找不到相应内容</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- 债权信息 -->
+                <div ng-switch-when="creditor">
+                    <table ng-table="creditorTableParams" class="itemBoxTable">
+                        <tr>
+                            <th>
+                                <div>序号</div>
+                            </th>
+                            <th>
+                                <div>初始债权人</div>
+                            </th>
+                            <th>
+                                <div>目前债权持有人</div>
+                            </th>
+                            <th>
+                                <div>待收债权本金（元）</div>
+                            </th>
+                        </tr>
+
+                        <tr ng-repeat="r in $data">
+                            <td>{{r.number}}</td>
+                            <td>{{r.initAccount}}</td>
+                            <td>{{r.currentAccount}}</td>
+                            <td>{{r.capitalToGather| moneyFormat}}</td>
+                        </tr>
+                        <tr ng-show="!$data || $data.length === 0">
+                            <td colspan="4">
+                                <i class="txtIcon mt30"></i>
+
+                                <p class="col999 mb30 mt10">找不到相应内容</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>
+<script>
+		(function() {
+			$('.imglist').hover(function() {
+				$(this).children('.bg').css({'transform':'rotate(90deg)','-webkit-transform':'rotate(90deg)','-moz-transform':'rotate(90deg)'});
+			},
+			function () {
+				$(this).children('.bg').css({'transform':'rotate(0deg)','-webkit-transform':'rotate(0deg)','-moz-transform':'rotate(0deg)'});
+			})
+		})();
+		var num=0,result=0,numshow="0";
+		var operate=0; //判断输入状态的标志
+		var calcul=0; //判断计算状态的标志
+		var quit=0; //防止重复按键的标志
+		function command(num){
+			var str=String(document.calculator.numScreen.value); //获得当前显示数据
+			str=(str!="0") ? ((operate==0) ? str : "") : ""; //如果当前值不是"0"，且状态为0，则返回当前值，否则返回空值;
+			str=str + String(num); //给当前值追加字符
+			document.calculator.numScreen.value=str; //刷新显示
+			operate=0; //重置输入状态
+			quit=0; //重置防止重复按键的标志
+		}
+		function dzero(){
+			var str=String(document.calculator.numScreen.value);
+			str=(str!="0") ? ((operate==0) ? str + "00" : "0") : "0"; //如果当前值不是"0"，且状态为0，则返回当str+"00"，否则返回"0";
+			document.calculator.numScreen.value=str;
+			operate=0;
+		}
+		function dot(){
+			var str=String(document.calculator.numScreen.value);
+			str=(str!="0") ? ((operate==0) ? str : "0") : "0"; //如果当前值不是"0"，且状态为0，则返回当前值，否则返回"0";
+			for(i=0; i<=str.length;i++){ //判断是否已经有一个点号
+				if(str.substr(i,1)==".") return false; //如果有则不再插入
+			}
+			str=str + ".";
+			document.calculator.numScreen.value=str;
+			operate=0;
+		}
+		function del(){ //退格
+			var str=String(document.calculator.numScreen.value);
+			str=(str!="0") ? str : "";
+			str=str.substr(0,str.length-1);
+			str=(str!="") ? str : "0";
+			document.calculator.numScreen.value=str;
+		}
+		function clearscreen(){ //清除数据
+			num=0;
+			result=0;
+			numshow="0";
+			document.calculator.numScreen.value="0";
+		}
+		function plus(){ //加法
+			calculate(); //调用计算函数
+			operate=1; //更改输入状态
+			calcul=1; //更改计算状态为加
+		}
+		function minus(){ //减法
+			calculate();
+			operate=1;
+			calcul=2;
+		}
+		function times(){ //乘法
+			calculate();
+			operate=1;
+			calcul=3;
+		}
+		function divide(){ //除法
+			calculate();
+			operate=1;
+			calcul=4;
+		}
+		function persent(){ //求余
+			calculate();
+			operate=1;
+			calcul=5;
+		}
+		function equal(){
+			calculate(); //等于
+			operate=1;
+			num=0;
+			result=0;
+			numshow="0";
+		}
+		function calculate(){
+			numshow=Number(document.calculator.numScreen.value);
+			if(num!=0 && quit!=1){ //判断前一个运算数是否为零以及防重复按键的状态
+				switch(calcul){ //判断要输入状态
+					case 1:result=num+numshow;break; //计算"+"
+					case 2:result=num-numshow;break; //计算"-"
+					case 3:result=num*numshow;break;
+					case 4:if(numshow!=0){result=num/numshow;}else{document.getElementById("note").innerHTML="被除数不能为零！"; setTimeout(clearnote,4000)} break;
+					case 5:result=num%numshow;break;
+				}
+				quit=1; //避免重复按键
+			}
+			else{
+				result=numshow;
+			}
+			numshow=String(result);
+			document.calculator.numScreen.value=numshow;
+			num=result; //存储当前值
+		}
+		function clearnote(){ //清空提示
+			document.getElementById("note").innerHTML="";
+		}
+	</script>

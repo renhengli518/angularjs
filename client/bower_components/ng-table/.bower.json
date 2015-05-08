@@ -1,0 +1,27 @@
+{
+  "name": "ng-table",
+  "main": [
+    "./dist/ng-table.min.js",
+    "./dist/ng-table.min.css"
+  ],
+  "ignore": [
+    "examples",
+    "src"
+  ],
+  "dependencies": {
+    "angular": "~1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1"
+  },
+  "homepage": "https://github.com/shawnLiujianwei/ng-table",
+  "_release": "703f2d5d54",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "703f2d5d54bde9967ce6edc8a477235ac4f227d7"
+  },
+  "_source": "https://github.com/shawnLiujianwei/ng-table.git",
+  "_target": "master",
+  "_originalSource": "https://github.com/shawnLiujianwei/ng-table.git"
+}

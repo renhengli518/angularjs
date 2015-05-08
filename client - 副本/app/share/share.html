@@ -1,0 +1,211 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <h1 class="f16 col333"><span>推荐好友</span></h1>
+			<p class="tc mt100">
+				<img src="../../assets/images/pic.png"/>
+			</p>
+			<!--div class="mt30 ml20 mr20 mb20 shareway">
+				<ul>
+					<li>
+						<dl>
+							<dt>通过社交网站邀请好友</dt>
+							<dd>
+								<i class="weixin"></i>
+								<p>微信</p>
+							</dd>
+							<dd>
+								<a ng-click="shareWeibo()" href=""><i class="weibo"></i></a>
+								<p><a ng-click="shareWeibo()" href="">微博</a></p>
+							</dd>
+							<dd>
+								<a ng-click="shareTencentWeibo()" href=""><i class="qqweibo"></i></a>
+								<p><a ng-click="shareTencentWeibo()" href="">腾讯微博</a></p>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>通过邮件邀请好友</dt>
+							<dd>
+								<i class="sms"></i>
+								<p><a ng-click="sms();" href="">短信</a></p>
+							</dd>
+							<dd>
+								<a ng-click="email();" href=""><i class="email"></i></a>
+								<p><a ng-click="email();" href="">邮件</a></p>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>复制邀请链接发送好友</dt>
+							<dd>
+								<a ng-click="link();" href=""><i class="link"></i></a>
+								<p><a ng-click="link();" href="">复制链接</a></p>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p>累计推荐好友</p>
+						<p><span class="f26 col333">{{rCount || 0}} </span> 人</p>
+					</li>
+					<li>
+						<p>待结算红包</p>
+						<p><span class="f26 colf63">111.00</span> 元</p>
+					</li>
+					<li>
+						<p>已结算红包</p>
+						<p><span class="f26 colf63">51.00 </span> 元 </p>
+					</li>
+					<li>
+						<p>未兑换红包个数<span class="f16 colf63">2</span>个</p>
+						<p><a class="btn" href="">立即兑换</a></p>
+					</li>
+				</ul>
+			</div>
+			<div class="tablist fl ml20 mr20 mb10">
+				<p class="fl col333 mt10">
+					<span class="col999 mr10">红包明细</span>   共推荐<span class="colf63">4</span>人，其中交易<span class="colf63">8</span>笔，共获红包<span class="colf63">3,000.00</span>元
+				</p>
+				<p class="fr">
+					查询日期
+					<select class="ml10">
+						<option>2014年12月</option>
+					</select>
+				</p>
+			</div>
+			<div class="tabbox ml20 fl messageBox mb20">
+				<table>
+
+						<tr>
+							<th>用户名</th>
+							<th>注册时间</th>
+							<th>是否绑定第三方支付</th>
+							<th>交易次数</th>
+							<th>累计红包</th>
+						</tr>
+
+                    <tbody>
+						<tr>
+							<td>grac*****6219</td>
+							<td>2014.10.19  09:33:19</td>
+							<td><i class="unbind"></i></td>
+							<td>1</td>
+							<td>
+								<span class="fl pl30">1,000.00</span>
+								<div class="pr newBox" onmouseover="$('.newBoxTable').show();" onmouseout="$('.newBoxTable').hide();">
+									<a class="packetnum fl" href="javaScript:;"></a>
+									<div class="pr newBoxTable">
+										<span class="arrow pa"></span>
+										<table class="pa">
+											<thead>
+												<tr>
+													<th>类型</th>
+													<th>时间</th>
+													<th>购买金额</th>
+													<th>返回红包</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>绑定第三方</td>
+													<td> 2014.10.19</td>
+													<td>__</td>
+													<td class="colf63">30.00</td>
+												</tr>
+												<tr>
+													<td>绑定第三方</td>
+													<td> 2014.10.19</td>
+													<td>__</td>
+													<td class="colf63">30.00</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr class="classOdd">
+							<td>grac*****6219</td>
+							<td>2014.10.19  09:33:19</td>
+							<td><i class="unbind"></i></td>
+							<td>1</td>
+							<td>1,000.00<i class="packetnum"></i></td>
+						</tr>
+						<tr>
+							<td>grac*****6219</td>
+							<td>2014.10.19  09:33:19</td>
+							<td></td>
+							<td>1</td>
+							<td>1,000.00<i class="packetnum"></i></td>
+						</tr>
+						<tr class="classOdd">
+							<td>grac*****6219</td>
+							<td>2014.10.19  09:33:19</td>
+							<td></td>
+							<td>1</td>
+							<td>1,000.00 <i class="packetnum"></i></td>
+						</tr>
+                    </tbody>
+                </table>
+			</div-->
+        </div>
+    </div>
+
+	<!--通过短信推荐-->
+	<div id="sms_pop" style="display:none;">
+		<p>
+			<label>手机号码</label>
+			<input type="text" placeholder="请填写好友的电话号码"/>
+		</p>
+		<p>
+			<label>手机号码</label>
+			<input type="text" placeholder="请填写好友的电话号码"/>
+			<a href="">添加</a>
+		</p>
+		<p>
+			<label>内容</label>
+			<textarea>
+				您的朋友，给您送红包啦，向您推荐“XXX平台”（http://www.vmoney.cn)，100起投，最高12.5%预期年化率
+			</textarea>
+		</p>
+		<p>
+			<button class="btn ml100">发送短信</button>
+		</p>
+	</div>
+	<!--通过邮件推荐-->
+	<div id="email_pop" style="display:none;">
+		<p>
+			<label>收件人</label>
+			<input id="emailAddr" type="text" placeholder="请填写好友的邮箱"/>
+			<a href="">添加</a>
+		</p>
+		<p>
+			<label>主题</label>
+                <input  id="emailSubject" type="text" placeholder="请填写邮箱主题"/>
+		</p>
+		<p>
+			<label>内容</label>
+			<textarea id="emailContent">您的朋友，给您送红包啦，向您推荐“XXX平台”（<a href="{{refUrlOri+'&reftype=6'}}">{{refUrlOri+'&reftype=6'}}</a>)，100起投，最高12.5%预期年化率</textarea>
+		</p>
+		<p>
+			<button class="btn ml100" ng-click="shareByEmail()"><a href=""></a>发送邮件</button>
+		</p>
+	</div>
+
+	<div id="link_pop" style="display:none;">
+		<p>
+			<textarea id="shareText"  class="ml50" readonly>{{ refUrlOri+'&reftype=7' }}</textarea>
+		</p>
+		<p>
+			<button clip-copy="getTextToCopy()"  clip-click="doSomething()" class="btn ml50">复制链接</button>
+		</p>
+	</div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

@@ -1,0 +1,321 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper account_fund">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <h1 class="f16 col333"><span>资金明细</span>
+
+                <div class="pull-right" ng-show="accountFund.thirdAccount">
+                    可用余额: <em class="ml5 mr5">{{accountFund.availableBalance|moneyFormat}}</em>元<a ui-sref="deposit"
+                                                                                                   class="ml10 mr10 deposit">充值</a><a
+                    class="mr30 apply" ui-sref="apply">取现</a>
+                </div>
+
+            </h1>
+            <p ng-hide="accountFund.thirdAccount" class="mt30 ml20 mr20 mb30 tc col333 noInvest ng-hide">
+                <i></i>
+                您还未开通第三方托管账户，请先去
+                <open-button/>
+                ！
+            </p>
+
+            <div ng-show="accountFund.thirdAccount">
+                <div class="tablist ml20 fl mt30">
+                    <ul class="fl" ng-model="selection">
+                        <li ng-click="selection = 'transaction'" ng-class="{active:selection=='transaction'}">交易明细</li>
+                        <li ng-click="selection = 'topup'" ng-class="{active:selection=='topup'}">充值申请</li>
+                        <li ng-click="selection = 'withdrawal'" ng-class="{active:selection=='withdrawal'}">取现申请</li>
+                    </ul>
+                </div>
+
+
+                <div class="tabbox ml20 fl" ng-switch on="selection">
+                    <div class="group">
+                        <dl>
+                            <dt>起止日期</dt>
+                            <dd>
+                            <span class="calendarVal pr mr10"><i class="pa"></i><input type="text"
+                                                                                       ui-date="startDateOptions"
+                                                                                       ui-date-format="@" id="start"
+                                                                                       ng-model="startdate"></span> -
+                            <span class="calendarVal pr ml10 mr10"><i class="pa"></i><input type="text"
+                                                                                            ui-date="endDateOptions"
+                                                                                            ui-date-format="@" id="end"
+                                                                                            ng-model="enddate"></span>
+                            </dd>
+
+                            <!--<dd ng-class="{active:d.selected || (d.selected &&startdate.getDate() === enddate.getDate() && $index===0 && (enddate.getDate() === today.getDate()-->
+                            <!--&& enddate.getMonth() === today.getMonth() && enddate.getFullYear() === today.getFullYear()))}"-->
+                            <dd ng-class="{active:d.selected }"
+                                ng-repeat="d in dateRange">
+                                <a ng-click="selectRange(d)"> {{d.name}} </a>
+                            </dd>
+
+                            <!--<dd class="active"><a href="">今天</a></dd>-->
+                            <!--<dd><a href="">最近1个月</a></dd>-->
+                            <!--<dd><a href="">3个月</a></dd>-->
+                            <!--<dd><a href="">半年</a></dd>-->
+                            <!--<dd><a href="">一年</a></dd>-->
+                        </dl>
+                        <dl ng-show="selection ==='topup' || selection === 'withdrawal'">
+                            <dt>交易状态</dt>
+                            <dd ng-class="{active:type.selected}" ng-repeat="type in statusList"><a
+                                ng-click="selectStatus(type.name)">{{type.name}}</a></dd>
+                        </dl>
+                        <dl ng-show="selection ==='transaction'">
+                            <dt>交易类型</dt>
+                            <dd ng-class="{active:type.selected}" ng-repeat="type in typeList"><a
+                                ng-click="selectType(type.name)">{{type.name}}</a></dd>
+                        </dl>
+                    </div>
+                    <div ng-switch-when="transaction" loading-container="transactionTableParams.settings().$loading">
+                        <!--<table ng-table="transactionTableParams" template-pagination="custom/pager" class="table">-->
+                        <table ng-table="transactionTableParams" template-pagination="custom/pager" class="table">
+
+                            <tr>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': transactionTableParams.isSortBy('TradeDate', 'asc'),-->
+                                <!--'sort-desc': transactionTableParams.isSortBy('TradeDate', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="transactionTableParams.sorting({'TradeDate' : transactionTableParams.isSortBy('TradeDate', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>创建时间</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': transactionTableParams.isSortBy('AccountOrderSequence', 'asc'),-->
+                                <!--'sort-desc': transactionTableParams.isSortBy('AccountOrderSequence', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="transactionTableParams.sorting({'AccountOrderSequence' : transactionTableParams.isSortBy('AccountOrderSequence', 'asc') ? 'desc' : 'asc'})">
+                                -->
+                                <th>
+                                    <div>类型|交易号</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': transactionTableParams.isSortBy('TradeAmount', 'asc'),-->
+                                <!--'sort-desc': transactionTableParams.isSortBy('TradeAmount', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="transactionTableParams.sorting({'TradeAmount' : transactionTableParams.isSortBy('TradeAmount', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>金额(元)</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': transactionTab Params.isSortBy('ThirdPaymentIdBalance', 'asc'),-->
+                                <!--'sort-desc': transactionTabParams.isSortBy('ThirdPaymentIdBalance', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="transactionTableParams.sorting({'ThirdPaymentIdBalance' : transactionTableParams.isSortBy('ThirdPaymentIdBalance', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>可用余额（元）</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': transactionTableParams.isSortBy('TradeType', 'asc'),-->
+                                <!--'sort-desc': transactionTableParams.isSortBy('TradeType', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="transactionTableParams.sorting({'TradeType' : transactionTableParams.isSortBy('TradeType', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>交易对象</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': transactionTableParams.isSortBy('TradeDescription', 'asc'),-->
+                                <!--'sort-desc': transactionTableParams.isSortBy('TradeDescription', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="transactionTableParams.sorting({'TradeDescription' : transactionTableParams.isSortBy('TradeDescription', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>备注</div>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="top in $data">
+                                <td class="col333">{{top.TradeDate | date : "yyyy-MM-dd HH:mm:ss"}}</td>
+                                <td class="col999">{{top.TradeTypeReal}}<br/>{{top.CashFlowId}}</td>
+                                <td>
+                                    <span ng-show="top.OrderMark === 'plus'" class="green_money">+{{top.TradeAmount | moneyFormat}}</span>
+                                    <span ng-show="top.OrderMark === 'minus'" class="yellow_money">-{{top.TradeAmount | moneyFormat}}</span>
+                                    <span ng-show="top.OrderMark === 'no'">{{top.TradeAmount | moneyFormat}}</span>
+                                </td>
+                                <td>
+                                    <span ng-show="top.secondType">{{top.GatherThirdPaymentIdBalance | moneyFormat}} </span>
+                                    <span ng-show="!top.secondType">{{top.PayerThirdPaymentIdBalance | moneyFormat}} </span>
+                                </td>
+                                <td>{{top.TradeComment}}</td>
+                                <td>{{top.TradeDescription || "无"}}</td>
+
+                            </tr>
+                            <tr ng-show="!$data || $data.length === 0">
+                                <td colspan="6">
+                                    <i class="txtIcon mt30"></i>
+
+                                    <p class="col999 mb30 mt10">暂无交易明细</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div ng-switch-when="topup">
+                        <!--<table>-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                        <!--<th>创建时间</th>-->
+                        <!--<th>交易号</th>-->
+                        <!--<th>金额（元）</th>-->
+                        <!--<th>状态 </th>-->
+                        <!--<th>所属银行</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--<tr ng-repeat="top in topupList">-->
+                        <!--<td class="col333">{{top.OperateDate | date : "yyyy-MM-dd HH:mm:ss"}}</td>-->
+                        <!--<td class="col999">{{top.DrawServiceAccountSequence}}</td>-->
+                        <!--<td class="colf63">{{top.OperateMoney}}</td>-->
+                        <!--<td class="col333">{{top.OperateStats}}</td>-->
+                        <!--<td class="col333">{{top.BankCode}}</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                        <!--</table>-->
+                        <table ng-table="topupTableParams" template-pagination="custom/pager" class="table">
+
+                            <tr>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': topupTableParams.isSortBy('OperateDate', 'asc'),-->
+                                <!--'sort-desc': topupTableParams.isSortBy('OperateDate', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="topupTableParams.sorting({'OperateDate' : topupTableParams.isSortBy('OperateDate', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>创建时间</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': topupTableParams.isSortBy('DrawServiceAccountSequence', 'asc'),-->
+                                <!--'sort-desc': topupTableParams.isSortBy('DrawServiceAccountSequence', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="topupTableParams.sorting({'DrawServiceAccountSequence' : topupTableParams.isSortBy('DrawServiceAccountSequence', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>交易号</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': topupTableParams.isSortBy('OperateMoney', 'asc'),-->
+                                <!--'sort-desc': topupTableParams.isSortBy('OperateMoney', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="topupTableParams.sorting({'OperateMoney' : topupTableParams.isSortBy('OperateMoney', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>金额(元)</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': topupTableParams.isSortBy('OperateStats', 'asc'),-->
+                                <!--'sort-desc': topupTableParams.isSortBy('OperateStats', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="topupTableParams.sorting({'OperateStats' : topupTableParams.isSortBy('OperateStats', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>状态</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': topupTableParams.isSortBy('BankCode', 'asc'),-->
+                                <!--'sort-desc': topupTableParams.isSortBy('BankCode', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="topupTableParams.sorting({'BankCode' : topupTableParams.isSortBy('BankCode', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>所属银行</div>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="top in $data">
+                                <td class="col333">{{top.OperateDate | date : "yyyy-MM-dd HH:mm:ss"}}</td>
+                                <!--<td class="col999">{{top.DrawServiceAccountSequence}}</td>-->
+                                <td class="col999">{{top.CashFlowId}}</td>
+                                <td class="colf63">
+                                    <span ng-show="top.OrderMark === 'plus'" class="green_money">+{{top.OperateMoney | moneyFormat}}</span>
+                                    <span ng-show="top.OrderMark === 'minus'" class="yellow_money">-{{top.OperateMoney | moneyFormat}}</span>
+                                    <span ng-show="top.OrderMark === 'no'">{{top.OperateMoney | moneyFormat}}</span>
+                                </td>
+
+                                <td class="col333">{{top.OperateStatsReal}}</td>
+                                <td class="col333">{{top.BankCode}}</td>
+                            </tr>
+                            <tr ng-show="!$data || $data.length === 0">
+                                <td colspan="5">
+                                    <i class="txtIcon mt30"></i>
+
+                                    <p class="col999 mb30 mt10">暂无充值申请</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div ng-switch-when="withdrawal">
+
+                        <table ng-table="withdrawalTableParams" template-pagination="custom/pager" class="table">
+
+                            <tr>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': withdrawalTableParams.isSortBy('OperateDate', 'asc'),-->
+                                <!--'sort-desc': withdrawalTableParams.isSortBy('OperateDate', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="withdrawalTableParams.sorting({'OperateDate' : withdrawalTableParams.isSortBy('OperateDate', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>创建时间</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': withdrawalTableParams.isSortBy('DrawServiceAccountSequence', 'asc'),-->
+                                <!--'sort-desc': withdrawalTableParams.isSortBy('DrawServiceAccountSequence', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="withdrawalTableParams.sorting({'DrawServiceAccountSequence' : withdrawalTableParams.isSortBy('DrawServiceAccountSequence', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>交易号</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': withdrawalTableParams.isSortBy('OperateMoney', 'asc'),-->
+                                <!--'sort-desc': withdrawalTableParams.isSortBy('OperateMoney', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="withdrawalTableParams.sorting({'OperateMoney' : withdrawalTableParams.isSortBy('OperateMoney', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>金额(元)</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': withdrawalTableParams.isSortBy('OperateThirdPaymentFee', 'asc'),-->
+                                <!--'sort-desc': withdrawalTableParams.isSortBy('OperateThirdPaymentFee', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="withdrawalTableParams.sorting({'OperateThirdPaymentFee' : withdrawalTableParams.isSortBy('OperateThirdPaymentFee', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>手续费</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': withdrawalTableParams.isSortBy('BankCardNumber', 'asc'),-->
+                                <!--'sort-desc': withdrawalTableParams.isSortBy('BankCardNumber', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="withdrawalTableParams.sorting({'BankCardNumber' : withdrawalTableParams.isSortBy('BankCardNumber', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>银行</div>
+                                </th>
+                                <!--<th class="sortable" ng-class="{-->
+                                <!--'sort-asc': withdrawalTableParams.isSortBy('OperateStats', 'asc'),-->
+                                <!--'sort-desc': withdrawalTableParams.isSortBy('OperateStats', 'desc')-->
+                                <!--}"-->
+                                <!--ng-click="withdrawalTableParams.sorting({'OperateStats' : withdrawalTableParams.isSortBy('OperateStats', 'asc') ? 'desc' : 'asc'})">-->
+                                <th>
+                                    <div>状态</div>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="drawal in $data">
+                                <td class="col333">{{drawal.OperateDate | date : "yyyy-MM-dd HH:mm:ss"}}</td>
+                                <td class="col999">{{drawal.CashOperationRecordSequence}}</td>
+                                <td class="colf63">
+                                    <span ng-show="drawal.OrderMark === 'plus'" class="green_money">+{{drawal.OperateMoney | moneyFormat}}</span>
+                                    <span ng-show="drawal.OrderMark === 'minus'" class="yellow_money">-{{drawal.OperateMoney | moneyFormat}}</span>
+                                    <span
+                                        ng-show="drawal.OrderMark === 'no'">{{drawal.OperateMoney | moneyFormat}}</span>
+                                </td>
+                                <td class="col333">{{drawal.DrawP2pFee}}</td>
+                                <td class="col333">{{drawal.BankCode}} <br/> {{drawal.BankCardNumber}}</td>
+                                <td class="col333">{{drawal.OperateStatsReal}}</td>
+                            </tr>
+                            <tr ng-show="!$data || $data.length === 0">
+                                <td colspan="6">
+                                    <i class="txtIcon mt30"></i>
+
+                                    <p class="col999 mb30 mt10">暂无取现申请</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

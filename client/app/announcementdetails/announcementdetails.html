@@ -1,0 +1,43 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container mt20 mb20">
+        <div class="fl aboutLeft">
+            <dl>
+                <dt><span>关于我们</span></dt>
+                <dd><a href="" ui-sref="about"><i class="companyIntr"></i>维金荟介绍</a></dd>
+                <dd class="active"><a href="" ui-sref="announcement"><i class="website"></i>网站公告</a></dd>
+                <dd><a href="" ui-sref="media"><i class="media"></i>媒体报道</a></dd>
+                <dd><a href="" ui-sref="partner"><i class="cooperate"></i>合作机构</a></dd>
+            </dl>
+            <!--dl>
+                <dt>费率/法规</dt>
+                <dd><i class="rates"></i>费率说明</dd>
+                <dd><i class="plan"></i>本金保障计划</dd>
+                <dd><i class="law"></i>法律法规</dd>
+                <dd><i class="protocol"></i>相关协议</dd>
+            </dl>
+            <dl>
+                <dt>帮助中心</dt>
+            </dl-->
+        </div>
+        <div class="fl aboutRight ml20">
+            <img src="../../assets/images/announcement.png"/>
+
+            <div class="wrapper">
+                <h1 class="f22"><span class="fl">公告详情</span> <a class="fr f14 mt10" href="#/announcement">返回</a></h1>
+
+                <div class="ml80 detailsTit mb20 mt10">
+                    <h2 class="f18 mb10">{{notice.messageTitle}}</h2>
+
+                    <p>时间：{{notice.messageIssueDate | date:'yyyy-MM-dd'}}       <span ng-show="notice.messageSource">来源：{{notice.messageSource}}</span>
+                    </p>
+                </div>
+                <div class="detailsCont ml80 mt10 mb60">
+                    {{notice.messageContent}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

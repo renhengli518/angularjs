@@ -1,0 +1,133 @@
+.group {
+    background: #f5f7fa;
+    border-bottom: 1px solid #d5dfe5;
+    padding: 20px 0px 10px 20px;
+}
+
+.group dl {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.group dt {
+    margin-right: 15px;
+}
+
+.group dt, .group dd {
+    float: left;
+    line-height: 30px;
+    font-weight: normal;
+}
+
+.group dd a {
+    color: #333;
+    padding: 0px 15px;
+    cursor: pointer;
+}
+
+.group dd.active {
+    background: #00b1ff;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+.group dd.active a {
+    color: #fff;
+}
+
+.calendarVal i {
+    background-image: url(../../assets/images/allicon.png);
+    background-position: -134px -482px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    top: 0px;
+    left: 5px;
+}
+
+.calendarVal input {
+    border: 1px solid #d3dae2;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 30px;
+    width: 120px;
+}
+
+.ng-table-counts {
+    display: none;
+}
+
+.ui-widget-header {
+    border: none;
+    background: none;
+}
+
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+    opactiy: 1;
+}
+
+.ui-datepicker .ui-state-hover, .ui-datepicker .ui-widget-content .ui-state-hover, .ui-datepicker .ui-widget-header .ui-state-hover, .ui-datepicker .ui-state-focus, .ui-datepicker .ui-widget-content .ui-state-focus, .ui-datepicker .ui-widget-header .ui-state-focus {
+    border: none;
+    background: none;
+    font-weight: normal;
+}
+
+.ui-datepicker .ui-widget-header .ui-icon {
+    background-image: url(../../assets/images/allicon.png);
+    cursor: pointer;
+}
+
+.ui-icon-circle-triangle-w {
+    background-position: -168px -424px;
+}
+
+.ui-icon-circle-triangle-e {
+    background-position: -135px -452px;
+}
+
+.ui-widget-content {
+    border: 1px solid #d3dae2;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    text-align: center;
+    padding: .3em;
+}
+
+.ui-datepicker .ui-state-default, .ui-datepicker .ui-widget-content .ui-state-default, .ui-datepicker .ui-widget-header .ui-state-default {
+    border: none;
+    background: none;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    background: #00b1ff;
+    color: #fff;
+}
+
+.tabbox ul.pagination, .tabbox ul.pager {
+    float: right;
+    margin: 0px 20px 20px;
+}
+
+.tabbox ul.pagination li {
+    width: auto;
+    margin: 0px;
+}
+
+.tabbox ul.pager a {
+    float: left;
+    display: inline-block;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+}
+
+.tabbox table tbody td .green_money {
+    color: #69c04f;
+}
+.tabbox table tbody td .yellow_money {
+    color: #ff6666;
+}

@@ -1,0 +1,237 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <div class="accountInfo fl">
+                <h1 class="f16 col333"><span>个人资料</span></h1>
+                <div class="portrait ml30 fl">
+					<a ng-show="!thirdAccount || user.gender == null" href="javascript:;"><img src="assets/images/default.png"/></a>
+					<a ng-show="user.gender == 1" href="javascript:;"><img src="assets/images/boy.png"/></a>
+					<a ng-show="user.gender == 0" href="javascript:;"><img src="assets/images/girl.png"/></a>
+				</div>
+                <div class="fl ml20 baseInfo">
+                    <ul class="mt10">
+                        <li>
+                            <p>姓名：{{ user.realName}}</p>
+
+                            <p>用户名：{{user.userName}} </p>
+                        </li>
+                        <li>
+                            <p class="col999">第三方支付帐号
+                                <a ng-show="!thirdAccount" class="ml10" style="cursor: pointer;" ng-click="openAccount()">开通</a>
+                            </p>
+                           <!-- <p class="col333 mt5">{{thirdAccount}}&nbsp;</p>-->
+                            <p class="col333 mt5"><a href="javascript:void(0)" ng-click='loginThirdPayAccount()'>{{thirdAccount
+                                || "无"}}</a></p>
+                        </li>
+                        <li>
+                            <p class="col999">安全等级<span class="safety">{{safety}}</span> <a class="ml10"
+                                                                                            ui-sref="account-security">提升</a>
+                            </p>
+
+                            <p class="mima mt10">
+                                <em ng-repeat="l1 in levels" ng-class="l1"></em>
+                            </p>
+                        </li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="fl mt20 ml20 detailInfo">
+                <li ng-class="{active: bindMobile_1 }">
+                    <i class="phone "></i>
+
+                    <div class="mb5">
+                        <p class="f16 col333 mt10 ">手机 <span class="f14">{{user.mobile}}</span></p>
+
+                        <p class="f12 col999">可享有手机相关的服务</p>
+                    </div>
+                    <p ng-show="bindMobile_2">
+                        <button ng-disabled="bindMobile_2"><em>!</em>未绑定</button>
+                        <a class="ml10" href="">绑定</a>
+                    </p>
+                    <p ng-show="bindMobile_1">
+                        <button class="isBind"><em></em>已绑定</button>
+                        <a class="ml10" target="_blank" ui-sref="modifyphone">修改</a>
+                    </p>
+                </li>
+                <li ng-class="{active: bindEmail_1}">
+                    <i class="email"></i>
+
+                    <div class="mb5">
+                        <p class="f16 col333 mt10">邮箱<span class="f14">{{bindEmail_1?user.email:null}}</span></p>
+                        <p class="f12 col999">验证后可收到资讯类或是合同等信息</p>
+                    </div>
+                    <p ng-show="!bindEmail_1">
+                        <button ng-disabled="!bindEmail_1"><em>!</em>未绑定</button>
+                        <a class="ml10" target="_blank" ui-sref="bindemail">绑定</a>
+                    </p>
+                    <p ng-show="bindEmail_1">
+                        <button class="isBind"><em></em>已绑定</button>
+                        <a class="ml10 isBind" target="_blank" ui-sref="modifyemail">修改</a>
+                    </p>
+                </li>
+                <li class="open" ng-class="{active: thirdAccount}">
+                    <i class="thirdpay"></i>
+
+                    <div class="mb5">
+                        <p class="f16 col333 mt10">第三方支付帐号</p>
+
+                        <p class="f12 col333">{{thirdAccount}} </p>
+
+                        <p class="f12 col999">享资金安全保障</p>
+                    </div>
+                    <p ng-show="thirdAccount">
+                        <button class="isBind " ><em></em>已开通</button>
+                    </p>
+                    <p ng-show="!thirdAccount" >
+                        <button ng-disabled="!thirdAccount"><em>!</em>未开通</button>
+                        <a class="ml10" style="cursor: pointer;" ng-click="openAccount()">开通</a>
+                    </p>
+
+                </li>
+            </ul>
+            <div class="fl mt20 ml20 infoList mb20">
+                <p class="IDcard evenColor"><i></i><label>身份证</label>{{user.pid||"暂无"}}</p>
+
+                <div class="city">
+                    <i></i><label>最高学历</label>
+                    <!--a class="fr" href="#" editable-text="user.educationDegree">编辑</a-->
+					<!--<span onaftersave="modifyEducationDegree($data)" editable-select="user.status"-->
+                          <!--e-ng-options="s.value as s.text for s in statuses" e-form="rowform" e-required>-->
+						<!--{{user.educationDegree|| '暂无'}}-->
+					<!--</span>-->
+
+                    <!--<form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"-->
+                          <!--shown="inserted == user">-->
+                        <!--<button type="submit" ng-disabled="rowform.$waiting">确定</button>-->
+                        <!--<button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()">取消</button>-->
+                    <!--</form>-->
+                    <!--<a class="fr" ng-show="!rowform.$visible" href="javaScript:;" ng-click="rowform.$show()">编辑</a>-->
+                     <span ng-show="!show_1">
+                        {{user.educationDegree==null?"暂无":user.educationDegree}}
+                    </span>
+                    <span ng-show="show_1">
+						<select ng-model="user.educationDegree" style="width: 551px;"
+                                ng-options="s.value as s.text for s in statuses">
+                            <option value="">--请选择学历--</option>
+                        </select>
+						<button type="submit" ng-click="modifyEducationDegree()">确定</button>
+						<button type="button" ng-click="cancelModifyDegree()">取消</button>
+                    </span>
+                    <a class="fr" ng-show="!show_1" href="javaScript:;" ng-click="editEducationDegree()">编辑</a>
+                </div>
+                <div class="occupation evenColor">
+                    <i></i><label>职业</label>
+                    <!--a>{{ user.accountIndustry || "暂无" }}</a>
+                    <a class="fr" href="#" editable-text="user.accountIndustry">编辑</a-->					
+					<span editable-text="user.accountIndustry" e-name="accountIndustry" e-form="rowform1" e-required>
+						{{ user.accountIndustry || '暂无' }}
+					</span>
+
+                    <form editable-form name="rowform1" ng-show="rowform1.$visible" class="form-buttons form-inline"
+                          shown="inserted == user">
+                        <button type="submit" ng-disabled="rowform1.$waiting">确定</button>
+                        <button type="button" ng-disabled="rowform1.$waiting" ng-click="rowform1.$cancel()">取消</button>
+                    </form>
+                    <a class="fr" ng-show="!rowform1.$visible" href="javaScript:;" ng-click="rowform1.$show()">编辑</a>
+                </div>
+                <div class="city">
+                    <i></i><label>月收入</label>
+                    <!--a>{{ user.income || "暂无" }}</a>
+                    <a class="fr" href="#" editable-text="user.income">编辑</a-->
+                    <!--<span editable-text="user.income" e-name="income" e-form="rowform2" e-required>
+                        {{ user.income || '暂无' }}
+                    </span>-->
+                    <!--<span editable-select="user.income_old" onaftersave="modifyIncome($data)"-->
+                          <!--e-ng-options="s.value as s.text for s in incomes" e-form="rowform2" e-required>-->
+                        <!--{{user.income|| '暂无'}}-->
+					<!--</span>-->
+
+                    <!--<form editable-form name="rowform2" ng-show="rowform2.$visible" class="form-buttons form-inline"-->
+                          <!--shown="inserted == user">-->
+                        <!--<button type="submit" ng-disabled="rowform2.$waiting">确定</button>-->
+                        <!--<button type="button" ng-disabled="rowform2.$waiting" ng-click="rowform2.$cancel()">取消</button>-->
+                    <!--</form>-->
+                    <!--<a class="fr" ng-show="!rowform2.$visible" href="javaScript:;" ng-click="rowform2.$show()">编辑</a>-->
+                    <span ng-show="!show_2">
+                        {{user.income||'暂无'}}
+                    </span>
+                    <span ng-show="show_2">
+						<select ng-model="user.income" style="width: 551px;"
+                                ng-options="s.value as s.text for s in incomes">
+                            <option value="">--请选择月收入--</option>
+                        </select>
+						<button type="submit" ng-click="modifyIncome()">确定</button>
+						<button type="button" ng-click="cancelModifyIncome()">取消</button>
+                    </span>
+                    <a class="fr" ng-show="!show_2" href="javaScript:;" ng-click="editIncome()">编辑</a>
+                </div>
+                <div class="city evenColor">
+                    <i></i><label>所在城市</label>
+                    <!--a>{{ user.income || "暂无" }}</a>
+                    <a class="fr" href="#" editable-text="user.income">编辑</a-->
+                    <span ng-show="!show">
+                        {{user.accountTouchProvince_1==null?"":user.accountTouchProvince_1}}{{user.accountTouchCity_1==null?"":user.accountTouchCity_1}}
+                    </span>
+                    <span ng-show="show">
+						<select ng-model="user.accountTouchProvince" ng-change="getCitys()"
+								ng-options="s.value as s.text for s in AccountTouchProvinces">
+							<!--{{user.accountTouchProvince||'暂无'}}-->
+							<option value="">-- 请选择所在省 --</option>
+						</select>
+						<select class="ml5" ng-model="user.accountTouchCity" ng-options="s.value as s.text for s in AccountTouchCitys">
+							<!--{{user.accountTouchProvince||'暂无'}}-->
+							<option value="">-- 请选择所在市 --</option>
+						</select>
+						<button type="submit" ng-click="modifyProvinceAndCity()">确定</button>
+						<button type="button" ng-click="cancelModify()">取消</button>																	
+                    </span>
+                    <a class="fr" ng-show="!show" href="javaScript:;" ng-click="editProAndCity()">编辑</a>
+
+                    <!--<span editable-select="user.accountTouchProvince"
+                          e-ng-options="s.value as s.text for s in AccountTouchProvinces" e-form="rowform4" e-required>
+                        &lt;!&ndash;{{user.accountTouchProvince||'暂无'}}&ndash;&gt;
+                        {{getCitys($data)}}{{user.accountTouchProvince}}
+					</span>
+                    <span editable-select="user.accountTouchCity"
+                          e-ng-options="s.value as s.text for s in AccountTouchCitys" e-form="rowform4" e-required>
+						{{user.accountTouchCity}}
+					</span>
+
+                    <form onbeforesave="checkProvinceAndCity()" onaftersave="modifyProvinceAndCity()" editable-form name="rowform4" ng-show="rowform4.$visible" class="form-buttons form-inline"
+                          shown="inserted == user">
+                        <button type="submit" ng-disabled="rowform4.$waiting">确定</button>
+                        <button type="button" ng-disabled="rowform4.$waiting" ng-click="rowform4.$cancel()">取消</button>
+                    </form>
+                    <a class="fr" ng-show="!rowform4.$visible" href="javaScript:;" ng-click="rowform4.$show()">编辑</a>-->
+                </div>
+                <!--<p class="bailout evenColor">
+                    <i></i><label>紧急联系人</label>
+                    <a>{{ user.xxx|| "暂无" }}</a>
+                    <a class="fr" href="#" editable-text="user.xxx">编辑</a>
+                </p>-->
+                <div class="address">
+                    <i></i><label>联系地址</label>
+                    <!--a>{{ user.accountAddress|| "暂无" }}</a>
+                    <a class="fr" href="#" editable-text="user.accountAddress">编辑</a-->
+					<span editable-text="user.accountAddress" e-name="accountAddress" e-form="rowform3" e-required>
+						{{ user.accountAddress || '暂无' }}
+					</span>
+
+                    <form editable-form name="rowform3" ng-show="rowform3.$visible" class="form-buttons form-inline"
+                          shown="inserted == user">
+                        <button type="submit" ng-disabled="rowform3.$waiting">确定</button>
+                        <button type="button" ng-disabled="rowform3.$waiting" ng-click="rowform3.$cancel()">取消</button>
+                    </form>
+                    <a class="fr" ng-show="!rowform3.$visible" href="javaScript:;" ng-click="rowform3.$show()">编辑</a>
+                </div>
+                <p class="rTime evenColor"><i></i><label>注册时间</label>{{user.registerDate|date:'yyyy-MM-dd HH:mm:ss'}}
+                </p>
+            </div>
+        </div>
+    </div>    
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

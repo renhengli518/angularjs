@@ -1,0 +1,10 @@
+.wrapper ul.mediaBox li{list-style:none;float:left;border-bottom:1px dotted #d5dfe5;margin:10px 0px;padding-bottom:10px;width:100%;}
+.wrapper ul.mediaBox li .mediaL{width:70%;}
+.wrapper ul.mediaBox li .mediaL p{width:100%;margin-bottom:10px;}
+.wrapper ul.mediaBox li .mediaL p a{color:#0099ff;}
+.wrapper ul.mediaBox li .mediaL p.col999{color:#999;}
+.wrapper ul.mediaBox li .mediaR{width:200px;height:120px;background: #f5f7fa;border:1px solid #d5dfe5;  margin:5px 0px 0px 10px;line-height:120px;}
+.wrapper ul.mediaBox li .mediaR img{width:auto;text-align:center;}
+.wrapper ul.mediaBox li:last-child{border-bottom:none;}
+.wrapper ul.mediaBox li .mediaL p a:hover{color:#f63}
+.wrapper ul.mediaBox li .mediaL h2{color:#333;}

@@ -1,0 +1,181 @@
+.noInvest {
+    background: #fff5d6;
+    width: 95%;
+    line-height: 60px;
+}
+
+.noInvest i {
+    background-image: url(../../assets/images/allicon.png);
+    background-position: -125px -388px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.balanceNum {
+    background: #f5f7fa;
+    border-top: 3px solid #00b1ff;
+    display: inline-block;
+    width: 95%;
+}
+
+.balanceNum li {
+    float: left;
+    margin: 20px 0px;
+    border-right: 1px dashed #abbfcb;
+    color: #999;width:24.5%;text-align:center;
+}
+
+.balanceNum li:last-child {
+    border-right: none;
+}
+
+.balanceNum li i {
+    background-image: url(../../assets/images/allicon.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-left: 5px;
+    background-position: -178px -204px;cursor:pointer;
+}
+
+.tablist {
+    width: 95%;
+}
+
+.tablist li {
+    float: left;
+    background: #ecf0f5;
+    border-radius: 3px 3px 0px 0px;
+    -moz-border-radius: 3px 3px 0px 0px;
+    -webkit-border-radius: 3px 3px 0px 0px;
+    padding: 10px 30px;
+    margin-right: 2px;
+    cursor: pointer;
+    color: #999;
+}
+
+.tablist li.active {
+    color: #fff;
+    background: #00b1ff;
+}
+
+.tablist select {
+    border: 1px solid #d3dae2;
+    padding: 5px 20px 5px 5px;
+}
+
+.tabbox {
+    width: 95%;
+    border-top: 3px solid #00b1ff;
+}
+
+.tabbox table {
+    width: 100%;
+}
+.tabbox table tbody td a{color:#089bff;}
+.tabbox table tbody th {
+    background: #f5f7fa;
+    border-bottom: 1px solid #d5dfe5;
+    padding:20px 10px;
+    text-align: center;
+    color: #999;
+}
+
+.tabbox table tbody td {
+    padding:15px 0px;
+    text-align: center;
+}
+
+.pagination input[type=text] {
+    border: 1px solid #d3dae2;
+    line-height: 28px;
+}
+
+.pagination .btn {
+    width: 50px;
+    height: 30px;
+    line-height: 30px;border-radius:3px;
+}
+
+.tabbox .pagination > li > a {
+    border: none;  background: #ecf0f5;color:#333;
+}
+
+.tabbox .pagination .first {
+    background-image: url(../../assets/images/allicon.png);
+    background-position: -125px -417px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    padding: 0px;
+    background-color: #ecf0f5;
+}
+
+.tabbox .pagination .previous {
+    background-image: url(../../assets/images/allicon.png);
+    background-position: -160px -417px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    padding: 0px;
+    background-color: #ecf0f5;
+    margin-right: 10px;
+}
+
+.tabbox .pagination .next {
+    background-image: url(../../assets/images/allicon.png);
+    background-position: -125px -444px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    padding: 0px;
+    background-color: #ecf0f5;
+    margin-left: 10px;
+}
+
+.tabbox .pagination .last {
+    background-image: url(../../assets/images/allicon.png);
+    background-position: -162px -444px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    padding: 0px;
+    background-color: #ecf0f5;
+}
+.download{background-image: url(../../assets/images/allicon.png);
+    background-position:-239px -389px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;}
+.pull-right em{color:#69c04f;}
+a.deposit{color:#ff6633;}
+a.apply{color:#089bff;}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{vertical-align: inherit;}
+.tabbox .pagination > li > a:hover{background: #50bbff;color:#fff;}
+.tabbox .pagination > .disabled > a{background: #50bbff;color:#fff;}
+.tabbox .pagination > .disabled > a.first{background: url(../../assets/images/allicon.png) -125px -417px no-repeat #ecf0f5;}
+.tabbox .pagination > .disabled > a.previous{background: url(../../assets/images/allicon.png) -160px -417px no-repeat #ecf0f5;}
+.tabbox .pagination > .disabled > a.next{background: url(../../assets/images/allicon.png) -125px -444px no-repeat #ecf0f5;}
+.tabbox .pagination > .disabled > a.last{background: url(../../assets/images/allicon.png) -162px -444px no-repeat #ecf0f5;}
+.tabbox .pagination > li > a.firstNum, .tabbox .pagination > .disabled > a.firstNum {border-radius:3px 0px 0px 3px;}
+.tabbox .pagination > li > a.lastNum ,.tabbox .pagination > .disabled > a.lastNum{border-radius:0px 3px 3px 0px;}
+.tabbox .pagination > li > a.first:hover{background: url(../../assets/images/allicon.png) -125px -417px no-repeat #ecf0f5;}
+.tabbox .pagination > li > a.previous:hover{background: url(../../assets/images/allicon.png) -160px -417px no-repeat #ecf0f5;}
+.tabbox .pagination > li > a.next:hover{background: url(../../assets/images/allicon.png) -125px -444px no-repeat #ecf0f5;}
+.tabbox .pagination > li > a.last:hover{background: url(../../assets/images/allicon.png) -162px -444px no-repeat #ecf0f5;}
+.tabbox .pagination > li > a.moreNum{background: #ecf0f5;color:#333;}

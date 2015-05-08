@@ -1,0 +1,64 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-init="ready()">
+    <div class="loginPageWrapper">
+        <div class="container">
+            <h1 class="f22">
+                <a class="logo fl" ui-sref="portal"></a>
+                <span class="fl ml20">欢迎登录</span>
+            </h1>
+
+            <div class="loginIcon pr">
+                <i class="pa"></i>
+            </div>
+            <form class="pr" name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+                <p class="error"
+                   ng-show="xxx?((judgePassword||show)?true:(submitted?userForm.$invalid:false)):false">
+                    <i class="fl mr10"></i>
+                    <font class="fl w260">
+						<label ng-show="userForm.username.$viewValue==null||userForm.username.$viewValue==''||userForm.username.$invalid"
+							   class="fl w260">请输入用户名</label>
+						<label ng-show="(userForm.username.$viewValue==null||userForm.username.$viewValue==''||userForm.username.$invalid)?false:(userForm.password.$viewValue==null||userForm.password.$viewValue==''||userForm.password.$invalid)"
+							   class="fl w260">请输入登陆密码</label>
+						<label ng-show="judgePassword?false:((userForm.username.$valid&&userForm.password.$valid)?(userForm.$invalid?(userForm.verificationCode.$viewValue==null||userForm.verificationCode.$viewValue==''):false):false)"
+							   class="fl w260">请输入验证码</label>
+                        <label ng-show="show"
+                               class="fl w260">此用户名不存在</label>
+                        <!--<label class="fl w260">{{errMsg}}</label>-->
+                        <label ng-show="judgePassword"
+							   class="fl w260">用户名或登录密码不正确，请重新输入。您还可以<a ui-sref="forgetpasswd">找回登录密码</a></label>
+					</font>
+                </p>
+                <p class="pr"><span class="nameLabel pa"></span><input class="w280 input" type="text" name="username"
+                                                                       ng-model="username" ng-minlength="1" ng-focus="xxx=false;show=false;judgePassword=false"
+                                                                       placeholder="请输入用户名或手机号码" ng-required="true" />
+																	   
+                </p>
+
+                <p class="pr"><span class="passwordLabel pa"></span><input class="w280 input" type="password" name="password"
+                                                                           ng-model="password"  ng-focus="xxx=false;show=false;judgePassword=false"
+                                                                           placeholder="请输入对应密码" ng-required="true"/>
+                </p>
+
+                <p class="pr"><span class="ChkCodeIcon pa"></span>
+                    <input ng-focus="flag_x=true;xxx=false;show=false;judgePassword=false" class="w140 input fl" type="text" name="_captcha" ng-model="verificationCode"
+                           placeholder="请输入右侧验证码"  ng-required="true" ng-keyup="validate()" ng-blur="validate_1()"/>
+					<span class="rightIcon pa" ng-show="flag_x?false:flag1"></span>
+					<span class="errorIcon pa" ng-show="flag_x?false:flag2"></span>
+                    <captcha ></captcha>
+                </p>
+
+                <p>
+                    <input ng-click="rememberU()" ng-checked="rememberUsername" class="vm mr5" type="checkbox"/>记住用户名
+                    <a class="fr" ui-sref="forgetpasswd">忘记登录密码？</a>
+                </p>
+
+                <p class="submit">
+                    <button type="submit"  class=" btn f18">登录</button>
+                </p>
+                <p class="fr">没有账户？<a ui-sref="register">立即注册</a></p>
+            </form>
+        </div>
+        <p class="tc mt20">Copyright ©2014.Vcredit.All Rights Reserved</p>
+    </div>
+</div>
+

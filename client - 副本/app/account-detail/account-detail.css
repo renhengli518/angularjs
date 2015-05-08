@@ -1,0 +1,51 @@
+.detailInfo{width:98%;}
+.detailInfo li{float:left;background:#f5f7fa;width:31%;height:120px;margin-right:20px;overflow:hidden;position:relative;}
+.detailInfo li p{padding-left:110px;padding-top:5px;}
+.detailInfo li div{border-bottom:1px solid #d5dfe5;height:70px;}
+.detailInfo li i{position:absolute;background-image:url(../../assets/images/detailIcon.png);background-repeat: no-repeat;width: 100px;height: 120px;display: inline-block;}
+.phone{background-position: -50px 0px;}
+.email{background-position: -30px -150px;}
+.thirdpay{background-position:-30px -273px;}
+.detailInfo .active{background:#edffe9;}
+.detailInfo .active .phone{background-position: -55px -405px;}
+.detailInfo .active .email{background-position: -30px -558px;}
+.detailInfo .active .thirdpay{background-position: -45px -690px;}
+.detailInfo li button{background:#ecf0f5;border:none;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;padding:0px 10px;}
+.detailInfo li button em{color:#ff6666;font-weight:bold;margin-right:5px;}
+.open{background:#edffe9;}
+.detailInfo li button.isBind{background:#69c04f;color:#fff;}
+.detailInfo li button.isBind em{background-image: url(../../assets/images/allicon.png);background-repeat:no-repeat;display:inline-block;width:15px;height:15px;vertical-align: middle;background-position:-203px -358px;}
+.infoList{width:98%;}
+.infoList i{float:left;margin-top:5px;background-image: url(../../assets/images/allicon.png);background-repeat:no-repeat;display:inline-block;width:24px;height:24px;vertical-align: middle;margin-right:20px;}
+.infoList p,.infoList div{line-height:32px;padding:15px 20px;width:93%;}
+.infoList p label,.infoList div label{font-weight:normal;color:#333;width:120px;float:left;}
+.IDcard i{background-position:-218px -123px;}
+.highest i{background-position:-222px -162px;}
+.occupation i{background-position:-225px -200px;}
+.income i{background-position:-225px -240px;}
+.bailout i{background-position:-228px -277px;}
+.address i{background-position:-228px -315px;}
+.rTime i{background-position:-230px -354px;}
+.city i{background-position:-311px -388px;}
+.evenColor{background:#f5f7fa;}
+em.normalRedBg {
+    background: #ff6666;
+}
+ em.normalOrangeBg {
+    background: #ffb135;
+}
+em.normalGreenBg {
+    background: #008000;
+}
+.editable .editable-wrap{position:absolute;left:0px;}
+.editable-wrap input.editable-input{border:1px solid #00b1ff;width:551px;padding-left:5px;}
+.editable-wrap .editable-controls>select ,.city select{border:1px solid #00b1ff;width:547px;padding:5px;}
+.form-buttons{display: inline-block;}
+.form-buttons button , .city button{background:#089bff;color:#fff;border:none;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;padding:0px 10px;height:32px;line-height:32px;margin-left:20px;}
+.form-buttons button[type=button] , .city button[type=button]{background:none;color:#089bff;width:auto;padding:0px;margin-left:20px;}
+.editable a{color:#333;}
+.editable a.editable-click{color:#089bff;border-bottom:none;}
+.city select{width:263px;}
+.editable-empty, .editable-empty:hover, .editable-empty:focus, a.editable-empty, a.editable-empty:hover, a.editable-empty:focus{color: #333;font-style:normal;}
+.content .accountInfo h1{background:none;}
+.baseInfo a{color:#089bff;display: inline-block;}

@@ -1,0 +1,32 @@
+<div class="sidebar fl w200" ng-controller="LeftBarCtrl">
+    <dl>
+        <dt>我的资产</dt>
+        <dd ui-sref="account" ng-class="{active:isActive('/account')}"><i class="total"></i>账户总览<span></span></dd>
+        <dd ui-sref="account-myinvest" ng-class="{active:isActive('/account/myinvest')}"><i class="myfund"></i>我的投资<span></span></dd>
+        <dd ui-sref="account-fund" ng-class="{active:isActive('/account/fund')}"><i class="details"></i>资金明细<span></span></dd>
+    </dl>
+    <dl>
+        <dt>账户信息</dt>
+        <dd ui-sref="account-detail" ng-class="{active:isActive('/account/detail')}"><i class="material"></i>个人资料<span></span></dd>
+        <dd ui-sref="account-security" ng-class="{active:isActive('/account/security')}"><i class="safe"></i>账户安全<span></span></dd>
+        <dd ui-sref="account-message" ng-class="{active1:isActive('/messageset') , active:isActive('/account/message'),active3:isActive('/account/message/1')}"><i class="news"></i>我的消息<span></span></dd>
+        <dd ui-sref="account-packet" ng-class="{active:isActive('/account/packet')}"><i class="red"></i>我的红包<span></span></dd>
+    </dl>
+    <dl>
+        <dt>工具箱</dt>
+        <dd ng-show="show"
+            ng-class="{active1:isActive('/onetouch'),active2:isActive('/buffet') , active:isActive('/invest/auto')}"
+            ui-sref="auto-invest"><i class="auto"></i>自动投资<span></span>
+        </dd>
+        <dd ng-show="show1"
+            ng-class="{active1:isActive('/onetouch'),active2:isActive('/buffet') , active:isActive('/invest/auto')}"
+            ui-sref="onetouch"><i class="auto"></i>自动投资<span></span>
+        </dd>
+        <dd ng-show="show2"
+            ng-class="{active1:isActive('/onetouch'),active2:isActive('/buffet') , active:isActive('/invest/auto')}"
+            ui-sref="buffet"><i class="auto"></i>自动投资<span></span>
+        </dd>
+        <dd ng-class="{active:isActive('/share')}" ui-sref="share"><i class="friends"></i>推荐好友<span></span></dd>
+        <dd ng-class="{active:isActive('/calculator')}" ui-sref="calculator"><i class="calculator"></i>收益计算器<span></span></dd>
+    </dl>
+</div>

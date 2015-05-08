@@ -1,0 +1,222 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="investWrapper">
+    <div class="container mb10">
+        <div class="investProgress mt20 f14 pr" ng-show="showMore">
+            <div>
+                <span class="fl ml50 mt20 mb20 investProgressSpan">投标进度</span>
+                <ul class="fl ml10 mt20 mb20 investProgressUl">
+                    <li ng-repeat="t in bidProgress">
+                        <input class="vm mr5" ng-checked="t.checked" type="radio"
+                               ng-click="selectedCheckbox('bidProgress',t)"/>{{t.name}}
+                    </li>
+                </ul>
+                <div class="fr mt20 mb20 mr20 timePart " ng-show="showMore">
+                    <dl>
+                        <dd ng-class="{special_date: publishTime.current}" ng-repeat="publishTime in publishTimes">
+                            {{publishTime.time}}
+                        </dd>
+                    </dl>
+                    <i class="vm mt5 ml30 mr5 timeIcon fl"></i>
+
+                    <p class="mt5 col999">
+                        距离下场开始仅剩 00时<em class="colf63">00</em>分<em class="colf63">00</em>秒</p>
+                </div>
+                <a class="pa col333 moreOptions" ng-click="showProgress();">更多选项<i class="up ml10"></i></a>
+            </div>
+        </div>
+        <div class="investProgress mt20 f14 pr" ng-show="collapseAll">
+            <div class="animate-show">
+                <div class="fl investProgressLeft">
+                    <div class="investBox mb10">
+                        <div class="boxLeft fl">
+                            <label class="fl">贷款期限</label>
+                            <label class="fl mt50">客户类型</label>
+                            <label class="fl mt20">投标进度</label>
+                        </div>
+                        <div class="boxRight fl">
+                            <div class="monthPart fl pr ml20">
+                                <span class="pa part part1"></span>
+                                <span class="pa part part2"></span>
+                                <span class="pa part part3"></span>
+                                <span class="pa part part4"></span>
+                                <span class="pa part part5"></span>
+
+                                <!--<input type="text" id="range_07"/>-->
+                                <div ui-slider="slider.options" min="1" max="5" step="1" ng-model="periods"></div>
+                                <dl class="pa monthPartDl">
+                                    <dd ng-class="{'active_month':month.selected}" ng-repeat="month in monthRange">
+                                        {{month.title}}
+                                    </dd>
+                                </dl>
+                            </div>
+                            <ul class="fl mt20 ml10">
+                                <li ng-repeat="t in customeType">
+                                    <input ng-click="selectedCheckbox('customeType',t)" class="vm mr5" type="radio"
+                                           ng-checked="t.checked"/>{{t.name}}
+                                </li>
+                            </ul>
+                            <ul class="fl mt25 ml10">
+                                <li ng-repeat="t in bidProgress">
+                                    <input class="vm mr5" ng-checked="t.checked" type="radio"
+                                           ng-click="selectedCheckbox('bidProgress',t)"/>{{t.name}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="fl investProgressRight">
+                    <dl>
+                        <dd ng-class="{special_date: publishTime.current}" ng-repeat="publishTime in publishTimes">
+                            {{publishTime.time}}
+                        </dd>
+                    </dl>
+                    <div class="ml20 mr20 timeBox">
+                        <p class="mt10 ml20 mr20 mb10 col999 pb5"
+                           style="border-bottom:1px solid #f5f7fa;display:inline-block;width:85%;"><i
+                            class="vm mr5 timeIcon"></i>距离下场开始仅剩</p>
+
+                        <p class="col999 ml50 mb10">
+                            <span class="f50">00</span>时
+                            <span class="f50">00</span>分
+                            <span class="f50">00</span>秒
+                        </p>
+                    </div>
+                    <div class="ml20 mt10 mb10 pr">担心抢不到？试试
+                        <a ng-show="show" ui-sref="auto-invest" class="btn autoinvestBtn f16"><i></i>自动投资</a>
+                        <a ng-show="show1" ui-sref="onetouch" class="btn autoinvestBtn f16"><i></i>自动投资</a>
+                        <a ng-show="show2" ui-sref="buffet" class="btn autoinvestBtn f16"><i></i>自动投资</a>
+
+                        <p class="pa autoMsg" style="display: none;">
+                            <span class="arrow pa"></span>
+                            <span class="pa autoMsgBox"><i></i><span class="fl w200 mt5">登陆后才能进行投资，请先<a href="#/login">登录</a></span> <a
+                                class="close" onclick="$('.autoMsg').hide();" href="javaScript:;"></a></span>
+                        </p>
+                    </div>
+                </div>
+                <a class="pa col333 moreOptions" ng-click="showProgress();">收起<i class="pull ml10"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="searchWrapper navbar-wrapper">
+        <div class="container">
+            <div class="investList">
+                <table>
+                    <thead>
+                    <tr>
+                        <th width="9%" class="tc"><span>搜索结果</span></th>
+                        <th class="pr tc" ng-click="sortTable(t)" width="8%"
+                            ng-repeat="t in tableTitles">
+                            <div>
+                                <font class="">{{t.title}}</font>
+                                <!--font ng-show="sortedColumn === t.sortColumn" class="w10 ml10"><a ng-class="t.cssClass" class="fl desc"></a></font-->
+                                <font class="w10 ml10">
+                                    <a ng-class="{active: t.cssClass=='desc'}" class="fl desc"></a>
+                                    <a ng-class="{active: t.cssClass=='asc'}" class="fl asc"></a>
+                                </font>
+                            </div>
+                            <!--dl class="pa sortBox">
+                                <dd><a href="">从高到低</a></dd>
+                                <dd><a href="">从低到高</a></dd>
+                            </dl-->
+                        </th>
+                        <th width="23%" class="pr20 tr">
+							<p class="result">共 <em class="colf63">{{globalDataList.length}}</em> 款产品满足搜索条件 </p>
+							<p class="autoinvest">
+								想要快人一步,试试 
+<!-- 								<button ui-sref="onetouch" class="ml10 autoInvest f14">自动投资</button> -->
+							        <button ng-show="show" ui-sref="auto-invest" class="ml10 autoInvest f14">自动投资</button>
+			                        <button ng-show="show1" ui-sref="onetouch" class="ml10 autoInvest f14">自动投资</button>
+			                        <button ng-show="show2" ui-sref="buffet" class="ml10 autoInvest f14">自动投资</button>
+							</p>
+						</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="investList mt10">
+            <table ng-show="!remoteError" infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+                <tbody>
+                <tr ng-repeat="project in projectList">
+                    <td colspan="2">
+                        <p class="f16 investName ml20">
+                            <!--{{project.investmentNumber}}-->
+                            <a href="#/investitem/{{project.investment.investmentSequence}}"
+                               target="_blank">{{project.investment.investmentName}}</a>
+                            <em class="ml5 ensure">保</em>
+                            <em class="ml5 letter">{{project.investment.investmentLevelMap}}</em>
+                        </p>
+
+                        <!--p class="ml20">{{project.investment.investmentName}}</p-->
+
+                        <p class="ml20">客户类型：{{project.account.loanTypeMap}} <span class="ml20">起投金额：<font>{{project.investment.investmentStartAmount}}</font>元</span>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="mt5">年利率</p>
+
+                        <p class="f26 colf63">{{project.investment.investmentAnnualInterestRateMap*100 || 0}}%</p>
+                    </td>
+                    <td>
+                        <p class="mt5">期限</p>
+
+                        <p class="col999"><span class="f26 colf63">{{project.investment.investmentPeriodMap || project.investment.investmentPeriod}}</span>个月
+                        </p>
+                    </td>
+                    <td colspan="2">
+                        <p class="mt5">总金额</p>
+
+                        <p class="col999"><span class="f26 colf63">{{(project.investment.investmentTotalMap || project.investment.investmentTotal) | moneyFormat}}</span>元
+                        </p>
+                    </td>
+                    <td>
+                        <!--
+                        完成度
+                        <span class="f20">{{project.InvestmentProgress}}</span>%-->
+                        <div class="progress-wrapper">
+                            <div class="progress-text-circle">完成度</div>
+                            <div class="progress-bar-circle">{{ project.investment.investmentProgress}}<span
+                                class="f14 col999">%</span></div>
+                            <div round-progress max="100" current="project.investment.investmentProgress"
+                                 radius="40"
+                                 stroke="3" semi="isSemi" color="#00b1ff"></div>
+                        </div>
+                    </td>
+                    <td class="pr" ng-class="{bgfff: project.investment.investmentStatus != 12 }">
+                        <!-- //project.InvestmentSequence -->
+                        <i ng-show="project.bought" class="pa buyIcon"></i>
+                        <span class="pa arrowBor"><span class="pa arrow"></span></span>
+                        <invest-button investment="project.investment" showtype="showtype"></invest-button>
+                        <!--<a class="btn f16 mb10 ml30" href="#/investitem/{{project.investment.investmentSequence}}"-->
+                        <!--target="_blank">立即投资</a>-->
+
+                        <!--<p class="pa fullMsg">-->
+                        <!--<span class="arrow pa"></span>-->
+                        <!--<span class="pa autoMsgBox"><i></i><span class="fl w250 mt5">已满标，想要快人一步？试试 <a href="">自动投资</a></span></span>-->
+                        <!--</p>-->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table ng-show="remoteError" class="tc remoteError">
+                <tr>
+                    <td>
+                        <i class="txtIcon mt100"></i>
+
+                        <p class="col999 mb30 mt10">没有满足搜索条件的产品</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>
+<script type="text/javascript">
+	$(document).ready( function() {
+	  $('.navbar-wrapper').stickUp();
+	});
+</script>

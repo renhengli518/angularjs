@@ -1,0 +1,8 @@
+.gradeBanner{background: url(../../assets/images/gradeBaner.png);width: 100%;height: 136px;}
+.gradeBanner h1 {color: #fff;margin: 50px 0px 0px 80px;}
+.gradeWrapper .container h2{border-bottom: 1px solid #d5dfe5;padding:0px 10px 0px 0px;float: left;width:96%;margin-bottom: 20px;}
+.gradeWrapper .container h2 span {border-bottom: 2px solid #0099ff;color: #999;padding-bottom:10px;}
+.gradeWrapper .container p{display:inline-block;line-height:25px;width:96%;}
+.gradeWrapper .container table{width:45%;}
+.gradeWrapper .container table th{border:1px solid #d5dfe5;background:#f5f7fa;text-align:center;padding:20px 0px;}
+.gradeWrapper .container table td{border:1px solid #d5dfe5;border-top:none;text-align:center;padding:20px 0px;}

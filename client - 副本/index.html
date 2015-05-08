@@ -1,0 +1,351 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<!--<html class="no-js">-->
+<html  xmlns:ng="http://angularjs.org" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title>维金荟-您的智荟理财专家！</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/fullcalendar/fullcalendar.css" />
+    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.min.css" />
+    <link rel="stylesheet" href="bower_components/ionrangeslider/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="bower_components/ionrangeslider/css/ion.rangeSlider.skinHTML5.css" />
+    <link rel="stylesheet" href="bower_components/circliful/css/jquery.circliful.css" />
+    <link rel="stylesheet" href="bower_components/fullpage/jquery.fullPage.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css"/>
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+    <link rel="stylesheet" href="app/app.css">
+    <!-- injector:css -->
+    <link rel="stylesheet" href="app/about/about.css">
+    <link rel="stylesheet" href="app/account-detail/account-detail.css">
+    <link rel="stylesheet" href="app/account-fund/account-fund.css">
+    <link rel="stylesheet" href="app/account-message/account-message.css">
+    <link rel="stylesheet" href="app/account-myinvest/account-myinvest.css">
+    <link rel="stylesheet" href="app/account-packet/account-packet.css">
+    <link rel="stylesheet" href="app/account-security/account-security.css">
+    <link rel="stylesheet" href="app/account/account.css">
+    <link rel="stylesheet" href="app/announcement/announcement.css">
+    <link rel="stylesheet" href="app/announcementdetails/announcementdetails.css">
+    <link rel="stylesheet" href="app/app.css">
+    <link rel="stylesheet" href="app/apply/apply.css">
+    <link rel="stylesheet" href="app/auto-invest/auto-invest.css">
+    <link rel="stylesheet" href="app/bindemail/bindemail.css">
+    <link rel="stylesheet" href="app/buffet/buffet.css">
+    <link rel="stylesheet" href="app/calculator/calculator.css">
+    <link rel="stylesheet" href="app/deposit/deposit.css">
+    <link rel="stylesheet" href="app/error/error.css">
+    <link rel="stylesheet" href="app/fail/fail.css">
+    <link rel="stylesheet" href="app/findquestion/findquestion.css">
+    <link rel="stylesheet" href="app/forgetpasswd/forgetpasswd.css">
+    <link rel="stylesheet" href="app/grade/grade.css">
+    <link rel="stylesheet" href="app/guide/guide.css">
+    <link rel="stylesheet" href="app/header/header.css">
+    <link rel="stylesheet" href="app/help/help.css">
+    <link rel="stylesheet" href="app/helpitem/helpitem.css">
+    <link rel="stylesheet" href="app/helpitem01/helpitem01.css">
+    <link rel="stylesheet" href="app/helpitem02/helpitem02.css">
+    <link rel="stylesheet" href="app/helpitem03/helpitem03.css">
+    <link rel="stylesheet" href="app/helpitem04/helpitem04.css">
+    <link rel="stylesheet" href="app/helpitem05/helpitem05.css">
+    <link rel="stylesheet" href="app/helpitem06/helpitem06.css">
+    <link rel="stylesheet" href="app/invest/invest.css">
+    <link rel="stylesheet" href="app/investitem/investitem.css">
+    <link rel="stylesheet" href="app/loan/loan.css">
+    <link rel="stylesheet" href="app/login/login.css">
+    <link rel="stylesheet" href="app/media/media.css">
+    <link rel="stylesheet" href="app/mediadetails/details01/details01.css">
+    <link rel="stylesheet" href="app/mediadetails/details02/details02.css">
+    <link rel="stylesheet" href="app/messageset/messageset.css">
+    <link rel="stylesheet" href="app/modifyemail/modifyemail.css">
+    <link rel="stylesheet" href="app/modifyphone/modifyphone.css">
+    <link rel="stylesheet" href="app/modifypwd/modifypwd.css">
+    <link rel="stylesheet" href="app/modifyquestion/modifyquestion.css">
+    <link rel="stylesheet" href="app/navbar/navbar.css">
+    <link rel="stylesheet" href="app/odata-test/odata-test.css">
+    <link rel="stylesheet" href="app/onetouch/onetouch.css">
+    <link rel="stylesheet" href="app/partner/partner.css">
+    <link rel="stylesheet" href="app/plan/plan.css">
+    <link rel="stylesheet" href="app/portal/portal.css">
+    <link rel="stylesheet" href="app/protocol/protocol.css">
+    <link rel="stylesheet" href="app/questionset/questionset.css">
+    <link rel="stylesheet" href="app/rate/rate.css">
+    <link rel="stylesheet" href="app/register/register.css">
+    <link rel="stylesheet" href="app/regprotocol/regprotocol.css">
+    <link rel="stylesheet" href="app/regulations/regulations.css">
+    <link rel="stylesheet" href="app/safe/safe.css">
+    <link rel="stylesheet" href="app/share/share.css">
+    <link rel="stylesheet" href="app/success/success.css">
+    <link rel="stylesheet" href="components/directives/captcha/captcha.css">
+    <link rel="stylesheet" href="components/directives/editable-input/editable-input.css">
+    <link rel="stylesheet" href="components/directives/invest-button/invest-button.css">
+    <link rel="stylesheet" href="components/directives/latest-loan/latest-loan.css">
+    <link rel="stylesheet" href="components/directives/number-input/number-input.css">
+    <link rel="stylesheet" href="components/loadingIndicator/loadingIndicator.css">
+    <link rel="stylesheet" href="components/modal/modal.css">
+    <!-- endinjector -->
+    <!-- endbuild -->
+	<!-- 百度统计 -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?9214981bc237e5becfae6b91506c1fd6";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+</head>
+<body data-ng-app="p2pClientApp">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div loading-indicator ng-show="loadingShow" message="Loading..."></div>
+<!-- Add your site or application content here -->
+<div autoscroll="true" ui-view=""></div>
+<script type="text/ng-template" id="custom/pager">
+    <ul class="pagination ng-table-pagination">
+        <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+            <a class="first" ng-switch-when="first" ng-click="params.page(page.number)" href=""></a>
+        </li>
+        <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+            <a class="previous" ng-switch-when="prev" ng-click="params.page(page.number)" href=""></a>
+        </li>
+        <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+            <a class="firstNum" ng-switch-when="first" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+            <a ng-switch-when="page" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+            <a class="moreNum" ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a>
+            <a class="lastNum" ng-switch-when="last" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+        </li>
+        <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+            <a class="next" ng-switch-when="next" ng-click="params.page(page.number)" href=""></a>
+        </li>
+        <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+            <a class="last" ng-switch-when="last" ng-click="params.page(page.number)" href=""></a>
+        </li>
+        <!--li ng-show="pages.length > 0">
+            <div class="ml10">
+                <span class="fl mr10">至第<input ng-model="pageNum" class="w50 ml5 mr5 pl5" type="text"/>页</span>
+                <a class="btn" ng-click="params.page(pageNum)">确定</a>
+            </div>
+        </li-->
+    </ul>
+</script>
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+<!-- build:js({client,node_modules}) app/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/jaydata/datajs-1.0.3.min.js"></script>
+<script src="bower_components/holderjs/holder.js"></script>
+<script src="bower_components/ngstorage/ngStorage.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-highcharts-directive/src/directives/highchart.js"></script>
+<script src="bower_components/highcharts/highcharts.js"></script>
+<script src="bower_components/highcharts/highcharts-more.js"></script>
+<script src="bower_components/highcharts/modules/exporting.js"></script>
+<script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+<script src="bower_components/fullcalendar/fullcalendar.js"></script>
+<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script src="bower_components/angular-md5/angular-md5.js"></script>
+<script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+<script src="bower_components/angular-ui-date/src/date.js"></script>
+<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+<script src="bower_components/ng-table/dist/ng-table.min.js"></script>
+<script src="bower_components/ionrangeslider/js/ion.rangeSlider.js"></script>
+<script src="bower_components/circliful/js/jquery.circliful.min.js"></script>
+<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+<script src="bower_components/angular-svg-round-progressbar/build/roundProgress.min.js"></script>
+<script src="bower_components/stickUp/stickUp.js"></script>
+<script src="bower_components/angular-ui-slider/src/slider.js"></script>
+<script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
+<script src="bower_components/ng-clip/src/ngClip.js"></script>
+<script src="bower_components/unslider/src/unslider.min.js"></script>
+<script src="bower_components/fullpage/jquery.fullPage.js"></script>
+<script src="bower_components/fullpage/vendors/jquery.easings.min.js"></script>
+<script src="bower_components/fullpage/vendors/jquery.slimscroll.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<script src="bower_components/jaydata/release/jaydata.min.js"></script>
+<script src="bower_components/jaydata/release/jaydatamodules/angular.min.js"></script>
+<script src="assets/js/p2p_pop.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- build:js({.tmp,client}) app/app.js -->
+<script src="app/app.js"></script>
+<!-- injector:js -->
+<script src="app/about/about.controller.js"></script>
+<script src="app/about/about.js"></script>
+<script src="app/account-detail/account-detail.controller.js"></script>
+<script src="app/account-detail/account-detail.js"></script>
+<script src="app/account-fund/account-fund.controller.js"></script>
+<script src="app/account-fund/account-fund.js"></script>
+<script src="app/account-message/account-message.controller.js"></script>
+<script src="app/account-message/account-message.js"></script>
+<script src="app/account-message/account-message2.js"></script>
+<script src="app/account-myinvest/account-myinvest.controller.js"></script>
+<script src="app/account-myinvest/account-myinvest.js"></script>
+<script src="app/account-packet/account-packet.controller.js"></script>
+<script src="app/account-packet/account-packet.js"></script>
+<script src="app/account-security/account-security.controller.js"></script>
+<script src="app/account-security/account-security.js"></script>
+<script src="app/account/account.controller.js"></script>
+<script src="app/account/account.js"></script>
+<script src="app/announcement/announcement.controller.js"></script>
+<script src="app/announcement/announcement.js"></script>
+<script src="app/announcementdetails/announcementdetails.controller.js"></script>
+<script src="app/announcementdetails/announcementdetails.js"></script>
+<script src="app/apply/apply.controller.js"></script>
+<script src="app/apply/apply.js"></script>
+<script src="app/auto-invest/auto-invest.controller.js"></script>
+<script src="app/auto-invest/auto-invest.js"></script>
+<script src="app/bindemail/bindemail.controller.js"></script>
+<script src="app/bindemail/bindemail.js"></script>
+<script src="app/buffet/buffet.controller.js"></script>
+<script src="app/buffet/buffet.js"></script>
+<script src="app/calculator/calculator.controller.js"></script>
+<script src="app/calculator/calculator.js"></script>
+<script src="app/deposit/deposit.controller.js"></script>
+<script src="app/deposit/deposit.js"></script>
+<script src="app/error/error.controller.js"></script>
+<script src="app/error/error.js"></script>
+<script src="app/exit/exit.js"></script>
+<script src="app/fail/fail.controller.js"></script>
+<script src="app/fail/fail.js"></script>
+<script src="app/findquestion/findquestion.controller.js"></script>
+<script src="app/findquestion/findquestion.js"></script>
+<script src="app/footer/footer.controller.js"></script>
+<script src="app/forgetpasswd/forgetpasswd.controller.js"></script>
+<script src="app/forgetpasswd/forgetpasswd.js"></script>
+<script src="app/grade/grade.controller.js"></script>
+<script src="app/grade/grade.js"></script>
+<script src="app/guide/guide.controller.js"></script>
+<script src="app/guide/guide.js"></script>
+<script src="app/header/header.controller.js"></script>
+<script src="app/help/help.controller.js"></script>
+<script src="app/help/help.js"></script>
+<script src="app/helpitem/helpitem.controller.js"></script>
+<script src="app/helpitem/helpitem.js"></script>
+<script src="app/helpitem01/helpitem01.controller.js"></script>
+<script src="app/helpitem01/helpitem01.js"></script>
+<script src="app/helpitem02/helpitem02.controller.js"></script>
+<script src="app/helpitem02/helpitem02.js"></script>
+<script src="app/helpitem03/helpitem03.controller.js"></script>
+<script src="app/helpitem03/helpitem03.js"></script>
+<script src="app/helpitem04/helpitem04.controller.js"></script>
+<script src="app/helpitem04/helpitem04.js"></script>
+<script src="app/helpitem05/helpitem05.controller.js"></script>
+<script src="app/helpitem05/helpitem05.js"></script>
+<script src="app/helpitem06/helpitem06.controller.js"></script>
+<script src="app/helpitem06/helpitem06.js"></script>
+<script src="app/invest/invest.controller.js"></script>
+<script src="app/invest/invest.js"></script>
+<script src="app/investitem/investitem.controller.js"></script>
+<script src="app/investitem/investitem.js"></script>
+<script src="app/leftbar/leftbar.controller.js"></script>
+<script src="app/loan/loan.controller.js"></script>
+<script src="app/loan/loan.js"></script>
+<script src="app/login/login.controller.js"></script>
+<script src="app/login/login.js"></script>
+<script src="app/media/media.controller.js"></script>
+<script src="app/media/media.js"></script>
+<script src="app/mediadetails/details01/details01.controller.js"></script>
+<script src="app/mediadetails/details01/details01.js"></script>
+<script src="app/mediadetails/details02/details02.controller.js"></script>
+<script src="app/mediadetails/details02/details02.js"></script>
+<script src="app/messageset/messageset.controller.js"></script>
+<script src="app/messageset/messageset.js"></script>
+<script src="app/modifyemail/modifyemail.controller.js"></script>
+<script src="app/modifyemail/modifyemail.js"></script>
+<script src="app/modifyphone/modifyphone.controller.js"></script>
+<script src="app/modifyphone/modifyphone.js"></script>
+<script src="app/modifypwd/modifypwd.controller.js"></script>
+<script src="app/modifypwd/modifypwd.js"></script>
+<script src="app/modifyquestion/modifyquestion.controller.js"></script>
+<script src="app/modifyquestion/modifyquestion.js"></script>
+<script src="app/navbar/navbar.controller.js"></script>
+<script src="app/odata-test/odata-test.controller.js"></script>
+<script src="app/odata-test/odata-test.js"></script>
+<script src="app/onetouch/onetouch.controller.js"></script>
+<script src="app/onetouch/onetouch.js"></script>
+<script src="app/partner/partner.controller.js"></script>
+<script src="app/partner/partner.js"></script>
+<script src="app/plan/plan.controller.js"></script>
+<script src="app/plan/plan.js"></script>
+<script src="app/portal/portal.controller.js"></script>
+<script src="app/portal/portal.js"></script>
+<script src="app/protocol/protocol.controller.js"></script>
+<script src="app/protocol/protocol.js"></script>
+<script src="app/questionset/questionset.controller.js"></script>
+<script src="app/questionset/questionset.js"></script>
+<script src="app/rate/rate.controller.js"></script>
+<script src="app/rate/rate.js"></script>
+<script src="app/register/register.controller.js"></script>
+<script src="app/register/register.js"></script>
+<script src="app/regprotocol/regprotocol.controller.js"></script>
+<script src="app/regprotocol/regprotocol.js"></script>
+<script src="app/regulations/regulations.controller.js"></script>
+<script src="app/regulations/regulations.js"></script>
+<script src="app/safe/safe.controller.js"></script>
+<script src="app/safe/safe.js"></script>
+<script src="app/share/share.controller.js"></script>
+<script src="app/share/share.js"></script>
+<script src="app/success/success.controller.js"></script>
+<script src="app/success/success.js"></script>
+<script src="components/AccountFundService/AccountFundService.service.js"></script>
+<script src="components/AccountMessageService/AccountMessageService.service.js"></script>
+<script src="components/AccountService/AccountService.service.js"></script>
+<script src="components/CMSService/CMSService.service.js"></script>
+<script src="components/CapitalService/CapitalService.service.js"></script>
+<script src="components/ConstantService/ConstantService.service.js"></script>
+<script src="components/DateTimeService/DateTimeService.service.js"></script>
+<script src="components/FinanceService/FinanceService.service.js"></script>
+<script src="components/HttpInterceptor/HttpInterceptor.service.js"></script>
+<script src="components/InvestService/InvestService.service.js"></script>
+<script src="components/ODataService/ODataService.service.js"></script>
+<script src="components/ShareService/ShareService.service.js"></script>
+<script src="components/UtilsService/UtilsService.service.js"></script>
+<script src="components/chineseNumber/chineseNumber.filter.js"></script>
+<script src="components/directives/captcha/captcha.directive.js"></script>
+<script src="components/directives/editable-input/editable-input.directive.js"></script>
+<script src="components/directives/invest-button/invest-button.directive.js"></script>
+<script src="components/directives/latest-loan/latest-loan.directive.js"></script>
+<script src="components/directives/number-input/number-input.directive.js"></script>
+<script src="components/directives/open-button/open-button.directive.js"></script>
+<script src="components/loadingIndicator/loadingIndicator.directive.js"></script>
+<script src="components/lodash/lodash.service.js"></script>
+<script src="components/modal/modal.service.js"></script>
+<script src="components/money-format/money-format.filter.js"></script>
+<!-- endinjector -->
+<!-- endbuild -->
+</body>
+</html>

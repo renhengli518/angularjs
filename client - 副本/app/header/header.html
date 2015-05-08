@@ -1,0 +1,49 @@
+<div class="" ng-controller="HeaderCtrl">
+    <div class="headerWrapper">
+        <div class="container">
+            <p class="fl">
+				<a ng-show="showHouse()" class="mr10 home" href="/"><i class="homeIcon vm"></i></a>
+				<span>服务热线：400-720-7020 &nbsp;&nbsp;&nbsp;关注我们</span>
+				<a class="weixinlogo ml10" title="" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<img src='../assets/images/weixin.png'/>" href="javaScript:;"></a>
+				<!--a class="weibologo ml5" href=""></a-->
+			</p>
+
+            <p class="fr mr10 help"><a ui-sref="help">帮助中心</a></p>
+            <ul class="siteNavBdL fr mr20" ng-show="!login">
+                <li><a  ng-class="{active_header:isActive('/login')}" ui-sref="login">登录</a></li>
+                <li class="registerCol"><a ng-click="refreshRegister()" ng-class="{active_header:isActive('/register')}" >注册</a>
+                </li>
+            </ul>
+            <ul class="siteNavBdL fr mr20 loginNav" ng-show="login">
+                <li>您好，<a class="userName" ui-sref="account-detail">{{username_1}}</a></li>
+                <li class="pr" onmouseover="$('.menuList').show();" onmouseout="$('.menuList').hide();">
+                    <span ui-sref="account">我的账户 </span>
+                    <a ui-sref="account-message2({messageStatusValue:1})" class="ml5 color09f email-mark"><i class="emailNum mr5"></i>{{unreadMail || 0}}</a>
+
+                    <div class="menuBox">
+                        <i class="vm"></i>
+                        <dl class="pa menuList">
+                            <dd><a href="#/account"><i class="total"></i><span>账户总览</span></a></dd>
+                            <dd><a href="#/account/myinvest"><i class="myfund"></i><span>我的投资</span></a></dd>
+                            <dd>
+
+                                <a ng-click="autoInvestButton()"><i class="auto"></i><span>自动投资</span></a>
+                                <!--<a ng-show="show" href="#/invest/auto"><i class="auto"></i><span>自动投资</span></a>-->
+                                <!--<a ng-show="show1" href="#/onetouch"><i class="auto"></i><span>自动投资</span></a>-->
+                                <!--<a ng-show="show2" href="#/buffet"><i class="auto"></i><span>自动投资</span></a>-->
+                            </dd>
+                            <dd><a href="#/deposit"><i class="deposit"></i><span>充值</span></a></dd>
+                            <dd><a href="#/account/packet"><i class="red"></i><span>我的红包</span></a></dd>
+                            <dd><a href="#/share"><i class="friends"></i><span>推荐好友</span></a></dd>
+                        </dl>
+                    </div>
+                </li>
+                <li><a ui-sref="exit" href="">安全退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+ <script>$(function ()
+	{ $("[data-toggle='popover']").popover({html : true });
+	});
+</script>

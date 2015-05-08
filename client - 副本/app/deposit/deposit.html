@@ -1,0 +1,709 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div class="depositType pb20 pr mt10">
+            <h1 class="f18 col999 pt20 pl40 pb20">充值</h1>
+            <a class="pa cancel" ui-sref="account"> <i class="close"></i> 取消</a>
+
+            <p class="f14 depositBank"><span class="pl50">选择充值个人网银</span></p>
+
+            <div>
+                <ul class="cashierBank mt20">
+                    <li ng-class="{select : selectedBank1 == 'zhaoshangyinhang'}"><input type="radio"
+                                                                                         ng-model="selectedBank1"
+                                                                                         value="zhaoshangyinhang"/><a
+                        ng-click="selectedBank1 = 'zhaoshangyinhang'" href="javaScript:;"><img
+                        src="assets/images/zhaoshangyinhang.png"/><i></i></a></li>
+                    <li ng-class="{select : selectedBank1 == 'gongshangyinhang'}"><input type="radio"
+                                                                                         ng-model="selectedBank1"
+                                                                                         value="gongshangyinhang"/><a
+                        ng-click="selectedBank1 = 'gongshangyinhang'" href="javaScript:;"><img
+                        src="assets/images/gongshangyinhang.png"/><i></i></a></li>
+                    <li ng-class="{select : selectedBank1 == 'postal'}"><input type="radio" ng-model="selectedBank1"
+                                                                               value="postal"/><a
+                        ng-click="selectedBank1  ='postal'"
+                        href="javaScript:;"><img
+                        src="assets/images/postal.png"/><i></i></a></li>
+                    <li ng-class="{select : selectedBank1 == 'minshengyinhang'}"><input type="radio"
+                                                                                        ng-model="selectedBank1"
+                                                                                        value="minshengyinhang"/><a
+                        ng-click="selectedBank1 = 'minshengyinhang'" href="javaScript:;"><img
+                        src="assets/images/minshengyinhang.png"/><i></i></a></li>
+                    <li ng-class="{select : selectedBank1 == 'jiansheyinhang'}"><input type="radio"
+                                                                                       ng-model="selectedBank1"
+                                                                                       value="jiansheyinhang"/><a
+                        ng-click="selectedBank1 ='jiansheyinhang'" href="javaScript:;"><img
+                        src="assets/images/jiansheyinhang.png"/><i></i></a></li>
+                    <li ng-class="{select : selectedBank1 == 'zhongguoyinhang'}"><input type="radio"
+                                                                                        ng-model="selectedBank1"
+                                                                                        value="zhongguoyinhang"/><a
+                        ng-click="selectedBank1 ='zhongguoyinhang'" href="javaScript:;"><img
+                        src="assets/images/zhongguoyinhang.png"/><i></i></a></li>
+                    <li ng-class="{select : selectedBank1 == 'spd'}"><input type="radio" ng-model="selectedBank1"
+                                                                            value="spd"/><a ng-click="selectedBank1 ='spd'"
+                                                                                            href="javaScript:;"><img
+                        src="assets/images/spd.png"/><i></i></a></li>
+                    <li ng-class="{select : selectedBank1 == 'xingyeyinhang'}"><input type="radio"
+                                                                                      ng-model="selectedBank1"
+                                                                                      value="xingyeyinhang"/><a
+                        ng-click="selectedBank1 ='xingyeyinhang'" href="javaScript:;"><img src="assets/images/xingyeyinhang.png"/><i></i></a>
+                    </li>
+                    <li ng-class="{select : selectedBank1 == 'nongyeyinhang'}"><input type="radio"
+                                                                                      ng-model="selectedBank1"
+                                                                                      value="nongyeyinhang"/><a
+                        ng-click="selectedBank1 ='nongyeyinhang'" href="javaScript:;"><img src="assets/images/nongyeyinhang.png"/><i></i></a>
+                    </li>
+                    <li ng-class="{select : selectedBank1 == 'jiaotongyinhang'}"><input type="radio"
+                                                                                        ng-model="selectedBank1"
+                                                                                        value="jiaotongyinhang"/><a
+                        ng-click="selectedBank1 ='jiaotongyinhang'" href="javaScript:;"><img
+                        src="assets/images/jiaotongyinhang.png"/><i></i></a></li>
+                    <li ng-class="{select : selectedBank1 == 'guangdayinhang'}"><input type="radio"
+                                                                                       ng-model="selectedBank1"
+                                                                                       value="guangdayinhang"/><a
+                        ng-click="selectedBank1 ='guangdayinhang'" href="javaScript:;"><img
+                        src="assets/images/guangdayinhang.png"/><i></i></a></li>
+                    <li ng-class="{select : selectedBank1 == 'shanghaiyinhang'}"><input type="radio"
+                                                                                        ng-model="selectedBank1"
+                                                                                        value="shanghaiyinhang"/><a
+                        ng-click="selectedBank1 ='shanghaiyinhang'" href="javaScript:;"><img
+                        src="assets/images/shanghaiyinhang.png"/><i></i></a></li>
+                </ul>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'zhaoshangyinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">招商银行客服热线 95555</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3" width="10%">银行名称</th>
+                            <th rowspan="3" width="10%">支持卡种</th>
+                            <th rowspan="3" width="10%">覆盖范围</th>
+                            <th rowspan="3" width="18%">支付密码</th>
+                            <th colspan="4" width="52%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">无证书客户（网上个人银行大众版）</th>
+                            <th colspan="2">证书客户（网上个人银行专业版）</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="2">招商银行</td>
+                            <td>一卡通借记卡</td>
+                            <td rowspan="2">全国</td>
+                            <td>网上支付卡密码 <br/>（个人银行大众版）<br/>ATM取款密码<br/>（个人银行专业版）</td>
+                            <td>5000元</td>
+                            <td>5000元</td>
+                            <td>无限额</td>
+                            <td>无限额</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'gongshangyinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">中国工商银行客服热线 95588</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3">银行名称</th>
+                            <th rowspan="3">支持卡种</th>
+                            <th rowspan="3">覆盖范围</th>
+                            <th rowspan="3">支付密码</th>
+                            <th colspan="5">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="3">无证书客户</th>
+                            <th colspan="2">证书客户（U盾客户）</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>总支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="7">中国工商银行</td>
+                            <td>理财金账户</td>
+                            <td rowspan="6">全国</td>
+                            <td rowspan="6">静态或动态支付密码<br/>（无证书客户）<br/>ATM取款密码</td>
+                            <td colspan="3">（柜面注册存量静态支付密码客户）</td>
+                            <td rowspan="6">无限额</td>
+                            <td rowspan="6">无限额</td>
+                        </tr>
+                        <tr>
+                            <td>牡丹灵通卡</td>
+                            <td>300元</td>
+                            <td>300元</td>
+                            <td>300元</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'postal'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">邮政储蓄客服热线 11185</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3" width="10%">银行名称</th>
+                            <th rowspan="3" width="10%">支持卡种</th>
+                            <th rowspan="3" width="10%">覆盖范围</th>
+                            <th rowspan="3" width="18%">支付密码</th>
+                            <th colspan="4" width="52%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">短信动态密码版客户（签约用户）</th>
+                            <th colspan="2">原网上注册用户</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>邮政储蓄</td>
+                            <td>中国邮政绿卡（借记卡)</td>
+                            <td>全国</td>
+                            <td>取款密码</td>
+                            <td>3000元</td>
+                            <td>3000元</td>
+                            <td>0元</td>
+                            <td>0元</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'minshengyinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">中国民生银行客服热线 95568</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3" width="10%">银行名称</th>
+                            <th rowspan="3" width="8%">支持卡种</th>
+                            <th rowspan="3" width="8%">覆盖范围</th>
+                            <th rowspan="3" width="10%">支付密码</th>
+                            <th colspan="6" width="64%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">无证书客户（个人网上银行大众版）</th>
+                            <th colspan="2">贵宾版（浏览器证书）</th>
+                            <th colspan="2">贵宾版（U宝）</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>总累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="2">中国民生银行</td>
+                            <td>民生借记卡</td>
+                            <td>全国</td>
+                            <td>ATM取款密码</td>
+                            <td>300元</td>
+                            <td>300元</td>
+                            <td>5000元</td>
+                            <td>5000元</td>
+                            <td>500000元</td>
+                            <td>500000元</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'jiansheyinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">中国建设银行客服热线 95533</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3" width="9%">银行名称</th>
+                            <th rowspan="3" width="10%">支持卡种</th>
+                            <th rowspan="3" width="6%">覆盖范围</th>
+                            <th rowspan="3" width="12%">支付密码</th>
+                            <th colspan="5" width="63%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="3">网上银行签约客户（龙卡贷记卡暂未开通）</th>
+                            <th colspan="2">账号支付（无需开通网银）</th>
+                        </tr>
+                        <tr>
+                            <th width="12%">单笔支付限额</th>
+                            <th width="12%">日累计支付限额</th>
+                            <th>备注</th>
+                            <th width="12%">单笔支付限额</th>
+                            <th width="12%">日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="7">中国建设银行</td>
+                            <td rowspan="7"></td>
+                            <td rowspan="7">全国</td>
+                            <td rowspan="7">网银交易密码<br/>（网银签约客户）</td>
+                            <td>100万元</td>
+                            <td>100万元</td>
+                            <td>USB Key客户</td>
+                            <td rowspan="7">1000元</td>
+                            <td rowspan="7">1000元</td>
+                        </tr>
+
+                        <tr>
+                            <td>100万元</td>
+                            <td>100万元</td>
+                            <td>USB Key+动态口令卡客户</td>
+                        </tr>
+                        <tr>
+                            <td>3000元</td>
+                            <td>3000元</td>
+                            <td>文件证书+刮刮卡客户</td>
+                        </tr>
+                        <tr>
+                            <td>1000元</td>
+                            <td>1000元</td>
+                            <td>动态口令卡（刮刮卡）客户</td>
+                        </tr>
+                        <tr>
+                            <td>1000元</td>
+                            <td>1000元</td>
+                            <td>短信动态口令客户</td>
+                        </tr>
+                        <tr>
+                            <td>100万元</td>
+                            <td>100万元</td>
+                            <td>除文件证书客户不开放支付限额外，其他未提及的支付限额均以此限额为准</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'zhongguoyinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">中国银行客服热线 95566</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="2" width="10%">银行名称</th>
+                            <th rowspan="2" width="12%">支持卡种</th>
+                            <th rowspan="2" width="10%">支持币种</th>
+                            <th rowspan="2" width="18%">覆盖范围</th>
+                            <th rowspan="2" width="10%">支付密码</th>
+                            <th colspan="2" width="50%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="3">中国银行</td>
+                            <td>长城电子借记卡</td>
+                            <td>人民币</td>
+                            <td rowspan="3">全国</td>
+                            <td rowspan="3">动态口令</td>
+                            <td>10,000元</td>
+                            <td>100,000元</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'spd'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">上海浦东发展银行客服热线 95528</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3" width="12%">银行名称</th>
+                            <th rowspan="3" width="12%">支持卡种</th>
+                            <th rowspan="3" width="10%">覆盖范围</th>
+                            <th rowspan="3" width="14%">支付密码</th>
+                            <th colspan="4" width="52%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">动态密码版客户（签约用户）</th>
+                            <th colspan="2">证书客户(游览器版和usbkey版)</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="4">上海浦东发展银行</td>
+                            <td>东方卡借记卡</td>
+                            <td rowspan="4">全国</td>
+                            <td rowspan="4">ATM取款密码</td>
+                            <td rowspan="2">50000</td>
+                            <td rowspan="2">50000</td>
+                            <td rowspan="2">无限额</td>
+                            <td rowspan="2">无限额</td>
+                        </tr>
+                        <tr>
+                            <td>活期一本通</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'xingyeyinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">兴业银行客服热线 95561</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3" width="10%">银行名称</th>
+                            <th rowspan="3" width="14%">支持卡种</th>
+                            <th rowspan="3" width="10%">覆盖范围</th>
+                            <th rowspan="3" width="14%">支付密码</th>
+                            <th colspan="4" width="52%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">个人网银自主开通</th>
+                            <th colspan="2">柜面或证书客户个人网银开通</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="2">兴业银行</td>
+                            <td>兴业借记卡</td>
+                            <td rowspan="2">全国</td>
+                            <td rowspan="2">网上支付密码</td>
+                            <td>1000元或5000元</td>
+                            <td>1000元或5000元</td>
+                            <td>无限额</td>
+                            <td>无限额</td>
+                        </tr>
+                        <tr>
+                            <td>兴业e卡</td>
+                            <td colspan="4">5000元</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'nongyeyinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">中国农业银行客服热线 95599</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3" width="10%">银行名称</th>
+                            <th rowspan="3" width="10%">支持卡种</th>
+                            <th rowspan="3" width="18%">覆盖范围</th>
+                            <th rowspan="3" width="10%">支付密码</th>
+                            <th colspan="4" width="52%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">IE证书且绑定动态口令卡客户</th>
+                            <th colspan="2">K宝证书客户（注册客户）</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="2">中国农业银行</td>
+                            <td>金穗借记卡</td>
+                            <td rowspan="2">全国（注册客户，除注册上海本地网银且未升级为总行版本的客户外）</td>
+                            <td rowspan="2">ATM取款密码</td>
+                            <td rowspan="2">1000</td>
+                            <td rowspan="2">3000</td>
+                            <td rowspan="2">无限额</td>
+                            <td rowspan="2">无限额</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'jiaotongyinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">交通银行客服热线 95559</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3" width="10%">银行名称</th>
+                            <th rowspan="3" width="6%">支持卡种</th>
+                            <th rowspan="3" width="10%">覆盖范围</th>
+                            <th rowspan="3" width="18%">支付密码</th>
+                            <th colspan="4" width="56%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">短信密码客户</th>
+                            <th colspan="2">证书客户</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="2">交通银行</td>
+                            <td>借记卡</td>
+                            <td rowspan="2">全国</td>
+                            <td>卡交易密码及手机动态密码或证书认证</td>
+                            <td>5000－5万（默认5000，可调高至5万）</td>
+                            <td>5000-5万（默认5000，可调高至5万）</td>
+                            <td>100万</td>
+                            <td>100万</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'guangdayinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">光大银行客服热线 95595</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="4" width="8%">银行名称</th>
+                            <th rowspan="4" width="8%">支持卡种</th>
+                            <th rowspan="4" width="8%">覆盖范围</th>
+                            <th rowspan="4" width="10%">支付密码</th>
+                            <th colspan="6" width="66%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">银行卡直接支付</th>
+                            <th colspan="4">网银专业版支付</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">手机动态密码（令牌）</th>
+                            <th colspan="2">手机动态密码（令牌）</th>
+                            <th colspan="2">阳光网盾</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="3">光大银行</td>
+                            <td>借记卡</td>
+                            <td rowspan="3">全国</td>
+                            <td rowspan="3">ATM取款密码</td>
+                            <td rowspan="2">5000元（5000）</td>
+                            <td rowspan="2">5000元（50万）</td>
+                            <td rowspan="2">5000元（5000）</td>
+                            <td rowspan="2">5000元（50万）</td>
+                            <td>200,000元</td>
+                            <td>500,000元</td>
+                        </tr>
+                        <tr>
+                            <td>活期一本通账户</td>
+                            <td>200,000元</td>
+                            <td>500,000元</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="deBank mt20" ng-show="selectedBank1 == 'shanghaiyinhang'">
+                    <p class="mb20 f14 col333">请关注您的充值金额是否超限 <span class="fr">上海银行客服热线 962888</span></p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="3" width="8%">银行名称</th>
+                            <th rowspan="3" width="8%">支持卡种</th>
+                            <th rowspan="3" width="8%">覆盖范围</th>
+                            <th rowspan="3" width="10%">支付密码</th>
+                            <th colspan="6" width="66%">支付限额</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">大众版</th>
+                            <th colspan="2">专业版文件证书</th>
+                            <th colspan="2">专业版USBKEY证书</th>
+                        </tr>
+                        <tr>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                            <th>单笔支付限额</th>
+                            <th>日累计支付限额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>上海银行</td>
+                            <td>借记卡</td>
+                            <td></td>
+                            <td></td>
+                            <td>不支持</td>
+                            <td>不支持</td>
+                            <td>5000</td>
+                            <td>5000</td>
+                            <td>50000</td>
+                            <td>50000</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="f14 depositBank mt20 mb20"><span class="pl50">输入充值金额</span></p>
+
+            <div class="amount">
+                <p class="pt20 pr">充值金额 <span class="pa" style="left:365px;top:35px;">元</span>
+                    <number-input class="ml5" output-model="topupMoney" css-class="ml10"/>
+                </p>
+                <p class="mt10 colf63 ml65">{{topupMoney | chineseNumber}}</p>
+                <button ng-class="{'grey_button':!topupMoney}" class="mt10 ml65" ng-disabled="!topupMoney"
+                        ng-click="deposit()">下一步
+                </button>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'zhaoshangyinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、您需要开通网上支付功能，即开通网上个人银行。</p>
+
+                <p class="f12">
+                    2、如您使用一卡通借记卡进行网上支付交易，您可以通过招商银行电话银行或到招商银行营业网点两种方式申请网上支付卡，成为网上个人银行大众版客户，您还可以到招商银行营业网点申请文件证书或移动证书，成为网上个人银行专业版客户，以享受更安全的网上支付交易。</p>
+
+                <p class="f12">3、如您使用招行信用卡进行网上支付交易，您可以登录招商银行信用卡网站自助申请开通网上支付功能。</p>
+
+                <p class="f12">4、如您使用网上支付卡进行网上支付交易，请您在交易之前通过招商银行电话银行或网上个人银行对网上支付卡进行转账操作，以确保您的网上支付卡上有足够的金额完成交易。</p>
+
+                <p class="f12">5、个人银行专业版客户可以登录网银自己设置每日的单笔最高支付额及每日累计支付限额。</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'gongshangyinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、您需要开通网上支付功能，即开通个人网上银行。</p>
+
+                <p class="f12">
+                    2、您可以通过到中国工商银行营业网点柜面注册或申请电子银行口令卡两种方式申请开通个人网上银行，您还可以到中国工商银行营业网点申请个人客户证书（U盾），成为证书客户，以享受更安全的网上支付交易。</p>
+
+                <p class="f12">
+                    3、如您是柜面注册存量静态支付密码客户，当您所做的网上支付交易达到总支付限额后，您将不能继续进行网上支付交易。如您仍需进行网上支付交易，请您到中国工商银行营业网点申领电子银行口令卡或个人客户证书（U盾），当您成为电子银行口令卡客户或证书客户后，您将不再受到支付限额的限制。</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'postal'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、您必须在邮政储蓄网点进行网上支付业务申请、注册和开通，并开通短信动态密码认证功能。</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'minshengyinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、您需要开通网上支付功能，即开通个人网上银行。</p>
+
+                <p class="f12">
+                    2、大众版支付功能需通过大众版或贵宾版网上银行申请开通或关闭，且每个账户开通和关闭只能各申请一次，您还可以到中国民生银行营业网点申请办理贵宾版个人网上银行并采用民生U宝。目前我行正在举行“上网无忧”民生U宝推广活动，在活动期间办理U宝的客户可以享受多重优惠。</p>
+
+                <p class="f12">3、自2008年11月20日起，大众版支付限额由原日累计300元改为累计支付300元。</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'jiansheyinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、网上银行客户需要开通网上支付功能，即开通网上银行服务。</p>
+
+                <p class="f12">
+                    2、需开通网上银行的用户可以登录中国建设银行网站自助申请开通网上银行服务，成为网上银行普通客户，您还可以到中国建设银行营业网点申请，成为网上银行签约客户，以享受更安全的网上支付交易。</p>
+
+                <p class="f12">
+                    3、账号支付是建行客户小额线上支付方式，无需开通建行网上银行，支持借记卡（储蓄卡）、贷记卡（信用卡）以及存折。只需要拥有建行账户即可,使用账号支付前，需在建行预留您正在使用的手机号。</p>
+
+                <p class="f12">4、建行账号支付首次使用需要检验建行账户和取款密码。若取款密码为简单密码，请先至建行ATM修改。</p>
+
+                <p class="f12">5、建行账号支付更多说明：<a target="_blank" href="http://www.ccb.com/sh/20110322_1300781164.html">http://www.ccb.com/sh/20110322_1300781164.html</a>
+                </p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'zhongguoyinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、如需使用中国银行网上支付服务，请先到我行营业网点申请开通新版中国银行网上银行,并申请安全认证工具“中银e令”；</p>
+
+                <p class="f12">2、您可通过www.boc.cn登录新版中国银行网上银行，在线开通网上支付服务；</p>
+
+                <p class="f12">3、网上支付业务存在一定风险，请您注意保护网上银行安全，并妥善保管“中银e令”；</p>
+
+                <p class="f12">4、开通网上支付过程中设置的“预留信息”和“支付限额”可帮助您有效防范网上支付风险；</p>
+
+                <p class="f12">5、您可根据需要灵活设置自己的“支付限额”，但您设置的限额不能高于上述银行统一设置的限额；</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'spd'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、您可以通过动态密码客户支付或数字证书客户支付进行网上支付交易。</p>
+
+                <p class="f12">
+                    2、您可以通过到上海浦东发展银行营业网点柜面注册申请开通个人网上银行，成为动态密码客户，您还可以到上海浦东发展银行营业网点申请数字证书，成为证书客户，以享受更安全的网上支付交易。</p>
+
+                <p class="f12">3、如您是动态密码客户或数字证书客户，您需要开通网上支付功能，即开通个人网上银行。</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'xingyeyinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、证书客户或短信保护客户直接在个人网银“网上购物”板块“开通/关闭网上购物支付”里日限额只能选1000或5000元，总额度最大100万元； </p>
+
+                <p class="f12">2、客户在柜面或者使用证书可自行设置日限额和总额度（最大100万元）；</p>
+
+                <p class="f12">3、e卡默认开通网上支付功能，日限额5000元，总额度由客户申请e卡时自行设置（最大100万元），但是可以采取以上两种方式修改；</p>
+
+                <p class="f12">4、如您使用兴业信用卡，请您登陆本行信用卡网银（http://creditcard.cib.com.cn/），自助开通/关闭网上支付功能并设置限额。</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'nongyeyinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、您可以到中国农业银行网上银行注册营业网点申请网上银行证书，成为注册客户，以享受更安全的网上支付交易。</p>
+
+                <p class="f12">2、如果您是中国农业银行原IE证书客户，且希望支付金额不受上述限制，建议您持原注册证件、注册账户原件到农行营业网点升级为K宝客户</p>
+
+                <p class="f12">
+                    3、中国农业银行于2007年11月1日推出动态口令卡服务。动态口令卡是一种新型安全认证产品。动态口令卡与IE证书绑定后，使用IE证书对外支付将不受上述限额限制，请至农业银行网点申领。</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'jiaotongyinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">
+                    1、您需要到交通银行营业网点柜面申请成为个人网上银行手机注册用户或者证书认证用户，并开通网上支付功能。如果已经办理了个人网银注册用户（动态短信版和证书认证版）的话，可以直接在网银上开通。</p>
+
+                <p class="f12">2、用户在开通网上支付功能后，需到交通银行个人网上银行激活该功能方可使用。</p>
+
+                <p class="f12">3、客户可根据自身需求登录个人网银进行日累计限额调整。</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'guangdayinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、办理数字证书支付签约需开通个人网上银行专业版，并登录网上银行专业版进行签约。</p>
+
+                <p class="f12">
+                    2、银行卡直接支付指个人客户以通过输入银行账号和指定手机中接受到的动态密码信息进行支付的方式。办理银行卡直接支付签约可通过我行网点柜台办理，也可登录个人网上银行专业版进行签约。</p>
+
+                <p class="f12">3、目前我行银行卡直接支付方式支持中国移动和中国联通的手机号段，暂不支持小灵通。</p>
+
+                <p class="f12">4、电子支付业务是一项免费服务，个人客户进行电子支付或通过手机接收动态密码短信，均不收取费用。</p>
+            </div>
+            <div class="col999 tips mt20" ng-show="selectedBank1 == 'shanghaiyinhang'">
+                <h2 class="f14 mb10">温馨提示</h2>
+
+                <p class="f12">1、需要开通网上支付功能，即开通个人网上银行；</p>
+
+                <p class="f12">2、可至上海银行营业网点申请开通个人网上银行专业版，获得文件证书或usbkey证书，成为专业版客户。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

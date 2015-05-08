@@ -1,0 +1,165 @@
+<div ng-include="'app/header/header.html'"></div>
+<div class="registerWrapper" ng-init="ready()">
+    <div class="container">
+        <h2>
+            <a class="fl logo" href="#/"></a>
+            <span class="fl f22">修改手机号码</span>
+        </h2>
+
+        <div class="registerForm pr" ng-show="step===1">
+            <a class="pa cancel" ui-sref="account-detail"> X 取消</a>
+
+            <div class="step">
+                <ul>
+                    <li class="hover">验证身份</li>
+                    <li>设置新手机号</li>
+                    <li>完成</li>
+                </ul>
+            </div>
+
+            <form novalidate name="modifyPhoneForm_1">
+                <div>
+                    <label class="fl">原手机号码</label>
+
+                    <p class="pr fl">
+                        <span class="phoneLabel pa"></span>
+                        <input ng-required="true" name="mobile" ng-model="mobile" ng-pattern="/^[0-9]{11}$/"
+                               ng-focus="allow=false" ng-keyup="resetMobile(modifyPhoneForm_1.mobile.$viewValue)"
+                               class="w280 pl40" ng-blur="judgeMobileIfPass(modifyPhoneForm_1.mobile.$valid)"
+                               type="text" placeholder="请输入原手机号"/>
+                    </p>
+
+                    <div class="msgError fl f14 ml10"
+                         ng-show="allow?((modifyPhoneForm_1.mobile.$viewValue==null||modifyPhoneForm_1.mobile.$viewValue=='')?false:modifyPhoneForm_1.mobile.$invalid):false">
+                        <i class="vm mr10"></i>手机格式不正确
+                    </div>
+                    <div class="msgError fl f14 ml10"
+                         ng-show="allow?(((modifyPhoneForm_1.mobile.$viewValue==null||modifyPhoneForm_1.mobile.$viewValue=='')?false:modifyPhoneForm_1.mobile.$invalid)?false:!initStatus&&!judgeMobile):false">
+                        <i class="vm"></i>注册手机号码不正确
+                    </div>
+                </div>
+                <!--<div>
+                    <label class="fl">手机验证</label>
+
+                    <p class="pr fl">
+                        <span class="ChkCodeIcon pa"></span>
+                        <input ng-required="true" name="mobileVerificationCode" ng-model="mobileVerificationCode"
+                               ng-blur="validMobileVerificationCode()"   class="w140 pl40" type="text" placeholder=""/>
+                    </p>
+                    <button  id="sendYYY" style="width:125px;" disabled="disabled" class="sendVerification"   type="button" ng-click="sendSecurityCode()"
+                             ng-class="{'sendChkVerification':initStatus?false:judgeMobile,'sendVerification':initStatus?true:!judgeMobile} " >发送验证码</button>
+                </div>-->
+                <div>
+                    <label class="fl">登录密码</label>
+
+                    <p class="pr fl">
+                        <span class="passwordLabel pa"></span>
+                        <input type="password" name="password" ng-model="password" ng-required="true"
+                               ng-focus="show=true;flag=false;msg_flag=false;"
+                               ng-blur="show=false;flag=true;msg_flag=false;" ng-pattern="/^[0-9A-Za-z]{6,16}$/"
+                               class="w280 pl40 ng-pristine ng-invalid-required ng-valid-pattern ng-invalid"
+                               placeholder="请输入登录密码">
+                    </p>
+
+                    <div class="msgCnt fl f12 ml10 ng-hide" ng-show="show">
+                        <p>6-16位字符,至少包含数字,字母(区分大小写)</p>
+                    </div>
+
+                    <div class="msgError fl f14 ml10"
+                         ng-show="msg_flag">
+                        <i class="vm mr10"></i>{{msg}}
+                    </div>
+
+                    <div class="msgError fl f14 ml10"
+                         ng-show="(modifyPhoneForm_1.password.$viewValue==null||modifyPhoneForm_1.password.$viewValue=='')?false:(modifyPhoneForm_1.password.$invalid&&flag)">
+                        <i class="vm mr10"></i>密码格式不正确
+                    </div>
+                </div>
+                <div class="ml100">
+                    <input ng-class="{'next_enable':modifyPhoneForm_1.$valid&&flag_3,'next_disable':modifyPhoneForm_1.$invalid}"
+                           ng-disabled="modifyPhoneForm_1.$invalid||!flag_3" class="next_enable f18"
+                           ng-click="next_1(modifyPhoneForm_1.$valid)" type="button" value="下一步"/>
+                    <!--<button class="btn f18" ng-click="next_1(registerForm.$valid)">下一步</button>-->
+                </div>
+            </form>
+        </div>
+        <!--第二步-->
+        <div class="registerForm pr" ng-show="step===2">
+			<a class="pa cancel" ui-sref="account-detail"> X 取消</a>
+            <div class="step step01">
+                <ul>
+                    <li class="hover">验证身份</li>
+                    <li class="hover">设置新手机号</li>
+                    <li>完成</li>
+                </ul>
+            </div>
+            <form name="modifyPhoneForm_2">
+                <div>
+                    <label class="fl">新手机号码</label>
+
+                    <p class="pr fl">
+                        <span class="phoneLabel pa"></span>
+                        <input ng-required="true" name="mobile_new" ng-model="mobile_new"
+                               ng-keyup="judgeMobileIfPass_1(modifyPhoneForm_2.mobile_new.$valid,modifyPhoneForm_2.mobile_new.$viewValue)"
+                               ng-pattern="/^[0-9]{11}$/"
+                               ng-focus="whenModifyMobile()"
+                               class="w280 pl40" type="text" placeholder="请输入手机号"/>
+                    </p>
+
+                    <div class="msgError fl f14 ml10"
+                         ng-show="allow_1?((modifyPhoneForm_2.mobile_new.$viewValue==null||modifyPhoneForm_2.mobile_new.$viewValue=='')?false:modifyPhoneForm_2.mobile_new.$invalid):false">
+                        <i class="vm mr10"></i>手机格式不正确
+                    </div>
+                    <div class="msgError fl f14 ml10"
+                         ng-show="(allow_1?((modifyPhoneForm_2.mobile_new.$viewValue==null||modifyPhoneForm_2.mobile_new.$viewValue=='')?false:modifyPhoneForm_2.mobile_new.$invalid):false)?false:msg_1_flag">
+                        <i class="vm mr10"></i>{{msg_1}}
+                    </div>
+                </div>
+                <div>
+                    <label class="fl">手机动态码</label>
+
+                    <p class="pr fl">
+                        <span class="ChkCodeIcon pa"></span>
+                        <input ng-required="true" name="mobileVerificationCode_new"  ng-focus="flag_x=true"
+                               ng-model="mobileVerificationCode_new" ng-keyup="validMobileVerificationCode_1()"
+                               class="w140 pl40" type="text" placeholder=""/>
+                        <span class="rightIcon pa"
+                                ng-show="(modifyPhoneForm_2.mobileVerificationCode_new.$viewValue==null||modifyPhoneForm_2.mobileVerificationCode_new.$viewValue=='')?false:(flag_x?false:result_1)"></span>
+                        <span class="errorIcon pa"
+                                      ng-show="(modifyPhoneForm_2.mobileVerificationCode_new.$viewValue==null||modifyPhoneForm_2.mobileVerificationCode_new.$viewValue=='')?false:(flag_x?false:!result_1)"></span>
+                    </p>
+                    <button id="sendZZZ" disabled="disabled" style="width:125px;" class="sendVerification" type="button"
+                            ng-class="{'sendChkVerification':flag_1,'sendVerification':!flag_1} "
+                            ng-click="sendSecurityCode_1()">发送动态码
+                    </button>
+                </div>
+                <div class="ml100">
+                    <input class="next_enable f18" ng-disabled="!flag_2||!result_1"
+                           ng-class="{'next_enable':flag_2&&result_1,'next_disable':!flag_2||!result_1}" type="button" ng-click="next_2()"
+                           value="下一步">
+                    <a class="ml20" href="" ng-click="next_3()">上一步</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="registerForm pr" ng-show="step===3">
+			<a class="pa cancel" ui-sref="account-detail"> X 取消</a>
+            <div class="step step02">
+                <ul>
+                    <li class="hover">验证身份</li>
+                    <li class="hover">设置新手机号</li>
+                    <li class="hover">完成</li>
+                </ul>
+            </div>
+            <div class="tc">
+                <span class="sucIcon"></span>
+
+                <p class="f22 mt20">恭喜您修改手机号码成功</p>
+
+                <p class="f14 mt20">你现在可以返回 <a ui-sref="account-detail">个人资料</a>，或是去<a ui-sref="invest">投资</a></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div ng-include="'app/footer/loginfooter.html'"></div>

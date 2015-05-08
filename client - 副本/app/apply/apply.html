@@ -1,0 +1,126 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div class="depositType pb20 pr mt10">
+            <h1 class="f18 col999 pt20 pl40 pb20">取现</h1>
+            <a class="pa cancel" ui-sref="account"> <i class="close"></i> 取消</a>
+
+            <form name="apply_form">
+                <div class="applyBank">
+                    <div>
+                        <label class="mt20">绑定的银行卡</label>
+                        <ul>
+                            <!--<li ng-class="{select : bank == 'zhaoshangyinhang'}" class="select"><input type="radio"-->
+                            <!--ng-model="bank"-->
+                            <!--value="zhaoshangyinhang"-->
+                            <!--class="ng-pristine ng-valid"-->
+                            <!--name="005"><a-->
+                            <!--href="javaScript:;"><img src="assets/images/zhaoshangyinhang.png"><i></i></a></li>-->
+                            <li ng-repeat="bankCard in cardList"
+                                ng-class="{select : (bankCardSequence === bankCard.bankCardSequence)}">
+                                <!--input type="radio" value="{{bankCard.bankCardSequence}}"
+                                       ng-click="selectCard(bankCard.bankCardSequence)"
+                                       ng-checked="bankCardSequence === bankCard.bankCardSequence"
+                                       class="ng-pristine ng-valid"
+                                       name="005"--><a href="javaScript:;"
+                                                     ng-click="selectCard(bankCard.bankCardSequence)">
+                                <img class="fl"
+                                     src="{{bankCard.image}}"><span>尾号 {{bankCard.lastFour}}</span><i></i></a>
+                            </li>
+
+                            <li><a class="f40 fb" href="javaScript:void(0);" ng-click="addCard()">+</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <label class="mt5">可用金额</label>
+                        <span class="f14 col999"><em class="f20 col333">{{availableBalance | moneyFormat}}</em>元</span>
+                    </div>
+                </div>
+                <div class="applyCount" style="">
+                    <div class="applyCountWrapper">
+                        <p class="pr">
+                            <label>取现金额</label>
+                            <!--<number-input blur="moneyBlur()" focus="moneyFocus()" output-model="money" css-class="ml10 vcredit_input"/>-->
+                            <input ng-keyup="moneyKeyUp()" ng-blur="moneyBlur()" ng-focus="moneyFocus()" type="text"
+                                   ng-model="money"
+                                   class="ml10 vcredit_input mr5">
+                            <span class="error" ng-show="moneyMinError"><i></i>最低提现金额为5元，请重新输入</span>
+                            <span class="error" ng-class="{availableBalanceError: moneyMaxError}" ng-show="moneyMaxError"><i></i>您输入的提现金额大于可用余额，请重新输入。</span>
+                            <span class="error" ng-class="{availableBalanceError: availableBalanceError}" ng-show="availableBalanceError"><i></i>可用余额不足以支付提现手续费，请重新输入。</span>
+                        </p>
+
+                        <p class="colf63 ml100 mt10">{{money | chineseNumber}}</p>
+                    </div>
+                </div>
+                <div class="applyBank">
+                    <p ng-show="charge">
+                        <label>手续费</label>
+                        <span>{{charge  || 0 |moneyFormat}}元     提现费用将从您账户余额扣除</span>
+                    </p>
+
+                    <!--<p ng-show="charge">-->
+                    <!--<label>实际到账金额</label>-->
+                    <!--<span>{{money - charge | moneyFormat}}元</span>-->
+                    <!--</p>-->
+
+                    <p>
+                        <label>预计到账时间</label>
+                        <span>T+1个工作日(T日14:30之前申请)</span>
+                    </p>
+
+                    <div>
+                        <p>
+                            <label>手机号码</label>
+                            <span>{{mobileS}}</span><a class="ml10" ui-sref="modifyphone">修改</a>
+                        </p>
+                    </div>
+                    <p>
+                        <label class="mt10">手机动态码</label>
+                        <span class="pr"><i class="ChkCodeIcon pa"></i>
+                            <input class="w140 pl40 vcredit_input" name="mobileVerificationCode"
+                                   ng-model="mobileVerificationCode"
+                                   type="text" placeholder="" ng-focus="flag_x=true"
+                                   ng-keyup="validMobileVerificationCode()">
+                             <span class="rightIcon pa applyBack"
+                                   ng-show="(apply_form.mobileVerificationCode.$viewValue==null||apply_form.mobileVerificationCode.$viewValue=='')?false:(flag_x?false:result_1)"></span>
+                             <span class="errorIcon pa applyBack"
+                                   ng-show="(apply_form.mobileVerificationCode.$viewValue==null||apply_form.mobileVerificationCode.$viewValue=='')?false:(flag_x?false:!result_1)"></span>
+                            </input>
+                        </span>
+                        <button
+                            ng-class="{'grey_button':!charge || !bankCardSequence || !availableBalance || !inputEnable}"
+                            ng-disabled="!charge || !bankCardSequence || !availableBalance || !inputEnable"
+                            id="send_apply" class="sendChkVerification ml10"
+                            ng-click="sendSecurityCode()"
+                            type="button">发送动态码
+                        </button>
+                    </p>
+                    <p class="ml140">
+                        <button ng-class="{'grey_button':!inputEnable || !result_1}" class="btn f18 mb10"
+                                ng-disabled="!result_1 || !inputEnable" ng-click="depositCapital()">确认
+                        </button>
+                    </p>
+                </div>
+                <div class="col999 f12 applyTips">
+                    <h2 class="f14 mt20 mb10">温馨提示</h2>
+
+                    <p>1.第三方托管账户开通、提现银行卡设置成功后，才能进行提现操作；</p>
+
+                    <p>2.提现费率为0.3%，最低单笔2元；</p>
+
+                    <p>3.预计到账时间：</p>
+
+                    <p>&nbsp;&nbsp;&nbsp;T日14:30之前申请的提现，当日审核完毕预计于T+1个工作日到账；</p>
+
+                    <p>&nbsp;&nbsp;&nbsp;遇双休日法定节假日顺延，实际到账时间依据账户托管方（第三方支付平台）及提现银行而有所差异；</p>
+
+                    <p>4.资金到达用户账户的当日（包括双休日法定节假日）即可发起提现申请；</p>
+
+                    <p>5.严禁利用充值功能进行信用卡套现、转账、洗钱等行为，为防止套现，所充资金必须经投标回款后才能提现。</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

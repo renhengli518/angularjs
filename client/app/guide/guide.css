@@ -1,0 +1,32 @@
+.guideWrapper{padding:0px;}
+.guideWrapper .container{height:100%;}
+.guide_01{background:url(../../assets/images/guide_01.png) center 40px #e2f4ff;background-repeat:no-repeat;width:100%;height:610px;}
+.guide_01 p{top:42%;left:8%;line-height:24px;}
+.guide_02{background:#3ebfff;height:750px;width:100%;}
+.guide_02_01{background: url(../../assets/images/guide_02_01.png) 50% 50% no-repeat; height:750px;}
+.guide_02_02{background: url(../../assets/images/guide_02_02.png) 50% 50% no-repeat; height:750px;}
+.guide_02_03{background: url(../../assets/images/guide_02_03.png) 50% 50% no-repeat; height:750px;}
+.guide_02_01 .banner01{top:38%;left:8%;line-height:24px;}
+.guide_02_02 .banner01,.guide_02_03 .banner01{top:32%;left:8%;line-height:24px;}
+.guide_03{background:url(../../assets/images/guide_03.png) center center #6ac04f;background-repeat:no-repeat;height:750px;}
+.guide_04{background:url(../../assets/images/guide_04.png) center center #ffaf36;background-repeat:no-repeat;height:750px;}
+.guideText{color:#fff;}
+.italic{font-style: italic;}
+.ml60{margin-left:60px;}
+.layer{position:fixed;bottom:0px;width:100%;height:132px;background:rgba(0,0,0,0.8);z-index:9;}
+.layer a{right:20px;top:10px;color:#fff;}
+.layer a:hover{color:#ef6b37;}
+.guide_02 .carousel-inner > .item p{text-indent:inherit;}
+.guide_02 .carousel ol{text-align:center;margin: 0 auto;}
+.guide_02 .carousel ol li{background:#65ccff;border-radius:3px;width:35px;height:8px;border:none;float:left;margin:0px 5px;}
+.guide_02 .carousel ol li.active{background:#fff;}
+.guide_02 .carousel-control{background-image: url(../../assets/images/allicon.png);background-repeat: no-repeat;display: inline-block;width:45px;height:45px;cursor:pointer;opacity:1;}
+.guide_02 .left.carousel-control{background-position:-325px -57px;top:50%;left:20%;}
+.guide_02 .right.carousel-control{background-position:-268px -57px;top:50%;right:20%;}
+.guide_02 .left.carousel-control:hover{background-position:-268px 0px;}
+.guide_02 .right.carousel-control:hover{background-position:-320px -0px;}
+@media (max-width: 1400px)
+{
+  .guide_02 .left.carousel-control{background-position:-325px -57px;top:50%;left:5%;}
+  .guide_02 .right.carousel-control{background-position:-268px -57px;top:50%;right:5%;}
+}

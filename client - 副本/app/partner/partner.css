@@ -1,0 +1,8 @@
+.partnerCont{width:971px;background:#fff;border:1px solid #d5dfe5;}
+.partnerLogo{background:#f5f7fa;width:220px;line-height:150px;text-align:center;}
+.partnerIntr{width:68%;}
+.partnerCont ul{padding-left:70px;display:inline-block;}
+.partnerCont ul li{float:left;width:100%;margin-bottom:50px;}
+.partnerIntr h2{width:100%;border-bottom:2px solid #d5dfe5;margin-bottom:10px;height:30px;padding-bottom:6px;}
+.partnerIntr h2 span{border-bottom:2px solid #0099ff;display:inline-block;padding-bottom:10px;width:110px;position:absolute;}
+.partnerIntr p{line-height:22px;width:85%;font-size:12px;color:#333;}

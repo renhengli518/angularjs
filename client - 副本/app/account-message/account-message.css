@@ -1,0 +1,22 @@
+.content .messageBox{border-top: 1px solid #d5dfe5;}
+.txtIcon{background-image: url(../../assets/images/allicon.png);background-position:-450px -280px;background-repeat: no-repeat;display: inline-block;width:50px;height:60px;vertical-align: middle;}
+.tabbox table tbody td.messageTable{padding:10px 0px;}
+.tabbox table tbody th.tl{text-align:left;}
+.tabbox table tbody td.messageTable table tbody td{padding:10px;}
+.tabbox table tbody td.messageTable table tbody td.tl{text-align:left;}
+.borderTop{border-top:1px dashed #d5dfe5;}
+.remark{background:#fff;border: 1px solid #d5dfe5; padding:5px 10px;color:#333;}
+.remark:hover{border:1px solid #71858e;color:#333;}
+.delBtn{width:30px;height:30px;vertical-align: middle;border: 1px solid #d5dfe5;background-color:#fff;display: inline-block;}
+.delBtn i{background-image: url(../../assets/images/allicon.png);background-position:-240px -420px;background-repeat: no-repeat;display: inline-block;width:20px;height:20px;margin:5px 5px 0px;}
+.delBtn:hover{border:1px solid #71858e;}
+.tabbox table tbody td a{}
+.tabbox table tbody td.messageTable table tbody td a{color:#333;}
+.tabbox table tbody td.messageTable table tbody td a:hover{color:#089bff;}
+.tabbox table tbody td.messageTable table tbody td p a{color: #089bff;}
+.tabbox table tbody td.messageTable table tr.noRead{color:#848484;}
+.tabbox table tbody td.messageTable table tr.noRead a{color:#848484;}
+.clear_pop .btn{width:130px;height:46px;font-size:14px;}
+.clear_pop .btn.cancelBtn{background:#fff;border: 1px solid #d5dfe5;color:#333;}
+.clear_pop .btn.cancelBtn:hover{border:1px solid #71858e;color:#333;}
+.clear_pop .publicPopMain p{width:100%;}

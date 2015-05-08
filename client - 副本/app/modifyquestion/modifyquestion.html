@@ -1,0 +1,97 @@
+<div ng-include="'app/header/header.html'"></div>
+<div class="registerWrapper" ng-init="ready()">
+    <div class="container">
+        <h2 class="mt20">
+            <a class="fl logo" href="#/"></a>
+            <span class="fl f22">修改安全保护问题</span>
+        </h2>
+
+        <div class="registerForm modifypwdForm pr mt30" ng-show="step===1">
+            <a class="pa cancel" ui-sref="account-security"> X 取消</a>
+
+            <form name="modifyQuestion_form">
+                <div class="problem">
+                    <div class="pwdMsg">
+                        <i class="fl"></i>
+
+                        <p class="w200">如果忘记原安全保护问题，可以<a href="#/findquestion">找回安全问题</a></p>
+                    </div>
+                    <div class="mt10">
+                        <label class="fl">安全问题</label>
+
+                        <p class="pr fl">
+                            <select name="questionText" ng-model="systemQuestionSequence">
+                                <option value="{{option.systemQuestionSequence}}" ng-repeat="option in list">
+                                    {{option.questionText}}
+                                </option>
+                            </select>
+                        </p>
+                    </div>
+                    <div>
+                        <label class="fl">答案</label>
+
+                        <p class="pr fl">
+                            <input ng-focus="show=false;answerResult=true"
+                                   ng-blur="show=true" name="accountQuestionAnswer" ng-model="accountQuestionAnswer"
+                                   ng-required="true"
+                                   class="w310 pl10 ng-pristine ng-invalid ng-invalid-required ng-valid-pattern"
+                                   ng-pattern="/^[a-zA-Z0-9\u4e00-\u9fa5]+$/" type="text" placeholder="请输入字母,数字或中文"
+                                   required="required">
+                        </p>
+
+                        <div class="msgError fl f14 ml10" ng-show="show?(!answerResult):false">
+                            <i class="vm"></i>答案不正确
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="problem" ng-repeat="ql in questionObjList">
+                    <div>
+                        <label class="fl">新安全问题</label>
+
+                        <p class="pr fl">
+                            <!--<select ng-model="ql.question">-->
+                                <!--<option ng-selected="false" value='{{t.SystemQuestionSequence}}'-->
+                                        <!--ng-repeat='t in systemQuestion'>{{t.QuestionText}}-->
+                                <!--</option>-->
+                                <!--&lt;!&ndash;<option>您去的是在哪里？</option>&ndash;&gt;-->
+                            <!--</select>-->
+                            <select name="questionText" ng-model="ql.question">
+                                <option value="{{option.SystemQuestionSequence}}" ng-repeat="option in systemQuestion">
+                                    {{option.QuestionText}}
+                                </option>
+                            </select>
+                        </p>
+                        <a ng-show="$index === 0" class="fl mt10 ml10" href="" ng-click="addQuestion()">添加问题</a>
+                        <a ng-show="$index > 0" class="fl mt10 ml10" href="" ng-click="removeQuestion(ql.id)">删除</a>
+                    </div>
+                    <div>
+                        <label class="fl">答案</label>
+
+                        <p class="pr fl">
+                            <input name="accountQuestionAnswer" ng-model="ql.answer" ng-required="true"
+                                   class="w310 pl10 ng-pristine ng-invalid ng-invalid-required ng-valid-pattern"
+                                   ng-pattern="/^[a-zA-Z0-9\u4e00-\u9fa5]+$/" type="text" placeholder="请输入字母,数字或中文"
+                                   required="required">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ml120">
+                    <input class="next_disable f18" ng-disabled="modifyQuestion_form.$invalid"
+                           ng-class="{'next_enable':modifyQuestion_form.$valid,'next_disable':modifyQuestion_form.$invalid}"
+                           ng-click="submitForm(modifyQuestion_form.$valid)" type="button" value="下一步"/>
+                </div>
+            </form>
+        </div>
+        <div class="tc registerForm modifypwdForm pr mt30" ng-show="step===2">
+            <a class="pa cancel" ui-sref="account-security"> X 取消</a>
+            <span class="sucIcon mt100"></span>
+
+            <p class="f22 mt20">恭喜您修改安全保护问题成功</p>
+
+            <p class="f14 mt20">你现在可以返回 <a ui-sref="account-detail">个人资料</a>，或是去<a ui-sref="invest">投资</a></p>
+        </div>
+    </div>
+</div>
+<div ng-include="'app/footer/loginfooter.html'"></div>

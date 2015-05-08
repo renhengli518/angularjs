@@ -1,0 +1,39 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <form class="pr" name="investForm" novalidate>
+			<div class="content mt20">
+				<h1 class="f16 col333"><span>自动投资</span></h1>
+                <div ng-show="!thirdAccount" class="balance fl">
+                    <p class="ml20 mr20 mb30 tc col333 noInvest">
+                        <i></i>您还未开通第三方托管账户，请先去<a href="" target="_blank" ng-click="openAccount()">开通</a>！
+                    </p>
+                </div>
+				<div class="autoSetBox tc" ng-show="thirdAccount">
+					<i class="setIcon startIcon"></i>
+					<p class="col999 f22" ng-show="flag">自动投资状态：开启状态</p>
+					<p class="col999 f22" ng-show="!flag">自动投资状态：关闭状态</p>
+				</div>
+				<div class="startP pr" ng-show="thirdAccount">
+					<div class="pr fl ml100" onmouseout="$(this).children('.investMsg').hide();" onmouseover="$(this).children('.investMsg').show();">
+						<a class="btn autoBtn f16 mr20" ui-sref="onetouch">一键式自动投资</a> 
+						<p class="pa fullMsg investMsg">
+							<span class="arrow pa"></span>
+							<span class="pa autoMsgBox"><i></i><span class="fl w250 ml5">一键式自动投资由系统根据对投资人最优投资原则，自动产生投资策略</span></span>
+						</p>
+					</div>
+					<div class="pr fl" onmouseout="$(this).children('.investMsg').hide();" onmouseover="$(this).children('.investMsg').show();">
+						<a class="btn f16" ui-sref="buffet">自助式自动投资</a>
+						<p class="pa fullMsg investMsg">
+							<span class="arrow pa"></span>
+							<span class="pa autoMsgBox"><i></i><span class="fl w250 ml5">自助式自动投资由投资人自行设置投资策略，系统根据投资人设置进行自动投资操作</span></span>
+						</p>
+					</div>
+				</div>
+			</div>
+        </form>
+    </div>  
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

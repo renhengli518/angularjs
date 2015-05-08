@@ -1,0 +1,282 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper" ng-init="ready()">
+    <div class="container">
+        <div ng-include="'app/leftbar/leftbar.html'"></div>
+        <div class="content mt20">
+            <div class="accountInfo fl">
+                <div class="portrait ml30 fl">
+                    <a ng-show="!accountFund.thirdAccount || gender == null" href="javascript:;"><img
+                        src="assets/images/default.png"/></a>
+                    <a ng-show="gender == 1" href="javascript:;"><img src="assets/images/boy.png"/></a>
+                    <a ng-show="gender == 0" href="javascript:;"><img src="assets/images/girl.png"/></a>
+                </div>
+                <div class="fl ml20 baseInfo">
+                    <h2 class="f16">{{username}}，<span>下午好</span></h2>
+                    <ul class="mt10 pr">
+                        <li>
+							<span class="certify" onmousemove="$(this).children('.popoverbox').show()"
+                                  onmouseout="$(this).children('.popoverbox').hide()">
+								<i ng-class="{'bind':accountFund.thirdAccount}"></i>
+								<span ng-hide="accountFund.thirdAccount" class="popoverbox"
+                                      style="top:48px; left:-120px;">
+									<span class="arrow"></span>
+									<span class="popover-content">您还未开通第三方托管账户，请先去<a ng-click="openAccount()"
+                                                                                     target="_blank">绑定</a></span>
+								</span>
+								<span ng-show="accountFund.thirdAccount" class="popoverbox"
+                                      style="top:48px; left:-120px;">
+									<span class="arrow"></span>
+									<span class="popover-content">您已开通第三方托管账户，可以去<a href="javascript:void(0)"
+                                                                                    ng-click='loginThirdPayAccount()'>查看</a></span>
+								</span>
+							</span>
+							<span class="mobile" onmousemove="$(this).children('.popoverbox').show()"
+                                  onmouseout="$(this).children('.popoverbox').hide()">
+								<i class="bind"></i>
+								<span class="popoverbox" style="top:48px;left:-68px;">
+									<span class="arrow"></span>
+									<span class="popover-content">您已绑定手机号{{formatmobile}} <a href="#/modifyphone"
+                                                                                             target="_blank">修改</a> </span>
+								</span>
+							</span>
+							<span class="email" onmousemove="$(this).children('.popoverbox').show()"
+                                  onmouseout="$(this).children('.popoverbox').hide()">
+								<i ng-class="{'bind':emailBindStatus}"></i>
+								<span ng-hide="emailBindStatus" class="popoverbox" style="top:48px; left:-18px;">
+									<span class="arrow"></span>
+									<span class="popover-content">您还未绑定邮箱，请先去<a href="#/bindemail"
+                                                                                target="_blank">绑定</a></span>
+								</span>
+								<span ng-show="emailBindStatus" class="popoverbox" style="top:48px; left:-18px;">
+									<span class="arrow"></span>
+									<span class="popover-content">您已绑定邮箱{{email}}邮箱，可以去<a href="#/modifyemail"
+                                                                                          target="_blank">修改</a></span>
+								</span>
+							</span>
+                        </li>
+                        <li>
+                            <p class="col999">第三方支付帐号</p>
+
+                            <p class="col333 mt5 third-party-topup">
+                                <a href="javascript:void(0)" ng-click='loginThirdPayAccount()'>{{accountFund.thirdAccount
+                                    || "无"}}</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="col999">安全等级<a class="safety" ng-class="levels[0]" href="#/account/security">{{safety}}</a></p>
+
+                            <p class="mima mt10">
+                                <em ng-repeat="t in levels" ng-class="t"></em>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="col999">上次登录时间 </p>
+
+                            <p class="col666 mt5 loginTime">{{loginDate|date:'yyyy-MM-dd HH:mm:ss'}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- TODO dk 2015.4.13 begin -->
+            <!--             <div ng-show="!accountFund.thirdAccount" class="balance fl"> -->
+            <!--                 <p class="ml20 mr20 mb30 tc col333 noInvest"> -->
+            <!--                     <i></i>您还未开通第三方托管账户，请先去<a href="" target="_blank" ng-click="openAccount()">开通</a>！ -->
+            <!--                 </p> -->
+
+            <!--                 <p class="ml20 col999">温馨提示</p> -->
+
+            <!--                 <p class="ml20 f12 col999 mt10">开通的第三方托管账户属于您的个人资金账户，登录密码及支付密码用于保证账户资金安全，维金荟无法接触、支配、转移、使用其中的资金。</p> -->
+            <!--             </div> -->
+            <!--             <div ng-show="accountFund.thirdAccount?(!isInvested&&!chongzhi):false" class="balance fl"> -->
+            <!--                 <p class="ml20 mr20 mb30 tc col333 noInvest"> -->
+            <!--                     <i></i>您还没有进行投资或是充值，请先去<a href="" ui-sref="invest" target="_blank">投资</a>或是<a target="_blank" -->
+            <!--                                                                                                   ui-sref="deposit">充值</a>！ -->
+            <!--                 </p> -->
+            <!--             </div> -->
+            <div ng-show="visiable1" class="balance fl">
+                <p class="ml20 mr20 mb30 tc col333 noInvest">
+                    <i></i>您还未开通第三方托管账户，请先去<a href="" target="_blank" ng-click="openAccount()">开通</a>！
+                </p>
+
+                <p class="ml20 col999">温馨提示</p>
+
+                <p class="ml20 f12 col999 mt10">开通的第三方托管账户属于您的个人资金账户，登录密码及支付密码用于保证账户资金安全，维金荟无法接触、支配、转移、使用其中的资金。</p>
+            </div>
+            <div ng-show="visiable2" class="balance fl">
+                <p class="ml20 mr20 mb30 tc col333 noInvest">
+                    <i></i>您还没有进行投资或是充值，请先去<a href="" ui-sref="invest" target="_blank">投资</a>或是<a target="_blank"
+                                                                                                  ui-sref="deposit">充值</a>！
+                </p>
+            </div>
+            <!-- TODO dk 2015.4.13 end -->
+            <div ng-show="accountFund.thirdAccount" class="balance fl">
+                <div class="fl ml30 mr30" id="container" ng-show="accountFund.holdProject != 0"
+                     style="width:260px;display:inline-block;height:250px;"></div>
+                <div class="fl tc" ng-show="accountFund.holdProject == 0"
+                     style="width:320px;display:inline-block;height:250px;  padding-top: 65px;">
+                    <img src="../assets/images/noinvest.png"/>
+                </div>
+                <div class="state fl">
+                    <div class="fl pl20">
+                        <dl>
+                            <dt>
+								<p>可用余额</p>
+
+								<p class="count">{{accountFund.availableBalance|moneyFormat}}<span class="f14">元</span></p>
+                            </dt>
+                            <dd>
+                                <p>冻结资金</p>
+
+                                <p class="col333"><span class="f20">{{accountFund.forzenCapital|moneyFormat}}</span> 元
+                                </p>
+                            </dd>
+                            <dd>
+                                <p>持有项目 <a class="itemNum ml10" ui-sref="invest">继续投资</a></p>
+
+                                <p><span class="f20 itemNum" ng-show="accountFund.holdProject == 0">{{accountFund.holdProject||0}}</span><a
+                                    ng-show="accountFund.holdProject != 0" class="f20 itemNum"
+                                    ui-sref="account-myinvest">{{accountFund.holdProject||0}}</a>
+                                    笔</p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="fr mr20">
+                        <p><a class="buttonSwhite recharge" ui-sref="deposit" target="_blank"><i></i>充值</a></p>
+
+                        <p class="mt10"><a class="buttonSwhite draw" ui-sref="apply" target="_blank"><i></i>取现</a></p>
+                    </div>
+                    <ul class="mt30">
+                        <li>
+                            <p>预期总收益<i ng-title="当前投资人所有投资记录中预期收益之和"></i></p>
+
+                            <p class="mt5"><span
+                                class="f26 col333">{{fundDetail.expectedReturnAmt | moneyFormat}}</span> 元</p>
+                        </li>
+                        <li>
+                            <p>今日总收益<i ng-title="今日所收利息+今日所收罚息"></i></p>
+
+                            <p class="mt5"><span class="f26 colf63">{{fundDetail.benefitAmt | moneyFormat}}</span> 元</p>
+                        </li>
+                        <li>
+                            <p>累计净收益<i ng-title="已收总利息+已收总罚息+已收推广收入-提现手续费-投资管理费"></i></p>
+
+                            <p class="mt5"><span
+                                class="f26 colf63">{{fundDetail.accumulatedIncome | moneyFormat}}</span> 元 </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fl assets pr" ng-show="!(accountFund.thirdAccount&&!isInvested)">
+                    <div class="calendar fl">
+                        <div id="calendar"></div>
+                    </div>
+                    <div class="fund fl pr">
+                        <h3>{{currentDateDeal.date}}</h3>
+                        <a class="pa col333 shrink" ng-click="openChart()"> <em>&lt;</em> 月总收益金额变动</a>
+                        <ul>
+
+                            <li ng-show="currentDate">
+                                <p>今日申请</p>
+
+                                <p><span class="f20">{{currentDateDeal.holdNumber}}</span>个</p>
+                            </li>
+                            <li ng-show="currentDate">
+                                <p>金额</p>
+
+                                <p><span class="f20 col333">{{currentDateDeal.holdTotal | moneyFormat}}</span> 元    
+                                </p>
+                            </li>
+
+                            <li ng-show="currentDateDeal.paidNumber > 0 || currentDateDeal.holdNumber > 0">
+                                <p>今日还款</p>
+
+                                <p><span class="f20">{{currentDateDeal.paidNumber || currentDateDeal.holdNumber}}</span>个</p>
+                            </li>
+                            <li ng-show="currentDateDeal.paidNumber > 0 || currentDateDeal.holdNumber > 0">
+                                <p>金额</p>
+
+                                <p><span class="f20 col333">{{currentDateDeal.paidTotal || currentDateDeal.holdTotal | moneyFormat}}</span> 元    
+                                </p>
+                            </li>
+                            <li ng-show="currentDateDeal.expectNumber > 0">
+                                <p>今日逾期</p>
+
+                                <p><span class="f20">{{currentDateDeal.expectNumber}}</span>个 </p>
+                            </li>
+                            <li ng-show="currentDateDeal.expectNumber > 0">
+                                <p>金额</p>
+
+                                <p><span class="f20 col333">{{currentDateDeal.expectTotal | moneyFormat}}</span>元 </p>
+                            </li>
+                            <li>
+                                <p>预计本月待收</p>
+
+                                <p><span class="f20 colf63">{{currentDateDeal.monthExpectTotal | moneyFormat}}</span> 元
+                                </p>
+                            </li>
+                            <li>
+                                <p>本月已收</p>
+
+                                <p><span class="f20">{{currentDateDeal.monthPaidTotal | moneyFormat}}</span>元 </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pa hasborder">
+                        <span class="pa open" ng-click="hideChart()">&gt;</span>
+
+                        <h3 class="f18 col999"><i></i>月总收益金额变动</h3>
+
+                        <div class="fl" id="container1"></div>
+                    </div>
+
+                </div>
+
+                <div class="fl assets pr" ng-show="accountFund.thirdAccount&&!isInvested">
+                    <!--  <div class="calendar fl">
+                         <div id="calendar_1" ></div>
+                     </div>
+                     <div class="fund fl pr">
+                        <h3>06/13</h3>
+                         <a class="pa col333 shrink" ng-click="openChart()"> <em>&lt;</em> 加权收益率变动</a>
+                         <ul>
+                             <li>
+                                 <p>今日还款</p>
+                                 <p><span class="f20">{{accountFund.investProjectToday}}</span>个</p>
+                             </li>
+                             <li>
+                                 <p>金额</p>
+                                 <p><span class="f20 col333">{{accountFund.investCapitalToday | moneyFormat}}</span> 元     </p>
+                             </li>
+                             <li>
+                                 <p>今日逾期</p>
+                                 <p><span class="f20">{{accountFund.investProjectOverdue}}</span>个 </p>
+                             </li>
+                             <li>
+                                 <p>金额</p>
+                                 <p><span class="f20 col333">{{accountFund.investCapitalOverdue | moneyFormat}}</span>元 </p>
+                             </li>
+                             <li>
+                                 <p>预计本月待收</p>
+                                 <p><span class="f20 colf63">{{accountFund.totalIncomeMonth | moneyFormat}}</span> 元</p>
+                             </li>
+                             <li>
+                                 <p>本月已收</p>
+                                 <p><span class="f20">{{accountFund.haveIncomeMonth | moneyFormat}}</span>元 </p>
+                             </li>
+                         </ul>-->
+                </div>
+
+                <!--  <div class="pa hasborder">
+                      <span class="pa open" ng-click="hideChart()">&gt;</span>
+                      <h3 class="f18 col999" ><i></i>加权收益率变动趋势</h3>
+                      <div class="fl" id="container1_1"></div>
+                  </div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<div ng-include="'app/footer/footer.html'"></div>

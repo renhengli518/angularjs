@@ -1,0 +1,98 @@
+<div ng-include="'app/header/header.html'"></div>
+<div class="registerWrapper" ng-init="ready()">
+    <div class="container">
+        <h2>
+            <a class="fl logo" href="#/"></a>
+            <span class="fl f22">修改登录密码</span>
+        </h2>
+
+        <div class="registerForm modifypwdForm pr" ng-show="step===1">
+            <a class="pa cancel" ui-sref="account-security"> X 取消</a>
+
+            <form name="modifypwd_form" ng-submit="submitForm(modifypwd_form.$valid)" novalidate>
+                <div class="pwdMsg">
+                    <i></i>
+
+                    <p>新设置的密码在下次登录时生效</p>
+                </div>
+                <div>
+                    <label class="fl">当前登录密码</label>
+
+                    <p class="pr fl">
+                        <span class="passwordLabel pa"></span>
+                        <input name="oldpwd" ng-model="oldpwd" ng-required="true" ng-focus="pwdErr=true"
+                               class="w280 pl40 ng-pristine ng-invalid ng-invalid-required ng-valid-pattern"
+                               type="password" placeholder="请输入当前登录密码">
+                    </p>
+                    <div class="msgError fl f14 ml10" ng-show="!pwdErr">
+                        <i class="vm"></i>当前登录密码错误
+                    </div>
+                </div>
+                <div>
+                    <label class="fl">新登录密码</label>
+
+                    <p class="pr fl">
+                        <span class="passwordLabel pa"></span>
+                        <input name="newpwd"  ng-model="newpwd" ng-focus="show1=true"
+                               ng-required="true" ng-keyup="judgePwdIfEqual(modifypwd_form.newpwd.$valid)"
+                               ng-keyup="checkPasswordSecurity(this)"
+                               class="w280 pl40 ng-pristine ng-invalid ng-invalid-required ng-valid-pattern"
+                               type="password" ng-pattern="/^[0-9A-Za-z]{6,16}$/" placeholder="请输入新登录密码">
+                    </p>
+
+                    <div class="msgCnt fl f12 ml10" ng-show="show1">
+                        <p>6-16位字符,至少包含数字,字母(区分大小写)</p>
+
+                        <p>安全程度 <span class="mima">
+                                <em ng-repeat="l1 in levels" ng-class="l1"></em>
+                            </span></p>
+                    </div>
+                    <div class="msgError fl f14 ml10"
+                         ng-show="show1?false:newAndOldEqual">
+                        <i class="vm"></i>新登录密码不能与当前登录密码一样
+                    </div>
+                    <div class="msgError fl f14 ml10"
+                         ng-show="show1?false:(modifypwd_form.newpwd.$viewValue==null||modifypwd_form.newpwd.$viewValue=='')?false:(!showLevel?modifypwd_form.newpwd.$invalid:false)">
+                        <i class="vm mr10"></i>密码格式不正确
+                    </div>
+                </div>
+                <div>
+                    <label class="fl">确认新登录密码</label>
+
+                    <p class="pr fl">
+                        <span class="passwordLabel pa"></span>
+                        <input name="newpwd_confirm" ng-model="newpwd_confirm" ng-required="true" ng-focus="show=true" ng-keyup="judgePwdIfEqual(modifypwd_form.newpwd.$valid)"
+                               class="w280 pl40 ng-pristine ng-invalid ng-invalid-required ng-valid-pattern"
+                               type="password" ng-pattern="/^[0-9A-Za-z]{6,16}$/"
+                               placeholder="请输入新登录密码">
+                    </p>
+
+                    <div class="msgSuc fl f14 ml10"
+                         ng-show="show?false:((modifypwd_form.newpwd_confirm.$viewValue==null||modifypwd_form.newpwd_confirm.$viewValue=='')?false:modifypwd_form.newpwd_confirm.$viewValue==modifypwd_form.newpwd.$viewValue)">
+                        <i class="vm"></i>
+                    </div>
+                    <div class="msgError fl f14 ml10"
+                         ng-show="show?fasle:((modifypwd_form.newpwd_confirm.$viewValue==null||modifypwd_form.newpwd_confirm.$viewValue=='')?false:modifypwd_form.newpwd_confirm.$viewValue!=modifypwd_form.newpwd.$viewValue)">
+                        <i class="vm"></i>密码不一致
+                    </div>
+                </div>
+
+                <div class="ml120">
+                    <input class="next_enable f18" ng-class="{'next_able':pass,'next_disable':!pass}" type="submit" value="下一步" ng-disabled="!pass"/>
+                </div>
+            </form>
+        </div>
+        <div class="registerForm modifypwdForm pr" ng-show="step===2">
+            <a class="pa cancel" ui-sref="account-security"> X 取消</a>
+
+            <div class="tc mt100">
+                <span class="sucIcon"></span>
+
+                <p class="f22 mt20">恭喜您修改登录密码成功</p>
+
+                <p class="f14 mt20">你现在可以<a style="cursor:pointer" href="javascript:void(0)" ng-click="relogin()">重新登录</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'app/footer/loginfooter.html'"></div>

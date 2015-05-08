@@ -1,0 +1,39 @@
+.ml65{margin-left:65px;}
+.ml140{margin-left:140px;}
+.depositType{width:100%;background:#fff;border:1px solid #d5dfe5;display:inline-block;}
+.cancel{top:20px;right:20px;color:#333;font-size:14px;}
+.depositBank{border-bottom:1px solid #d5dfe5;width:100%;padding-bottom:10px;}
+.depositBank span{border-bottom:2px solid #ff6633;padding-bottom:10px;}
+.cashierBank{display:inline-block;width:92%;margin-left:70px;}
+.cashierBank li{float:left;width:240px;margin:10px;height:55px;}
+.cashierBank li input[type=radio]{vertical-align:middle;margin-right:5px;}
+.cashierBank li a{border:1px solid #d5dfe5;padding:0px 5px;width:180px;height:50px;display:inline-block;position:relative;}
+.cashierBank li a:hover{border:1px solid #089bff;}
+.cashierBank li.select a{border:2px solid #089bff;}
+.cashierBank li.select a i{background-image: url(../../assets/images/allicon.png);background-position:-208px -486px;background-repeat: no-repeat;display: inline-block;width:16px;height:15px;bottom:0px;right:0px;position:absolute;}
+.deBank{display:inline-block;width:85%;margin-left:70px;}
+.deBank table{width:100%;border:1px solid #d5dfe5;border-bottom:none;border-right:none;margin:10px 0px;text-align:center;}
+.deBank table th{padding:10px 0px;background:#f5f7fa;border-bottom:1px solid #d5dfe5;border-right:1px solid #d5dfe5;text-align:center;}
+.deBank table td{padding:10px 0px;border-bottom:1px solid #d5dfe5;border-right:1px solid #d5dfe5;}
+.amount{background:#fff5d6;width:59%;margin-left:70px;height:170px;padding-left:300px;}
+.amount input[type="text"]{border:1px solid #dedfe5;width:310px;height:46px;padding-left:10px;}
+.amount button{background:#ff6633;color:#fff;border:none;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;width:310px;height:46px;line-height:46px;text-align:center;font-size:18px;}
+.tips{margin-left:70px;display:inline-block;width:85%;line-height:22px;}
+.vcredit_input {
+    height: 44px;
+    border: 1px solid #dedfe5;
+    padding-left:10px;
+    color: #333;  width: 310px;
+}
+.cancel .close{background-image: url(../../assets/images/allicon.png);
+  background-position:-242px -521px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;float: inherit;
+  opacity: 1;}
+.amount input[type="text"]:focus{border:1px solid #089bff;}
+.amount input:focus{border:1px solid #089bff;}
+
+.amount .grey_button {
+    background: #d3d3d3;opacity:1;
+}

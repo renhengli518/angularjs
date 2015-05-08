@@ -1,0 +1,96 @@
+<footer class="forgetFooter" ng-controller="FooterCtrl" ng-init="ready()">
+	<div class="container">
+		<div class="fl tc">
+			<p class="footerFt">
+				<a class="mod" href=""></a>
+				<a class="mod mod-a" href=""></a>
+				<a class="mod mod-b" href=""></a>
+				<a class="mod mod-c" href=""></a>
+			</p>
+			<p class="f12">Copyright © 2015 www.vmoney.cn All Rights Reserved &nbsp;沪ICP备15007120号-2</p>
+		</div>
+		<div class="fl f14 ml50 footerRight">
+			<p>
+				服务热线 400-720-7020     <span class="ml20">周一至周五 8:30-20:30</span>    <span class="ml20">周六至周日 9:30-17:30</span>
+			</p>
+			<ul>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">安全保障</a></li>
+				<li><a href="">流程指引</a></li>
+				<li><a href="">法律法规</a></li>
+				<li><a href="">常见问题</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="calculator_pop" class="publicPop" style="display:none;">
+        <div class="title">
+            <ul>
+                <li ng-click="selectionC = 'incomeCal'" ng-class="{active:selectionC=='incomeCal'}">收益计算器 {{incomeCal}}
+                </li>
+                <li ng-click="selectionC = 'calculator'" ng-class="{active:selectionC=='calculator'}">计算器</li>
+            </ul>
+            <a href="javascript:void(0);" class="close"></a>
+        </div>
+        <div class="publicPopMain" ng-switch="" on="selectionC">
+            <div ng-switch-when="incomeCal">
+                <form>
+                    <p><label>投资金额</label>
+                        <span class="pr">
+                            <number-input default="{{calculatorModel.capital}}"  unit="元" output-model="calculatorModel.capital"></number-input>
+                    </span></p>
+
+                    <p><label>年利率</label><span class="pr"><number-input  default="{{calculatorModel.rate}}"   unit="%" output-model="calculatorModel.rate"></number-input></span></p>
+
+                    <p><label>投资期限</label>
+                        <select ng-model="calculatorModel.period">
+                            <option value="6">6个月</option>
+                            <option value="12">12个月</option>
+                            <option value="18">18个月</option>
+                            <option value="24">24个月</option>
+                            <option value="36">36个月</option>
+                        </select></p>
+                    <p class="submit"><label></label>
+                        <button  ng-click="calculate()" class="btn f16">计算</button>
+                        <a ng-click="reset()" class="ml10" href="javascript:void(0)">重置</a></p>
+                </form>
+                <div class="calculatorResult mt20" ng-show="result || result === 0">
+                    <p><label class="mt5">计算结果</label> <span class="calTotal"><em class="f30 colf60 mr10">{{result}}</em>元</span>
+                    </p>
+                </div>
+            </div>
+            <div ng-switch-when="calculator" id="calculator">
+                <form name="calculator" action="" method="get">
+                    <div id="calcu-screen">
+                        <!--配置显示窗口，使用onfocus="this.blur();"避免键盘输入-->
+                        <input type="text" name="numScreen" class="screen" value="0" onfocus="this.blur();"/>
+                    </div>
+                    <div id="calcu-btn">
+                        <ul> <!--配置按钮-->
+                            <li onclick="clearscreen()">C</li>
+                            <li onclick="divide()">/</li>
+                            <li onclick="times()">×</li>
+                            <li class="tool" onclick="del()">←</li>
+                            <li onclick="command(7)">7</li>
+                            <li onclick="command(8)">8</li>
+                            <li onclick="command(9)">9</li>
+                            <li onclick="minus()">-</li>
+                            <li onclick="command(4)">4</li>
+                            <li onclick="command(5)">5</li>
+                            <li onclick="command(6)">6</li>
+                            <li onclick="plus()">+</li>
+                            <li onclick="command(1)">1</li>
+                            <li onclick="command(2)">2</li>
+                            <li onclick="command(3)">3</li>
+                            <li onclick="persent()">%</li>
+                            <li onclick="command(0)">0</li>
+                            <li onclick="dzero()">00</li>
+                            <li onclick="dot()">.</li>
+                            <li onclick="equal()">=</li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>

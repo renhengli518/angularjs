@@ -1,0 +1,10 @@
+.mt48{margin-top:48px;}
+.mt150{margin-top:150px;}
+.mt220{margin-top:220px;}
+.ml40{margin-left:40px;}
+.errorWrapper p{width:100%;}
+.errorWrapper p i{background-image: url(../../assets/images/allicon.png);background-repeat: no-repeat;display: inline-block;width:20px;height:20px;vertical-align: middle;margin-right:10px;}
+.errorWrapper p .smallhome i{background-position:-83px -733px;}
+.errorWrapper p .refresh i{background-position:-83px -765px;}
+.errorWrapper p  a{color:#666;}
+.errorWrapper p  a:hover{color:#089aff}

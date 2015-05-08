@@ -1,0 +1,74 @@
+<div ng-include="'app/header/header.html'"></div>
+<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="accountWrapper">
+    <div class="container">
+		<!--第三方账户注册成功-->
+		<div class="tc mt20 successForm" ng-show="divParam === 'thirdAccount'">
+			<span class="sucIcon mt100"></span>
+			<p class="f22 mt20 mb30">恭喜您已开通第三方托管账户</p>
+			<!--p class="mb10">50元红包已在个人账户中，快去<a ui-sref="account-packet">激活</a>投资</p>
+			<p class="f18 mb10">新手第一次使用自动投资，还能拿到20元红包</p>
+			<p class="mt20 submit">
+                <button class="btn bgf63 f18" ng-click="autoInvest()">快去试试</button>
+            </p-->
+			<div class="depositFail">
+				<div>
+					<p class="mb10">总是投不到?想要快人一步,试试</p>
+					<p><a ng-click="autoInvest()" class="btn autoinvestBtn f16 bgf63"><i></i>自动投资</a></p>
+				</div>
+			</div>
+		</div>
+		<!--投资成功-->
+        <div class="tc mt20 successForm"  ng-show="divParam === 'investSuccess'">
+            <span class="sucIcon mt100"></span>
+            <p class="f22 mt20 mb30">恭喜您，投资已成功</p>
+            <p class="f14 mt10">您现在可以<a ui-sref="invest">继续投资</a>，或是查看<a href="#/account/myinvest">我的投资</a></p>
+            <!--p class="mt30 submit">
+                <button class="btn bgf63 f16" ng-click="shareWeibo()"><i></i>分享微博</button>
+            </p>
+            <p class="mt10">分享微博带有 <span class="colf63">#我爱平台#</span> ， 并@平台及一位微博好友，<br/>即有机会赢得本次全额投资金机会。</p-->
+        </div>
+		<!--充值成功-->
+		<div class="tc mt20 successForm" ng-show="divParam === 'topupSuccess'">
+			<span class="sucIcon mt100"></span>
+			<p class="f22 mt20 mb30">恭喜您充值成功</p>
+			<p class="f14 mt10">您现在可以<a ui-sref="account">返回</a>我的账户，或是<a ui-sref="invest">继续投资</a></p>
+			<div class="depositFail">
+				<div>
+					<p class="mb10">总是投不到?想要快人一步,试试</p>
+					<p>
+	    <a ng-show="show===1" class="btn autoinvestBtn f16 bgf63" href="#/invest/auto">自动投资</a>
+		<a ng-show="show===2" class="btn autoinvestBtn f16 bgf63" href="#/onetouch">自动投资</a>
+		<a ng-show="show===3" class="btn autoinvestBtn f16 bgf63" href="#/buffet">自动投资</a></p>
+				</div>
+			</div>
+		</div>
+
+		<!--取现成功-->
+		<div class="tc mt20 successForm"  ng-show="divParam === 'applySuccess'">
+			<span class="sucIcon mt100"></span>
+			<p class="f22 mt20 mb30">取现申请已提交，等待银行处理</p>
+			<p class="f14 mt10">如银行信息错误，导致转出失败，资金将自动退还至余额。</p>
+			<p class="f14 mt10">您现在可以<a ui-sref="account">返回</a>我的账户，或是继续<a href="#/apply">取现</a></p>
+		</div>
+		<!--邮箱修改成功-->
+		<div class="tc mt20 successForm"  ng-show="divParam === 'emailSuccess'">
+			<span class="sucIcon mt100"></span>
+			<p class="f22 mt20 mb30">恭喜您，邮箱修改成功</p>
+			<p class="f14 mt20">你现在可以返回 <a ui-sref="account-detail">个人资料</a>，或是去<a ui-sref="invest">投资</a></p>
+		</div>
+		<!--邮箱绑定成功-->
+		<div class="tc mt20 successForm" ng-show="divParam === 'emailBindSuccess'">
+			<span class="sucIcon mt100"></span>
+			<p class="f22 mt20 mb30">恭喜您，邮箱绑定成功</p>
+			<p class="f14 mt20">你现在可以返回 <a ui-sref="account-detail">个人资料</a>，或是去<a ui-sref="invest">投资</a></p>
+		</div>
+		<!--银行卡新增成功-->
+		<div class="tc mt20 successForm" ng-show="divParam === 'bindCard'">
+			<span class="sucIcon mt100"></span>
+			<p class="f22 mt20 mb30">恭喜，银行卡新增成功</p>
+			<p class="f14 mt20">您现在可以继续<a href="#/apply">取现</a>，或是去<a href="" >第三方支付</a>管理自己的银行卡</p>
+		</div>
+    </div>   
+</div>
+<div ng-include="'app/footer/footer.html'"></div>
